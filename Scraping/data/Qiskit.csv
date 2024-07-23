@@ -1,0 +1,169 @@
+qiskit|Qiskit is an open-source SDK for working with quantum computers at the level of extended quantum circuits, operators, and primitives.|Qiskit|4879|4879|Python|https://github.com/Qiskit/qiskit|1.0|Apache License 2.0
+qiskit-tutorials|A collection of Jupyter notebooks showing how to use the Qiskit SDK|Qiskit|2288|2288|Jupyter Notebook|https://github.com/Qiskit/qiskit-tutorials|1.0|Apache License 2.0
+qiskit-metapackage|Qiskit is an open-source SDK for working with quantum computers at the level of circuits, algorithms, and application modules.|Qiskit|3035|3035|OpenQASM|https://github.com/Qiskit/qiskit-metapackage|1.0|Apache License 2.0
+qiskit-textbook|A university quantum algorithms/computation course supplement based on Qiskit|qiskit-community|928|928|Jupyter Notebook|https://github.com/qiskit-community/qiskit-textbook|1.0|Apache License 2.0
+qiskit-machine-learning|Quantum Machine Learning|qiskit-community|628|628|Python|https://github.com/qiskit-community/qiskit-machine-learning|1.0|Apache License 2.0
+qiskit-translations|Home of Qiskit documentation translations|qiskit-community|144|144|Shell|https://github.com/qiskit-community/qiskit-translations|1.0|NO LICENSE
+qiskit-aqua|Quantum Algorithms & Applications (**DEPRECATED** since April 2021 - see readme for more info)|qiskit-community|574|574|Python|https://github.com/qiskit-community/qiskit-aqua|1.0|Apache License 2.0
+qiskit-community-tutorials|A collection of Jupyter notebooks developed by the community showing how to use Qiskit|qiskit-community|686|686|Jupyter Notebook|https://github.com/qiskit-community/qiskit-community-tutorials|1.0|Apache License 2.0
+qiskit-aer|Aer is a high performance simulator for quantum circuits that includes noise models|Qiskit|470|470|C++|https://github.com/Qiskit/qiskit-aer|1.0|Apache License 2.0
+platypus|Qiskit Textbook (beta)|Qiskit|124|124|Jupyter Notebook|https://github.com/Qiskit/platypus|1.0|Apache License 2.0
+qiskit-nature|Qiskit Nature is an open-source, quantum computing, framework for solving quantum mechanical natural science problems.|qiskit-community|291|291|Python|https://github.com/qiskit-community/qiskit-nature|1.0|Apache License 2.0
+qiskit-experiments|Qiskit Experiments|Qiskit-Extensions|151|151|Python|https://github.com/Qiskit-Extensions/qiskit-experiments|1.0|Apache License 2.0
+qiskit-metal|Quantum Hardware Design. Open-source project for engineers and scientists to design superconducting quantum devices with ease. |qiskit-community|272|272|Python|https://github.com/qiskit-community/qiskit-metal|1.0|Apache License 2.0
+qiskit-optimization|Quantum Optimization|qiskit-community|216|216|Python|https://github.com/qiskit-community/qiskit-optimization|1.0|Apache License 2.0
+qiskit-ibm-runtime|IBM Client for Qiskit Runtime|Qiskit|141|141|Python|https://github.com/Qiskit/qiskit-ibm-runtime|1.0|Apache License 2.0
+QiskitBlocks|Game that teaches quantum computing using Qiskit (http://qiskit.org) in a Minetest (http://minetest.net) block world. Works on Windows, macOS, GNU/Linux, FreeBSD, OpenBSD, DragonFly BSD, and Android. QiskitBlocks are leveraged in the Quantum Computing Workshop with QiskitBlocks (web-based slides https://slides.com/javafxpert/qiskitblocks)|JavaFXpert|213|213|Lua|https://github.com/JavaFXpert/QiskitBlocks|1.0|NO LICENSE
+qiskit-ignis|Ignis (deprecated) provides tools for quantum hardware verification, noise characterization, and error correction.|qiskit-community|168|168|Python|https://github.com/qiskit-community/qiskit-ignis|1.0|Apache License 2.0
+qiskit-finance|Quantum Finance|qiskit-community|221|221|Python|https://github.com/qiskit-community/qiskit-finance|1.0|Apache License 2.0
+textbook|Source content for the Qiskit Textbook|Qiskit|276|276|Jupyter Notebook|https://github.com/Qiskit/textbook|1.0|Apache License 2.0
+qiskit-ibmq-provider|Qiskit Provider for accessing the quantum devices and simulators at IBM Quantum.|Qiskit|241|241|Python|https://github.com/Qiskit/qiskit-ibmq-provider|1.0|Apache License 2.0
+qiskit.org|The Qiskit official website|Qiskit|102|102|TypeScript|https://github.com/Qiskit/qiskit.org|1.0|Apache License 2.0
+qiskit-ibm-provider|Qiskit Provider for accessing the IBM Quantum Services: Online Systems and Simulators|Qiskit|77|77|Python|https://github.com/Qiskit/qiskit-ibm-provider|1.0|Apache License 2.0
+pennylane-qiskit|The PennyLane-Qiskit plugin integrates the Qiskit quantum computing framework and IBM Q with PennyLane.|PennyLaneAI|180|180|Python|https://github.com/PennyLaneAI/pennylane-qiskit|1.0|Apache License 2.0
+qiskit-research|Research using Qiskit.|qiskit-community|66|66|Python|https://github.com/qiskit-community/qiskit-research|1.0|Apache License 2.0
+qiskit-dynamics|Tools for building and solving models of quantum systems in Qiskit|Qiskit-Extensions|97|97|Python|https://github.com/Qiskit-Extensions/qiskit-dynamics|1.0|Apache License 2.0
+qtcodes|Qiskit Topological Codes|yaleqc|89|89|Jupyter Notebook|https://github.com/yaleqc/qtcodes|1.0|Apache License 2.0
+qiskit-algorithms|A library of quantum algorithms for Qiskit.|qiskit-community|91|91|Python|https://github.com/qiskit-community/qiskit-algorithms|1.0|Apache License 2.0
+QiskitGlobalSummerSchool2022||anamariarojas123|54|54|Jupyter Notebook|https://github.com/anamariarojas123/QiskitGlobalSummerSchool2022|1.0|NO LICENSE
+quantum-algorithms-tutorials|Tutorials for Quantum Algorithms with Qiskit implementations.|DavitKhach|217|217|Jupyter Notebook|https://github.com/DavitKhach/quantum-algorithms-tutorials|1.0|MIT License
+ecosystem|The Ecosystem consists of projects, tools, utilities, libraries and tutorials from a broad community of developers and researchers. The goal of the Ecosystem is to recognize, support and accelerate development of quantum technologies using Qiskit.|Qiskit|94|94|Python|https://github.com/Qiskit/ecosystem|1.0|Apache License 2.0
+web-components|Qiskit Web Components|Qiskit|21|21|TypeScript|https://github.com/Qiskit/web-components|1.0|MIT License
+qiskit4devs-workshop-notebooks|Jupyter notebooks containing guided exercises for developers learining quantum computing with Qiskit.|JavaFXpert|16|16|Jupyter Notebook|https://github.com/JavaFXpert/qiskit4devs-workshop-notebooks|1.0|NO LICENSE
+qiskit-chemistry||chunfuchen|3|3|Python|https://github.com/chunfuchen/qiskit-chemistry|1.0|Apache License 2.0
+Qiskit-Global-Summer-School-2024||Aaliyah6529|29|29||https://github.com/Aaliyah6529/Qiskit-Global-Summer-School-2024|1.0|NO LICENSE
+qiskit-ibm-experiment|Allows accessing the IBM Quantum experiment database.|Qiskit-Extensions|10|10|Python|https://github.com/Qiskit-Extensions/qiskit-ibm-experiment|1.0|Apache License 2.0
+qiskit-hackathon-korea-22||qiskit-community|35|35|Jupyter Notebook|https://github.com/qiskit-community/qiskit-hackathon-korea-22|1.0|NO LICENSE
+qiskit-cold-atom|Tools to control cold-atom-based quantum simulators and quantum computers.|qiskit-community|28|28|Python|https://github.com/qiskit-community/qiskit-cold-atom|1.0|Apache License 2.0
+qiskit-pocket-guide|Code from the Qiskit Pocket Guide book|qiskit-community|22|22|Jupyter Notebook|https://github.com/qiskit-community/qiskit-pocket-guide|1.0|Apache License 2.0
+qiskit-quantinuum-provider|Qiskit provider for Quantinuum backends.|qiskit-community|22|22|Python|https://github.com/qiskit-community/qiskit-quantinuum-provider|1.0|Apache License 2.0
+quantum-prototype-template|A template repository for generating new quantum prototypes based on Qiskit|qiskit-community|40|40|Python|https://github.com/qiskit-community/quantum-prototype-template|1.0|Apache License 2.0
+qiskit-neko|An integration test suite for Qiskit|Qiskit|10|10|Python|https://github.com/Qiskit/qiskit-neko|1.0|Apache License 2.0
+qiskit-aqua-interfaces|qiskit-aqua-interfaces provides command-line and graphical interfaces for executing experiments using Qiskit Aqua.|qiskit-community|17|17|Python|https://github.com/qiskit-community/qiskit-aqua-interfaces|1.0|Apache License 2.0
+qiskit-nature-pyscf|Documentation at https://qiskit-community.github.io/qiskit-nature-pyscf/|qiskit-community|18|18|Python|https://github.com/qiskit-community/qiskit-nature-pyscf|1.0|Apache License 2.0
+QuantumComputing|Collection of Tutorials and other Quantum Computer programming related things. |Sentdex|136|136|Jupyter Notebook|https://github.com/Sentdex/QuantumComputing|1.0|MIT License
+qiskit-qcgpu-provider|A provider which allows Qiskit to use the QCGPU simulator|qiskit-community|25|25|Python|https://github.com/qiskit-community/qiskit-qcgpu-provider|1.0|Apache License 2.0
+Quantum-Computing-in-Practice-with-Qiskit-and-IBM-Quantum-Experience|Quantum Computing in Practice with Qiskit and IBM Quantum Experience, published by Packt|PacktPublishing|50|50|Python|https://github.com/PacktPublishing/Quantum-Computing-in-Practice-with-Qiskit-and-IBM-Quantum-Experience|1.0|MIT License
+qRNG|A quantum random number generator using IBM's QISKit.|ozaner|62|62|Python|https://github.com/ozaner/qRNG|1.0|GNU General Public License v3.0
+community.qiskit.org|Home of the Qiskit Community|qiskit-community|12|12|HTML|https://github.com/qiskit-community/community.qiskit.org|1.0|NO LICENSE
+qiskit-jku-provider|A local provider which allows Qiskit to use a decision-diagrams quantum simulator from JKU|qiskit-community|19|19|C++|https://github.com/qiskit-community/qiskit-jku-provider|1.0|Apache License 2.0
+bosonic-qiskit|Extension of Qiskit to support hybrid boson-qubit simulations for the NQI C2QA effort.|C2QA|45|45|Jupyter Notebook|https://github.com/C2QA/bosonic-qiskit|1.0|"BSD 2-Clause ""Simplified"" License"
+mitiq|Mitiq is an open source toolkit for implementing error mitigation techniques on most current intermediate-scale quantum computers.|unitaryfund|349|349|Python|https://github.com/unitaryfund/mitiq|1.0|GNU General Public License v3.0
+pytket-qiskit|pytket-qiskit, extensions for pytket quantum SDK |CQCL|14|14|Python|https://github.com/CQCL/pytket-qiskit|1.0|Apache License 2.0
+qiskit-workshop||mtreinish|18|18|Jupyter Notebook|https://github.com/mtreinish/qiskit-workshop|1.0|NO LICENSE
+QRL|"GitHub repo for Qiskit Hackathon ""Quantum Reinforcement Learning"" project"|LauraGentini|27|27|Jupyter Notebook|https://github.com/LauraGentini/QRL|1.0|NO LICENSE
+qiskit-fall-fest-peru-2022|Qiskit Fall Fest Peru 2022: Primera Escuela de Computación Cuántica|clausia|24|24|Jupyter Notebook|https://github.com/clausia/qiskit-fall-fest-peru-2022|1.0|Apache License 2.0
+qiskit-hackathon-korea-21|A repository for Qiskit Hackathon Korea (February 16-19, 2021)|qiskit-community|33|33||https://github.com/qiskit-community/qiskit-hackathon-korea-21|1.0|NO LICENSE
+Qiskit-Metal-to-Litho|From Qiskit Metal to pattern generation to real nanofabrication demo. Here, quantum devices on a chip are patterned via direct-write electron-beam lithography in a nanofabrication facility. Written & patterned by Onri Jay Benally, an Indigenous American quantum hardware engineer.|OJB-Quantum|32|32|Jupyter Notebook|https://github.com/OJB-Quantum/Qiskit-Metal-to-Litho|1.0|Creative Commons Attribution 4.0 International
+learning-quantum|Study resources for learning quantum computing|lynnlangit|138|138|Jupyter Notebook|https://github.com/lynnlangit/learning-quantum|1.0|Apache License 2.0
+qgss-2023|All things Qiskit Global Summer School 2023: Theory to Implementation - Lecture notes, Labs and Solutions |qiskit-community|91|91|Jupyter Notebook|https://github.com/qiskit-community/qgss-2023|1.0|NO LICENSE
+qiskit-hackathon-taiwan-20||qiskit-community|32|32||https://github.com/qiskit-community/qiskit-hackathon-taiwan-20|1.0|NO LICENSE
+Qiskit-for-GameDev|Tools for making game with IBM Qiskit|HuangJunye|21|21|Lua|https://github.com/HuangJunye/Qiskit-for-GameDev|1.0|NO LICENSE
+Quantum_Computing_Workshop_2020|QuBit - a bit of quantum computing with Qiskit - a kit for quantum computing|mnp-club|46|46|Jupyter Notebook|https://github.com/mnp-club/Quantum_Computing_Workshop_2020|1.0|NO LICENSE
+QiskitFlow|QiskitFlow. Framework for reproducible quantum experiments|IceKhan13|10|10|JavaScript|https://github.com/IceKhan13/QiskitFlow|1.0|Apache License 2.0
+Qiskit-Certification-Guide|This contains jupyter notebooks with examples for each section  which would be quite helful.|dimple12M|10|10|Jupyter Notebook|https://github.com/dimple12M/Qiskit-Certification-Guide|1.0|GNU General Public License v3.0
+qiskit-shors|Shor's Algorithm for factoring large integers using combination of Classical and Quantum Computing Algorithms|olekssy|16|16|Python|https://github.com/olekssy/qiskit-shors|1.0|MIT License
+QArithmetic|Arithmetic library for IBM Qiskit|hkhetawat|35|35|HTML|https://github.com/hkhetawat/QArithmetic|1.0|Apache License 2.0
+qiskit-alice-bob-provider|Qiskit provider to execute quantum circuits on Alice & Bob cat qubits|Alice-Bob-SW|21|21|Python|https://github.com/Alice-Bob-SW/qiskit-alice-bob-provider|1.0|Apache License 2.0
+QizGloria|Qiskit Camp Europe 2019 (winning project)|BoschSamuel|31|31|Jupyter Notebook|https://github.com/BoschSamuel/QizGloria|1.0|NO LICENSE
+Teach-Me-Quantum|⚛ 10 week Practical Course on Quantum Information Science and Quantum Computing - with Qiskit and IBMQX|msramalho|151|151|Jupyter Notebook|https://github.com/msramalho/Teach-Me-Quantum|1.0|NO LICENSE
+quantum-ugly-duckling|Qiskit Hackathon Project|rochisha0|16|16|Jupyter Notebook|https://github.com/rochisha0/quantum-ugly-duckling|1.0|Apache License 2.0
+qamp-spring-21|Qiskit advocate mentorship program (QAMP) spring 21 cohort|qiskit-advocate|42|42||https://github.com/qiskit-advocate/qamp-spring-21|1.0|NO LICENSE
+qiskit-quantum-knn|A pure quantum knn classifier for a gated quantum computer.|GroenteLepel|21|21|Python|https://github.com/GroenteLepel/qiskit-quantum-knn|1.0|Apache License 2.0
+QiskitML|Machine learning with Qiskit|amyami187|7|7|Jupyter Notebook|https://github.com/amyami187/QiskitML|1.0|NO LICENSE
+pyRiemann-qiskit|A library for machine learning and quantum programming based on pyRiemann and Qiskit projects|pyRiemann|21|21|Python|https://github.com/pyRiemann/pyRiemann-qiskit|1.0|"BSD 3-Clause ""New"" or ""Revised"" License"
+qiskit-dell-runtime|Qiskit Dell Runtime is a Qiskit Runtime platform that can execute classical-quantum code on both local and on-premise environments. With this platform, hybrid classical-quantum code bundle can be developed and executed. Powered by Qiskit Runtime API, this execution model provides close-integration of classical and quantum execution.|qiskit-community|27|27|Python|https://github.com/qiskit-community/qiskit-dell-runtime|1.0|Apache License 2.0
+qiskit-qubit-reuse|A Qiskit transpiler stage plugin to enable qubit reuse via mid-circuit measurement and reset.|qiskit-community|14|14|Python|https://github.com/qiskit-community/qiskit-qubit-reuse|1.0|Apache License 2.0
+coding-with-qiskit|Material for Coding with Qiskit 1.x|derek-wang-ibm|14|14|Jupyter Notebook|https://github.com/derek-wang-ibm/coding-with-qiskit|1.0|Apache License 2.0
+quantuminspire|Quantum Inspire SDK|QuTech-Delft|62|62|Python|https://github.com/QuTech-Delft/quantuminspire|1.0|Apache License 2.0
+qiskit_rng|Quantum random number generator with CQC extractor|qiskit-community|16|16|Python|https://github.com/qiskit-community/qiskit_rng|1.0|Apache License 2.0
+qiskit-summer-jam-20||qiskit-community|13|13||https://github.com/qiskit-community/qiskit-summer-jam-20|1.0|NO LICENSE
+IBM-Qiskit-Certification-Exam-Prep|IBM Qiskit Exam Preparation pointers & Resources|pratjz|23|23|Jupyter Notebook|https://github.com/pratjz/IBM-Qiskit-Certification-Exam-Prep|1.0|NO LICENSE
+NUS-Qiskit-Workshop|Information for NUS Qiskit Workshop (18-20 May 2020)|HuangJunye|11|11|Jupyter Notebook|https://github.com/HuangJunye/NUS-Qiskit-Workshop|1.0|Apache License 2.0
+dc-qiskit-qml|Quantum Machine Learning algorithms|carstenblank|14|14|Python|https://github.com/carstenblank/dc-qiskit-qml|1.0|Apache License 2.0
+qiskit-camp-africa-19|Qiskit Camp Africa - December 11-14, 2019|qiskit-community|15|15||https://github.com/qiskit-community/qiskit-camp-africa-19|1.0|NO LICENSE
+RasQberry|The RasQberry project: Exploring Quantum Computing and Qiskit with a Raspberry Pi and a 3D Printer|JanLahmann|132|132|Shell|https://github.com/JanLahmann/RasQberry|1.0|Apache License 2.0
+QiskitBot|Discord Bot that leverages the idea of nested containers using podman, runs untrusted user input, executes Quantum Circuits, allows users to refer to the Qiskit Documentation, and provides the ability to search questions on the Quantum Computing StackExchange. |infiniteregrets|24|24|Python|https://github.com/infiniteregrets/QiskitBot|1.0|MIT License
+QSVTinQiskit-2021-Europe-Hackathon-Winning-Project-|Search with Quantum Singular Value Transformation in Qiskit|bartubisgin|47|47|Jupyter Notebook|https://github.com/bartubisgin/QSVTinQiskit-2021-Europe-Hackathon-Winning-Project-|1.0|MIT License
+qiskit-fall-fest-algiers|The qBraid platform instruction + challenge for Qiskit Fall Fest in Algeria|qBraid|5|5|Jupyter Notebook|https://github.com/qBraid/qiskit-fall-fest-algiers|1.0|MIT License
+Circuit|Quantum Computation using Qiskit|papaaannn|2|2|Jupyter Notebook|https://github.com/papaaannn/Circuit|1.0|MIT License
+2022-Feb-Qiskit-Metal-Study|Study materials for the second day of 2022 Feb Qiskit metal study organized by Qiskit Korean Advocates and AiQyAm.|GyeonghunKim|3|3|Jupyter Notebook|https://github.com/GyeonghunKim/2022-Feb-Qiskit-Metal-Study|1.0|NO LICENSE
+BasQ_industry_workshop_Qiskit|Here you can find the solutions to the Qiskit exercices shown during the lecture. |jfraxanet|3|3|Jupyter Notebook|https://github.com/jfraxanet/BasQ_industry_workshop_Qiskit|1.0|NO LICENSE
+computacao_quantica_qiskit_sbf_2023|Notas de aula - minicurso de computação quântica com qiskit  - organizado pela SBF: Plataforma IBMQ; Qiskit; Composer; Simuladores e chips quânticos da IBMQ; Simulações e experimentos com Qiskit (Hello world); Preparação de estados e portas lógicas básicas; Desigualdades de Bell; Tomografia de estados; Codificação superdensa; Teleportação quântica.|jonasmaziero|3|3|Jupyter Notebook|https://github.com/jonasmaziero/computacao_quantica_qiskit_sbf_2023|1.0|GNU General Public License v3.0
+Qiskit_Fall_Fest_Mexico_2022|Tutorial sobre optimización de portafolios usando computación cuántica.|alejomonbar|3|3|Jupyter Notebook|https://github.com/alejomonbar/Qiskit_Fall_Fest_Mexico_2022|1.0|NO LICENSE
+implement-quantum-algotirhms-with-qiskit|Utilizing the python package, qiskit, published by IBM, (and of course other packages) to implement quantum algorithms.|OccumRazor|3|3|Python|https://github.com/OccumRazor/implement-quantum-algotirhms-with-qiskit|1.0|MIT License
+qiskit-tips|Tips on IBM Qiskit|sanori|2|2|Jupyter Notebook|https://github.com/sanori/qiskit-tips|1.0|NO LICENSE
+quantum-bomb-tester|Implemented Elitzur–Vaidman bomb tester in Qiskit|dwarkeshsp|3|3|Jupyter Notebook|https://github.com/dwarkeshsp/quantum-bomb-tester|1.0|NO LICENSE
+QAOA-Compiler|This repository holds implementations of QAOA-specific compilation policies on top of the Qiskit compiler.|mahabubul-alam|2|2|Jupyter Notebook|https://github.com/mahabubul-alam/QAOA-Compiler|1.0|Apache License 2.0
+Quantum-Steganography|NEQR and quantum steganography implementation in python, using qiskit|alvinli04|4|4|Jupyter Notebook|https://github.com/alvinli04/Quantum-Steganography|1.0|MIT License
+IBMQ-Quantum-Programming|Implementation of some famous quantum algorithms with the IBM QISKit development kit               - Bell's state  - Shor's Algorithm|Aurelien-Pelissier|15|15|Python|https://github.com/Aurelien-Pelissier/IBMQ-Quantum-Programming|1.0|NO LICENSE
+simonqiskit|Simons Algorithm for Qiskit|drnickallgood|2|2|Jupyter Notebook|https://github.com/drnickallgood/simonqiskit|1.0|NO LICENSE
+QAOA|Implementing QAOA in Qiskit|yforman|2|2|Jupyter Notebook|https://github.com/yforman/QAOA|1.0|NO LICENSE
+QRNG|An implementation of a quantum random number generator using the Qiskit integrated into a Flask web application. Allows users to generate random numbers and visualise the distribution through a graph plot using Matplotlib.|Kairos-T|7|7|Python|https://github.com/Kairos-T/QRNG|1.0|NO LICENSE
+GoogleDTC|A Qiskit implementation of Google Quantum AI's circuit/method for preparing and analyzing discrete time crystals on a quantum computer. The original paper can be found at https://arxiv.org/pdf/2107.13571.pdf|calebclothier|8|8|Jupyter Notebook|https://github.com/calebclothier/GoogleDTC|1.0|NO LICENSE
+qiskit-vaqsd||ernchern|2|2|Jupyter Notebook|https://github.com/ernchern/qiskit-vaqsd|1.0|NO LICENSE
+JaxifiedQiskit|Accelerated Quantum Simulations with Qiskit and Jax|AnikenC|2|2|Jupyter Notebook|https://github.com/AnikenC/JaxifiedQiskit|1.0|NO LICENSE
+QuantumGames|Fun with IBM qiskit and OpenAI gym |FMZennaro|3|3|Jupyter Notebook|https://github.com/FMZennaro/QuantumGames|1.0|NO LICENSE
+quantum-java|Quantum computing with qiskit services and simulator.|logicalguess|3|3|Java|https://github.com/logicalguess/quantum-java|1.0|NO LICENSE
+Hackathon-QNLP|"Repo for Qiskit Hackathon Project ""Quantum Twitter Sentiment Analysis"""|peiyong-addwater|4|4|Jupyter Notebook|https://github.com/peiyong-addwater/Hackathon-QNLP|1.0|MIT License
+tutorials|Qubico: Quantum-Based Initiative for Classification and Optimization.|Qubico-Hack|0|0|Jupyter Notebook|https://github.com/Qubico-Hack/tutorials|1.0|MIT License
+qiskit-toolkit|:octocat: Toolkit for visualizing Qiskit gates, qubit etc.|anpaschool|2|2|Jupyter Notebook|https://github.com/anpaschool/qiskit-toolkit|1.0|MIT License
+Qiskit-Tutorials-|This is first repository|masifshahzad|2|2||https://github.com/masifshahzad/Qiskit-Tutorials-|1.0|NO LICENSE
+Quantum-Neural-Network|A  prototype  of  a Quantum Neural Network  using  Qiskit|SultanMS|4|4|Jupyter Notebook|https://github.com/SultanMS/Quantum-Neural-Network|1.0|NO LICENSE
+discrete-time-quantum-walks|Implementation and analysis of different DTQW schemes in Qiskit.|QuantumVic|4|4|Jupyter Notebook|https://github.com/QuantumVic/discrete-time-quantum-walks|1.0|NO LICENSE
+Qiskit-Tutorials||AmirhoseynpowAsghari|2|2|Jupyter Notebook|https://github.com/AmirhoseynpowAsghari/Qiskit-Tutorials|1.0|NO LICENSE
+QuantumCompiler|Building a quantum compiler for qiskit circuits |Jaybsoni|3|3|Jupyter Notebook|https://github.com/Jaybsoni/QuantumCompiler|1.0|MIT License
+shor_qiskit|Very simple shor's algorithm simulated in Qiskit version 1.0.x|kazawai|2|2|Python|https://github.com/kazawai/shor_qiskit|1.0|NO LICENSE
+Workshop_Qiskit|L'objectif de ce Workshop est de vous initier au framework Quiskit pour python|BNouailhac|2|2||https://github.com/BNouailhac/Workshop_Qiskit|1.0|NO LICENSE
+qiskit-implementation||daimurat|2|2|Jupyter Notebook|https://github.com/daimurat/qiskit-implementation|1.0|NO LICENSE
+QuantumOps.jl|Pauli and Fermionic operators implemented in Julia. qiskit-alt provides a Python/Qiskit front end to this package.|qiskit-community|3|3|Julia|https://github.com/qiskit-community/QuantumOps.jl|1.0|Apache License 2.0
+python-qiskit|🔌 Q-CTRL Python Qiskit|qctrl|2|2|Python|https://github.com/qctrl/python-qiskit|1.0|Apache License 2.0
+learning-qiskit|A project dedicated to my personal learnings using the Quantum Computing toolkit 'Qiskit'|Xenarc|2|2|Jupyter Notebook|https://github.com/Xenarc/learning-qiskit|1.0|NO LICENSE
+qiskit_applications||derwind|2|2|Jupyter Notebook|https://github.com/derwind/qiskit_applications|1.0|Apache License 2.0
+quafu-qiskit|This package converts the circuit of qiskit into a circuit supported by pyquafu. The converted circuit can be input to the quafu cloud platform for processing.|BAQIS-Quantum|2|2||https://github.com/BAQIS-Quantum/quafu-qiskit|1.0|NO LICENSE
+qiskit-hack|Playing battleship with quantum computers|ncitron|2|2|Jupyter Notebook|https://github.com/ncitron/qiskit-hack|1.0|NO LICENSE
+QC-Qiskit||alexao8|2|2|Jupyter Notebook|https://github.com/alexao8/QC-Qiskit|1.0|NO LICENSE
+qiskit-dev|Projects using IBM's Qiskit library for quantum computing programming.|apcarrik|2|2|Jupyter Notebook|https://github.com/apcarrik/qiskit-dev|1.0|MIT License
+QISKIT_lab||OscarCharlieST|2|2|Jupyter Notebook|https://github.com/OscarCharlieST/QISKIT_lab|1.0|NO LICENSE
+perceptron-dqa|Quantum Annealing simulation via Tensor Networks. QIC, University of Padua.|baronefr|4|4|Python|https://github.com/baronefr/perceptron-dqa|1.0|NO LICENSE
+qiskit_practice|Practice notebook using Qiskit module in python and IBM quantum experience|iamr0b0tx|2|2|Jupyter Notebook|https://github.com/iamr0b0tx/qiskit_practice|1.0|NO LICENSE
+Qiskit-Primitive|This Notebook is the product of Edoardo Zappia's modification of the  Notebook you can find here:  https://github.com/grossiM/LAB_Quantum_Computation23/tree/main The original Notebook was written by: michele.grossi@cern.ch|EdoardoZappia|2|2|Jupyter Notebook|https://github.com/EdoardoZappia/Qiskit-Primitive|1.0|MIT License
+Quantum-Waddle|A tutorial on 1D and 2D quantum walks using Qiskit, with real quantum hardware. Made during the 2020 IQUHACK hackathon at MIT.|biswaroopmukherjee|2|2|Jupyter Notebook|https://github.com/biswaroopmukherjee/Quantum-Waddle|1.0|NO LICENSE
+minor-project-quantum-computing|Journey of learning Quantum Computing from qiskit documentation. Made some some circuit for practice.|chaurasiyag|8|8|Jupyter Notebook|https://github.com/chaurasiyag/minor-project-quantum-computing|1.0|NO LICENSE
+IBM_QC_Africa_2021|A repository with solutions to IBM Quantum Challenge Africa 2021, and how to get started with Quantum computing with Python and Qiskit.|Alfaxad|5|5|Jupyter Notebook|https://github.com/Alfaxad/IBM_QC_Africa_2021|1.0|Apache License 2.0
+Qiskit-Bayesian-Inference-Module-QCA19-|This project was developed for the Qiskit Camp Africa in 2019. It shows that Bayesian Inference can be integrated into Qiskit using the QInfer toolkit. This notebook showcases a proof-of-concept for the Iterative Quantum Phase Estimation circuit where the phase of the unitary is determined through a Sequential Monte-Carlo sampling scheme over an arbitrary prior distribution. The experimental results used for updating the posterior come from a QASM simulation of the IQPE circuit at iteration 1. The presentation is given in the PDF while the proof of concept is shown in the notebook.|conradhaupt|3|3|Jupyter Notebook|https://github.com/conradhaupt/Qiskit-Bayesian-Inference-Module-QCA19-|1.0|NO LICENSE
+qGAN|Implementing Quantum Generative Adversarial Networks to generate discrete distributions in Qiskit.|AntonSimen06|5|5|Jupyter Notebook|https://github.com/AntonSimen06/qGAN|1.0|NO LICENSE
+Quantum-Machine-Learning-Qiskit-PyTorch|This repository contains codes and tutorials for quantum machine learning using PyTorch and Qiskit. It covers topics such as qiskit basics, deep learning fundamentals, and hybrid quantum-classical models. It also demonstrates how to use TorchQuantum, a PyTorch-based framework for quantum neural networks.|junayed-hasan|3|3|Jupyter Notebook|https://github.com/junayed-hasan/Quantum-Machine-Learning-Qiskit-PyTorch|1.0|MIT License
+qce23-qiskit-runtime-primitives-tutorial||mberna|3|3||https://github.com/mberna/qce23-qiskit-runtime-primitives-tutorial|1.0|Apache License 2.0
+metal-library|Library of pre-simulated superconducting quantum components built on Qiskit Metal.|LFL-Lab|0|0|Jupyter Notebook|https://github.com/LFL-Lab/metal-library|1.0|MIT License
+Visualising-Quantum-Time-Evolution-using-Qiskit|Visualising the quantum time evolution by simulating a Hamiltonian using using the Split Operator Fourier Transform Algorithm in Qiskit|Varary73|3|3|Jupyter Notebook|https://github.com/Varary73/Visualising-Quantum-Time-Evolution-using-Qiskit|1.0|NO LICENSE
+NISQ-TDA|Qiskit (python) code for Topological data analysis on noisy quantum computers|Shashankaubaru|1|1|Python|https://github.com/Shashankaubaru/NISQ-TDA|1.0|NO LICENSE
+QKD-E91|E91 protocol tutorial in qiskit |EavCmr|2|2|Jupyter Notebook|https://github.com/EavCmr/QKD-E91|1.0|NO LICENSE
+QUANTUM-TRADE|Trading with Quantum IBM QISKIT |JoelJJoseph|2|2|Python|https://github.com/JoelJJoseph/QUANTUM-TRADE|1.0|NO LICENSE
+grovers-algo|Implementation of Grover's Algorithm on IBM's Qiskit Platform|lzylili|4|4|Jupyter Notebook|https://github.com/lzylili/grovers-algo|1.0|NO LICENSE
+quantum-compiler|Implementation of Solovay Kitaev Algorithm for approximating any n-qubit gate using gates from library set {H,T,CNOT,S}.  |DEBARGHYA4469|14|14|Python|https://github.com/DEBARGHYA4469/quantum-compiler|1.0|NO LICENSE
+EuroPython-21-QuantumDeepLearning|"Materials and Resources for the EuroPython 21 Talk on ""Introduction to Quantum Deep Learning"" on 28/7/2021."|abhilash1910|3|3|Jupyter Notebook|https://github.com/abhilash1910/EuroPython-21-QuantumDeepLearning|1.0|NO LICENSE
+Quantum_Algorithms|Quantum computing projects with Qiskit|victor-onofre|2|2|Jupyter Notebook|https://github.com/victor-onofre/Quantum_Algorithms|1.0|NO LICENSE
+qpirates-qiskit-notebooks|Training jupyter notebooks in Qiskit|sergiogh|2|2|Jupyter Notebook|https://github.com/sergiogh/qpirates-qiskit-notebooks|1.0|NO LICENSE
+Qiskit__qiskit||swe-bench|0|0|Python|https://github.com/swe-bench/Qiskit__qiskit|1.0|Apache License 2.0
+Qiskit-Summer-School-Labs||iqranaz240|2|2||https://github.com/iqranaz240/Qiskit-Summer-School-Labs|1.0|NO LICENSE
+clifford-data-regression-qiskit|An implementation of the Clifford data regression error mitigation method in Qiskit.|renatawong|2|2|Jupyter Notebook|https://github.com/renatawong/clifford-data-regression-qiskit|1.0|GNU General Public License v3.0
+SMU_Feb1|Welcome to the SMU Quantum and Qiskit workshop repository! This repository contains all the materials and resources for the Qiskit workshop which will be held on February 1, 2024|mrvee-qC-bee|1|1|Jupyter Notebook|https://github.com/mrvee-qC-bee/SMU_Feb1|1.0|NO LICENSE
+qiskit-portfolio-optimisation-extended|Extended version of the portfolio optimisation tutorial on Qiskit|adamjm|2|2|Jupyter Notebook|https://github.com/adamjm/qiskit-portfolio-optimisation-extended|1.0|NO LICENSE
+ShorsAlgorithmIBMQiskit|Shor's Quantum Integer Factorization Algorithm on IBM Qiskit|RevanthK|3|3|Jupyter Notebook|https://github.com/RevanthK/ShorsAlgorithmIBMQiskit|1.0|NO LICENSE
+Qiskit_Hackathon_WoQ||anamariarojas123|2|2||https://github.com/anamariarojas123/Qiskit_Hackathon_WoQ|1.0|NO LICENSE
+qiskit-jupyter-galaxy_docker|files for building docker image for qiskit in galaxy via jupyter notebooks|thepineapplepirate|2|2|Python|https://github.com/thepineapplepirate/qiskit-jupyter-galaxy_docker|1.0|MIT License
+RLSB-CongX-Qiskit|Reversible Logic Synthesis Benchmarks in Qiskit|parton-quark|2|2|Jupyter Notebook|https://github.com/parton-quark/RLSB-CongX-Qiskit|1.0|NO LICENSE
+Quantum-error-mitigation|Implementation in qiskit of different error mitigation algorithms|mentesniker|2|2|Jupyter Notebook|https://github.com/mentesniker/Quantum-error-mitigation|1.0|Apache License 2.0
+Qiskit|Qiskit|msudeept|0|0||https://github.com/msudeept/Qiskit|1.0|NO LICENSE
+quantum-programs|Quantum programs build using [Qiskit](https://github.com/Qiskit/qiskit)|skb1129|0|0||https://github.com/skb1129/quantum-programs|1.0|NO LICENSE
+Quantum-Teleportation-with-Qiskit-on-a-Real-Computer|We illustrate how to perform the quantum teleportation of one qubit using Qiskit. We do it on an ideal simulated quantum computer, a simulated quantum computer with noise and a real quantum computer from the IBM Quantum Experience.|lvillasen|3|3|Jupyter Notebook|https://github.com/lvillasen/Quantum-Teleportation-with-Qiskit-on-a-Real-Computer|1.0|NO LICENSE
+PoW-QCSA-fa22|Comparison of classical vs. quantum proof-of-work|Anastasia-Sim|3|3|Jupyter Notebook|https://github.com/Anastasia-Sim/PoW-QCSA-fa22|1.0|NO LICENSE
+qiskit-experiment|qiskit|pochangl|0|0|Python|https://github.com/pochangl/qiskit-experiment|1.0|Apache License 2.0
+Quantum_Computing|This repository contains Qiskit source code for Quantum Computing.|Rohan-s18|3|3|Python|https://github.com/Rohan-s18/Quantum_Computing|1.0|NO LICENSE
+4-qubit-design|4-qubit sample design for Study Gathering for Qiskit Metal Korea Hackathon 2022|AbeerVaishnav13|1|1|Jupyter Notebook|https://github.com/AbeerVaishnav13/4-qubit-design|1.0|NO LICENSE
+quantum-pong|Quantum version of the Pong arcade game. Developed with Qiskit and Pygame frameworks.|JavaFXpert|5|5|Python|https://github.com/JavaFXpert/quantum-pong|1.0|NO LICENSE
+qiskit_ksk|qiskit |kartik2340|0|0||https://github.com/kartik2340/qiskit_ksk|1.0|NO LICENSE
+quantumteleportation|Qiskit|rebajram|1|1|Jupyter Notebook|https://github.com/rebajram/quantumteleportation|1.0|NO LICENSE
+pewpew-qube|Quantum rubiks' cube on a pewpew for the IBM QISKIT Europe hackathon 2019|oscarhiggott|5|5|Python|https://github.com/oscarhiggott/pewpew-qube|1.0|NO LICENSE
+Quantum-init|Quantum random numbers and quantum initialization for convolutional neural networks using PyTorch and Qiskit.|v0lta|5|5|Python|https://github.com/v0lta/Quantum-init|1.0|European Union Public License 1.2
