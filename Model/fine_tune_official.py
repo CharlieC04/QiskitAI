@@ -9,7 +9,7 @@ from ConstantLengthDataset import chars_token_ratio, ConstantLengthDataset
 
 # HYPERPARAMETERS
 
-MODEL = "bigcode/starcoder2-15b"
+MODEL = "bigcode/starcoderbase-1b"
 
 DATASET = load_dataset("csv", data_files="../Scraping/official_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True)
 DATA_COLUMN = "content"
@@ -52,7 +52,7 @@ train_data = train_data.shuffle(buffer_size=200, seed=SEED)
 
 # Convert data into chunkable data
 
-tokeniser = AutoTokenizer.from_pretrained(MODEL, trust_remote_code=True)
+tokeniser = AutoTokenizer.from_pretrained(MODEL, trust_remote_code=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache/")
 chars_per_token = chars_token_ratio(train_data, tokeniser, DATA_COLUMN)
 
 train_dataset = ConstantLengthDataset(tokeniser, train_data, infinite=True, seq_length=SEQ_LENGTH, chars_per_tok=chars_per_token, content_field=DATA_COLUMN, fim_rate=FIM_RATE, fim_spm_rate=FIM_SPM_RATE, seed=SEED)
@@ -73,10 +73,11 @@ model = AutoModelForCausalLM.from_pretrained(
     MODEL,
     load_in_8bit=load_in_8bit,
     quantization_config=bnb_config,
-    device_map="cuda", # use auto for multiple GPUs
+    device_map="auto", # use auto for multiple GPUs
     use_cache=False,
     trust_remote_code=True,
     use_flash_attention_2=False,
+    cache_dir="mnt/ccnas2/tdp/cc2722/cache"
 )
 
 model = prepare_model_for_kbit_training(model)
