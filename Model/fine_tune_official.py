@@ -11,7 +11,7 @@ from ConstantLengthDataset import chars_token_ratio, ConstantLengthDataset
 
 MODEL = "bigcode/starcoderbase-1b"
 
-DATASET = load_dataset("csv", data_files="../Scraping/official_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True)
+DATASET = load_dataset("csv", data_files="../Scraping/official_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
 DATA_COLUMN = "content"
 
 SEQ_LENGTH = 2048
@@ -63,10 +63,7 @@ load_in_8bit = False
 compute_dtype = getattr(torch, BNB_4BIT_COMPUTE_DTYPE)
 
 bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=compute_dtype,
-    bnb_4bit_use_double_quant=USE_NESTED_QUANT
+    load_in_8bit=True,
 )
 
 model = AutoModelForCausalLM.from_pretrained(
@@ -76,7 +73,6 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto", # use auto for multiple GPUs
     use_cache=False,
     trust_remote_code=True,
-    use_flash_attention_2=False,
     cache_dir="mnt/ccnas2/tdp/cc2722/cache"
 )
 
@@ -97,8 +93,10 @@ model = get_peft_model(model, peft_config)
 
 train_data.start_iteration = 0
 
+output_dir = "chralie04/" + OUTPUT_DIR
+
 training_args = TrainingArguments(
-    output_dir=f"chralie04/{OUTPUT_DIR}",
+    output_dir=output_dir,
     dataloader_drop_last=True,
     evaluation_strategy="steps",
     save_strategy="steps",
@@ -117,7 +115,6 @@ training_args = TrainingArguments(
     bf16=BF16,
     weight_decay=WEIGHT_DECAY,
     push_to_hub=True,
-    include_tokens_per_second=True
 )
 
 trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, eval_dataset=eval_dataset)
