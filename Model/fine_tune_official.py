@@ -15,19 +15,19 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 # HYPERPARAMETERS
 
-MODEL = "bigcode/starcoderbase-1b"
+MODEL = "bigcode/starcoder2-15b"
 
-DATASET = load_dataset("csv", data_files="../Data/official_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
+DATASET = load_dataset("csv", data_files="../Data/qiskit_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
 DATA_COLUMN = "content"
 
 SEQ_LENGTH = 2048
-MAX_STEPS = 2000
-BATCH_SIZE = 8
+MAX_STEPS = 1500
+BATCH_SIZE = 16
 GR_ACC_STEPS = 1
-LR = 5e-5
+LR = 4e-5
 LR_SCHEDULER_TYPE = "cosine"
 WEIGHT_DECAY = 0.01
-NUM_WARMUP_STEPS = 30
+NUM_WARMUP_STEPS = 100
 EVAL_FREQ = 100
 SAVE_FREQ = 100
 LOG_FREQ = 25

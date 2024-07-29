@@ -9,6 +9,8 @@ import torch
 def chars_token_ratio(dataset, tokeniser, data_column, nb_examples=200):
     total_chars, total_toks = 0, 0
     for _, ex in tqdm(zip(range(nb_examples), iter(dataset)), total=nb_examples):
+        print(ex)
+        print(ex[data_column])
         total_chars += len(ex[data_column])
         total_toks += len(tokeniser(ex[data_column]).tokens())
 
