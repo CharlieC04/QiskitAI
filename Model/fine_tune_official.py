@@ -15,7 +15,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 # HYPERPARAMETERS
 
-MODEL = "bigcode/starcoder2-15b"
+MODEL = "ibm-granite/granite-20b-code-base"
 
 DATASET = load_dataset("csv", data_files="../Data/qiskit_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
 DATA_COLUMN = "content"
