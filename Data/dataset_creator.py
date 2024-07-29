@@ -20,6 +20,9 @@ with open("qiskit_dataset.csv", "w", encoding="utf-8") as w:
                                             if cell["cell_type"] == "code":
                                                     code_cells.append("".join(cell["source"]))
                                     code = "\n\n".join(code_cells)
-                                    csv_writer.writerow([row[1], row[2], code])
+                                    if row[2] == "HuangJunye":
+                                           print("Code: ", code)
+                                    if code != "":
+                                        csv_writer.writerow([row[1], row[2], code])
                         except Exception:
                             pass
