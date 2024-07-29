@@ -5,18 +5,24 @@ from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from peft.tuners.lora import LoraLayer
 import torch
 
+import os
+
 from ConstantLengthDataset import chars_token_ratio, ConstantLengthDataset
+
+torch.cuda.empty_cache()
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 # HYPERPARAMETERS
 
 MODEL = "bigcode/starcoderbase-1b"
 
-DATASET = load_dataset("csv", data_files="../Scraping/official_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
+DATASET = load_dataset("csv", data_files="../Data/official_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
 DATA_COLUMN = "content"
 
 SEQ_LENGTH = 2048
 MAX_STEPS = 2000
-BATCH_SIZE = 16
+BATCH_SIZE = 8
 GR_ACC_STEPS = 1
 LR = 5e-5
 LR_SCHEDULER_TYPE = "cosine"
@@ -26,8 +32,8 @@ EVAL_FREQ = 100
 SAVE_FREQ = 100
 LOG_FREQ = 25
 OUTPUT_DIR = "starcoder-qiskit"
-BF16 = True
-FP16 = False
+BF16 = False
+FP16 = True
 
 FIM_RATE = 0.5
 FIM_SPM_RATE = 0.5
@@ -77,6 +83,8 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 model = prepare_model_for_kbit_training(model)
+
+model.gradient_checkpointing_enable()
 
 peft_config = LoraConfig(
     lora_alpha=LORA_ALPHA,
