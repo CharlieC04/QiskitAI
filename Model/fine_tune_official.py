@@ -11,20 +11,23 @@ from ConstantLengthDataset import chars_token_ratio, ConstantLengthDataset
 
 torch.cuda.empty_cache()
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:512"
 
 # HYPERPARAMETERS
 
-MODEL = "ibm-granite/granite-20b-code-base"
+MODEL = "ibm-granite/granite-3b-code-base"
+
+
 
 DATASET = load_dataset("csv", data_files="../Data/qiskit_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
 DATA_COLUMN = "content"
 
 SEQ_LENGTH = 2048
-MAX_STEPS = 1500
-BATCH_SIZE = 16
-GR_ACC_STEPS = 1
-LR = 4e-5
+MAX_STEPS = 1400
+BATCH_SIZE = 4
+GR_ACC_STEPS = 4
+LR = 5e-5
 LR_SCHEDULER_TYPE = "cosine"
 WEIGHT_DECAY = 0.01
 NUM_WARMUP_STEPS = 100
@@ -41,7 +44,7 @@ FIM_SPM_RATE = 0.5
 LORA_R = 8
 LORA_ALPHA = 32
 LORA_DROPOUT = 0.1
-LORA_TARGET_MODULES = "c_proj,c_attn,q_attn,c_fc,c_proj"
+LORA_TARGET_MODULES = "q_proj, k_proj, v_proj, o_proj"
 
 USE_NESTED_QUANT = True
 BNB_4BIT_COMPUTE_DTYPE = "bfloat16"
