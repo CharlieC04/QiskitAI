@@ -1,9 +1,10 @@
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, logging, set_seed, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, logging, set_seed, BitsAndBytesConfig, AutoConfig
 import csv
-from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training, PeftModel
 from peft.tuners.lora import LoraLayer
 import torch
+from huggingface_hub import upload_folder
 
 import os
 
@@ -13,32 +14,35 @@ torch.cuda.empty_cache()
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:512"
+os.environ["TOKENIZERS_PARALLELISM"] = "true"
+
 
 # HYPERPARAMETERS
 
-MODEL = "ibm-granite/granite-3b-code-base"
+MODEL = "bigcode/starcoder2-3b"
 
 
 
 DATASET = load_dataset("csv", data_files="../Data/qiskit_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
+print(DATASET.info)
 DATA_COLUMN = "content"
 
 SEQ_LENGTH = 2048
-MAX_STEPS = 1400
+MAX_STEPS = 1500
 BATCH_SIZE = 4
 GR_ACC_STEPS = 4
-LR = 5e-5
+LR = 3e-4
 LR_SCHEDULER_TYPE = "cosine"
 WEIGHT_DECAY = 0.01
 NUM_WARMUP_STEPS = 100
 EVAL_FREQ = 100
 SAVE_FREQ = 100
 LOG_FREQ = 25
-OUTPUT_DIR = "starcoder-qiskit"
+OUTPUT_DIR = "qiskit-starcoder2-3b"
 BF16 = False
 FP16 = True
 
-FIM_RATE = 0.5
+FIM_RATE = 0
 FIM_SPM_RATE = 0.5
 
 LORA_R = 8
@@ -131,4 +135,5 @@ training_args = TrainingArguments(
 trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, eval_dataset=eval_dataset)
 
 trainer.train()
-trainer.push_to_hub()
+trainer.model.push_to_hub("chralie04/qiskit-starcoder2-3b")
+
