@@ -329,3 +329,652 @@ Create a quantum circuit with 2 qubits and apply a Hadamard gate to
 
 # Task: Generate the code here based on the provided context and prompt:
 "
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Implement a quantum bit.
+
+  Creates a qubit.
+
+  **Parameters**
+
+  *   **register** ([*QuantumRegister*](qiskit.circuit.QuantumRegister ""qiskit.circuit.QuantumRegister"")) – Optional. A quantum register containing the bit.
+  *   **index** ([*int*](https://docs.python.org/3/library/functions.html#int ""(in Python v3.12)"")) – Optional. The index of the bit in its containing register.
+
+  **Raises**
+
+  [**CircuitError**](circuit#qiskit.circuit.CircuitError ""qiskit.circuit.CircuitError"") – if the provided register is not a valid [`QuantumRegister`](qiskit.circuit.QuantumRegister ""qiskit.circuit.QuantumRegister"")Document 1:::
+Bases: [`QuantumRegister`](qiskit.circuit.QuantumRegister ""qiskit.circuit.quantumregister.QuantumRegister"")
+
+  Implement an ancilla register.
+
+  Create a new generic register.
+
+  Either the `size` or the `bits` argument must be provided. If `size` is not None, the register will be pre-populated with bits of the correct type.
+
+  **Parameters**
+
+  *   **size** ([*int*](https://docs.python.org/3/library/functions.html#int ""(in Python v3.12)"")) – Optional. The number of bits to include in the register.Document 2:::
+qr = QuantumRegister(3)
+  qc = QuantumCircuit(qr)
+  c3h_gate = HGate().control(2)
+  qc.append(c3h_gate, qr)
+  qc.draw('mpl')
+  ```
+
+  ![../\_images/qiskit-circuit-ControlledGate-1.png](/images/api/qiskit/1.0/qiskit-circuit-ControlledGate-1.png)
+
+  Create a controlled custom gate and apply it to a circuit.
+
+  ```python
+  from qiskit import QuantumCircuit, QuantumRegister
+  from qiskit.circuit.library.standard_gates import HGate
+
+  qc1 = QuantumCircuit(2)
+  qc1.x(0)
+  qc1.h(1)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Create a quantum circuit with one QuantumRegister. Apply a U gate
+ with the parameters pi/4, pi/3, pi/2 to the qubit in the register.
+Ensure to include necessary imports from qiskit.
+from qiskit import QuantumCircuit, QuantumRegister
+from math import pi
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+| [`NLocal`](qiskit.circuit.library.NLocal ""qiskit.circuit.library.NLocal"")(\[num\_qubits, rotation\_blocks, ...])                                | The n-local circuit class.                                                             |
+| [`TwoLocal`](qiskit.circuit.library.TwoLocal ""qiskit.circuit.library.TwoLocal"")(\[num\_qubits, rotation\_blocks, ...])                          | The two-local circuit.                                                                 |
+| [`PauliTwoDesign`](qiskit.circuit.library.PauliTwoDesign ""qiskit.circuit.library.PauliTwoDesign"")(\[num\_qubits, reps, seed, ...])              | The Pauli Two-Design ansatz.                                                           |Document 1:::
+---
+
+# PauliTwoDesign
+
+<Class id=""qiskit.circuit.library.PauliTwoDesign"" isDedicatedPage={true} github=""https://github.com/Qiskit/qiskit/tree/stable/1.0/qiskit/circuit/library/n_local/pauli_two_design.py#L24-L141"" signature=""qiskit.circuit.library.PauliTwoDesign(num_qubits=None, reps=3, seed=None, insert_barriers=False, name='PauliTwoDesign')"" modifiers=""class"">
+  Bases: [`TwoLocal`](qiskit.circuit.library.TwoLocal ""qiskit.circuit.library.n_local.two_local.TwoLocal"")
+
+  The Pauli Two-Design ansatz.Document 2:::
+Bases: [`TwoLocal`](qiskit.circuit.library.TwoLocal ""qiskit.circuit.library.n_local.two_local.TwoLocal"")
+
+  The heuristic excitation-preserving wave function ansatz.
+
+  The `ExcitationPreserving` circuit preserves the ratio of $|00\rangle$, $|01\rangle + |10\rangle$ and $|11\rangle$ states. To this end, this circuit uses two-qubit interactions of the form
+
+$$
+\newcommand{\rotationangle}{\theta/2}
+
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & \cos\left(\rotationangle\right) & -i\sin\left(\rotationangle\right) & 0 \\""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Create a TwoLocal ansatz and an SLSQP optimizer. The SLSQP 
+optimizer should have 1000 maxiters and the TwoLocal ansatz should 
+use the “ry” and “cz” gates and have 2 qubits.
+from qiskit.circuit.library import TwoLocal
+from qiskit_algorithms.optimizers import SLSQP
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Bases: [`QuantumRegister`](qiskit.circuit.QuantumRegister ""qiskit.circuit.quantumregister.QuantumRegister"")
+
+  Implement an ancilla register.
+
+  Create a new generic register.
+
+  Either the `size` or the `bits` argument must be provided. If `size` is not None, the register will be pre-populated with bits of the correct type.
+
+  **Parameters**
+
+  *   **size** ([*int*](https://docs.python.org/3/library/functions.html#int ""(in Python v3.12)"")) – Optional. The number of bits to include in the register.Document 1:::
+**Return type**
+
+    List\[Union\[BaseOperator, OperatorBase, [QuantumCircuit](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")]]
+  </Attribute>
+
+  ### ordered\_parameters
+
+  <Attribute id=""qiskit.circuit.library.QAOAAnsatz.ordered_parameters"">
+    The parameters used in the underlying circuit.
+
+    This includes float values and duplicates.
+
+    **Examples**
+
+    ```python
+    >>> # prepare circuit ...
+    >>> print(nlocal)
+         ┌───────┐┌──────────┐┌──────────┐┌──────────┐
+    q_0: ┤ Ry(1) ├┤ Ry(θ[1]) ├┤ Ry(θ[1]) ├┤ Ry(θ[3]) ├
+         └───────┘└──────────┘└──────────┘└──────────┘Document 2:::
+# Create an objective that defines our optimization problem
+approximating_objective = DefaultCNOTUnitObjective(num_qubits=num_qubits, cnots=cnots)
+
+# Run optimization process to compile the unitary
+aqc.compile_unitary(
+    target_matrix=unitary,
+    approximate_circuit=approximate_circuit,
+    approximating_objective=approximating_objective
+)
+```
+
+Now `approximate_circuit` is a circuit that approximates the target unitary to a certain degree and can be used instead of the original matrix.
+
+This uses a helper function, [`make_cnot_network`](#qiskit.synthesis.unitary.aqc.make_cnot_network ""qiskit.synthesis.unitary.aqc.make_cnot_network"").
+
+#### make\_cnot\_network""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Create an ansatz with a 5-qubit parameter theta to be used for
+ projecting the update steps of the p-VQD algorithm. Ensure the ansatz
+ is parameterized and structured appropriately for a quantum algorithm.
+from qiskit.circuit import QuantumCircuit, ParameterVector
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Bases: [`SingletonControlledGate`](circuit_singleton#qiskit.circuit.singleton.SingletonControlledGate ""qiskit.circuit.singleton.SingletonControlledGate"")
+
+  Controlled-Hadamard gate.
+
+  Applies a Hadamard on the target qubit if the control is in the $|1\rangle$ state.
+
+  Can be applied to a [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"") with the [`ch()`](qiskit.circuit.QuantumCircuit#ch ""qiskit.circuit.QuantumCircuit.ch"") method.
+
+  **Circuit symbol:**
+
+  ```python
+  q_0: ──■──
+       ┌─┴─┐
+  q_1: ┤ H ├
+       └───┘
+  ```Document 1:::
+│  State Preparation(0,1) │
+    q_1: ┤1                        ├
+         └─────────────────────────┘
+    ```
+
+    Initialize two qubits from an array of complex amplitudes .. code-block:
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.prepare_state([0, 1/np.sqrt(2), -1.j/np.sqrt(2), 0], circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌───────────────────────────────────────────┐
+    q_0: ┤0                                          ├
+         │  State Preparation(0,0.70711,-0.70711j,0) │
+    q_1: ┤1                                          ├
+         └───────────────────────────────────────────┘Document 2:::
+Decompose a [`CNOTDihedral`](qiskit.quantum_info.CNOTDihedral ""qiskit.quantum_info.CNOTDihedral"") element into a [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"").
+
+  Decompose a general [`CNOTDihedral`](qiskit.quantum_info.CNOTDihedral ""qiskit.quantum_info.CNOTDihedral"") elements. The number of CX gates is not necessarily optimal. For a decomposition of a 1-qubit or 2-qubit element, call [`synth_cnotdihedral_two_qubits()`](#qiskit.synthesis.synth_cnotdihedral_two_qubits ""qiskit.synthesis.synth_cnotdihedral_two_qubits"").
+
+  **Parameters**""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Create a quantum circuit with 3 qubits and apply a Hadamard gate
+ to the second qubit. Then, create a subcircuit with 2 qubits that applies
+ the following operations: a Hadamard gate to the first qubit, a barrier,
+ and a U gate to the first qubit with parameters 1, 2, -2. Finally, apply
+ this subcircuit to the second and third qubits in the main circuit.
+ Draw the decomposed version of this circuit. Include all necessary
+ imports and provide comments explaining each step.
+from qiskit import *
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+# This requires knowledge of which channels belong to which qubits.
+        # delay for 100 cycles on qubits 0 and 1.
+        pulse.delay_qubits(100, 0, 1)
+
+        # Call a schedule for a quantum circuit thereby inserting into
+        # the pulse schedule.
+        qc = QuantumCircuit(2, 2)
+        qc.cx(0, 1)
+        qc_sched = schedule(qc, backend)
+        pulse.call(qc_sched)
+
+
+        # It is also be possible to call a preexisting schedule
+        tmp_sched = pulse.Schedule()
+        tmp_sched += pulse.Play(gaussian_pulse, d0)
+        pulse.call(tmp_sched)
+
+        # We also support:
+
+        # frequency instructionsDocument 1:::
+with pulse.align_right():
+        pulse.call(bell_sched)
+        pulse.play(pulse.Constant(bell_sched.duration, 0.02), d2)
+        pulse.barrier(0, 1, 2)
+        registers = pulse.measure_all()
+
+decoupled_bell_prep_and_measure.draw()
+```
+
+![../\_images/pulse-3.png](/images/api/qiskit/1.0/pulse-3.png)
+
+With the pulse builder we are able to blend programming on qubits and channels. While the pulse schedule is based on instructions that operate on channels, the pulse builder automatically handles the mapping from qubits to channels for you.
+
+In the example below we demonstrate some more features of the pulse builder:
+
+```python
+import mathDocument 2:::
+Circuit instructions are first each mapped to equivalent pulse Schedules according to the command definition given by the schedule\_config. Then, this circuit instruction-equivalent Schedule is appended at the earliest time at which all qubits involved in the instruction are available.
+
+  **Parameters**
+
+  *   **circuit** ([*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.quantumcircuit.QuantumCircuit"")) – The quantum circuit to translate.
+  *   **schedule\_config** ([*ScheduleConfig*](#qiskit.scheduler.ScheduleConfig ""qiskit.scheduler.config.ScheduleConfig"")) – Backend specific parameters used for building the Schedule.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Make a circuit with 2 qubits and apply a Hadamard (H) gate to the first
+ qubit. Then, create a pulse scheduler with the
+ parameters: duration=256, amp=0.2, and sigma=50. Add the pulse
+ schedule to the circuit.
+from qiskit import QuantumCircuit
+from qiskit.pulse import Play, Schedule
+from qiskit.pulse.library import Gaussian
+from qiskit.pulse.channels import DriveChannel
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+>>> from qiskit.circuit.library import GroverOperator
+  >>> oracle = QuantumCircuit(2)
+  >>> oracle.z(0)  # good state = first qubit is |1>
+  >>> grover_op = GroverOperator(oracle, insert_barriers=True)
+  >>> grover_op.decompose().draw()
+           ┌───┐ ░ ┌───┐ ░ ┌───┐          ┌───┐      ░ ┌───┐
+  state_0: ┤ Z ├─░─┤ H ├─░─┤ X ├───────■──┤ X ├──────░─┤ H ├
+           └───┘ ░ ├───┤ ░ ├───┤┌───┐┌─┴─┐├───┤┌───┐ ░ ├───┤
+  state_1: ──────░─┤ H ├─░─┤ X ├┤ H ├┤ X ├┤ H ├┤ X ├─░─┤ H ├
+                 ░ └───┘ ░ └───┘└───┘└───┘└───┘└───┘ ░ └───┘
+  ```
+
+  ```python
+  >>> oracle = QuantumCircuit(1)
+  >>> oracle.z(0)  # the qubit state |1> is the good state
+  >>> state_preparation = QuantumCircuit(1)Document 1:::
+**Returns**
+
+  the circuit representing the input dag.
+
+  **Return type**
+
+  [QuantumCircuit](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")
+
+  **Example**
+
+  ```python
+  from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
+  from qiskit.dagcircuit import DAGCircuit
+  from qiskit.converters import circuit_to_dag
+  from qiskit.circuit.library.standard_gates import CHGate, U2Gate, CXGate
+  from qiskit.converters import dag_to_circuit
+
+  q = QuantumRegister(3, 'q')
+  c = ClassicalRegister(3, 'c')Document 2:::
+│  State Preparation(0,1) │
+    q_1: ┤1                        ├
+         └─────────────────────────┘
+    ```
+
+    Initialize two qubits from an array of complex amplitudes .. code-block:
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.prepare_state([0, 1/np.sqrt(2), -1.j/np.sqrt(2), 0], circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌───────────────────────────────────────────┐
+    q_0: ┤0                                          ├
+         │  State Preparation(0,0.70711,-0.70711j,0) │
+    q_1: ┤1                                          ├
+         └───────────────────────────────────────────┘""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+import math
+
+# Imports from Qiskit
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import MCMT, ZGate
+
+def grover_oracle(marked_states):
+   """"""Build a Grover oracle for multiple marked states
+
+Here we assume all input marked states have the same number of bits
+
+Parameters:
+marked_states (str or list): Marked states of oracle
+
+Returns:
+QuantumCircuit: Quantum circuit representing Grover oracle
+
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+pw_approximation = PiecewiseChebyshev(f_x, degree, breakpoints, num_state_qubits)
+  pw_approximation._build()
+  qc = QuantumCircuit(pw_approximation.num_qubits)
+  qc.h(list(range(num_state_qubits)))
+  qc.append(pw_approximation.to_instruction(), qc.qubits)
+  qc.draw(output='mpl')
+  ```
+
+  ![../\_images/qiskit-circuit-library-PiecewiseChebyshev-1.png](/images/api/qiskit/1.0/qiskit-circuit-library-PiecewiseChebyshev-1.png)
+
+  **References**Document 1:::
+qc.cx(0, range(1, 5))
+  qc.measure_all()
+  ```
+
+  Construct a 4-qubit Bernstein-Vazirani circuit using registers.
+
+  ```python
+  from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
+
+  qr = QuantumRegister(3, 'q')
+  anc = QuantumRegister(1, 'ancilla')
+  cr = ClassicalRegister(3, 'c')
+  qc = QuantumCircuit(qr, anc, cr)
+
+  qc.x(anc[0])
+  qc.h(anc[0])
+  qc.h(qr[0:3])
+  qc.cx(qr[0:3], anc[0])Document 2:::
+qreg = QuantumRegister(3)
+    creg = ClassicalRegister(3)
+    qc = QuantumCircuit(qreg, creg)
+    qc.h([0, 1, 2])
+    qc.measure([0, 1, 2], [0, 1, 2])
+
+    with qc.switch(creg) as case:
+        with case(0):
+            qc.x(0)
+        with case(1, 2):
+            qc.z(1)
+        with case(case.DEFAULT):
+            qc.cx(0, 1)
+    ```
+
+    **Parameters**""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""Append three qc’s to the larger_qc using the to_instruction method.
+ The first should use parameter theta on qubits 0 to 2, the second 
+parameter phi on 3 to 5 and the last parameter gamma on qubits 6 to 8.
+ Then decompose and draw the final circuit.
+ """"""
+
+p = Parameter('p')
+qc = QuantumCircuit(3, name='oracle')
+qc.rz(p, 0)
+qc.cx(0, 1)
+qc.rz(p, 1)
+qc.cx(1, 2)
+qc.rz(p, 2)
+
+theta = Parameter('theta')
+phi = Parameter('phi')
+gamma = Parameter('gamma')
+
+qr = QuantumRegister(9)
+larger_qc = QuantumCircuit(qr)
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+estimator = Estimator(backend=backend)
+
+  # calculate [ <psi(theta1)|hamiltonian|psi(theta)> ]
+  job = estimator.run([(isa_psi, isa_observables, [theta])])
+  pub_result = job.result()[0]
+  print(f""Expectation values: {pub_result.data.evs}"")
+  ```
+
+  Initializes the Estimator primitive.
+
+  **Parameters**Document 1:::
+$$
+
+  **References**
+
+  \[1]: D. Berry, G. Ahokas, R. Cleve and B. Sanders, “Efficient quantum algorithms for simulating sparse Hamiltonians” (2006). [arXiv:quant-ph/0508139](https://arxiv.org/abs/quant-ph/0508139) \[2]: N. Hatano and M. Suzuki, “Finding Exponential Product Formulas of Higher Orders” (2005). [arXiv:math-ph/0506007](https://arxiv.org/pdf/math-ph/0506007.pdf)
+
+  **Parameters**
+
+  *   **reps** ([*int*](https://docs.python.org/3/library/functions.html#int ""(in Python v3.12)"")) – The number of time steps.Document 2:::
+Run the job of the estimation of expectation value(s).
+
+    `circuits`, `observables`, and `parameter_values` should have the same length. The i-th element of the result is the expectation of observable
+
+    ```python
+    obs = observables[i]
+    ```
+
+    for the state prepared by
+
+    ```python
+    circ = circuits[i]
+    ```
+
+    with bound parameters
+
+    ```python
+    values = parameter_values[i].
+    ```
+
+    **Parameters**""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+import scipy as sc
+
+def exact(final_time, timestep, hamiltonian, initial_state):
+""""""Get the exact values for energy and the observable in the p-VQD
+ algorithm.
+Returns:
+Times, energ, magn
+Times: list of timepoints at which energy/obs are evaluated
+Energ, magn: list of energies and magnetizations evaluated at
+ timesteps timestep
+""""""
+O = observable.to_matrix()
+H = hamiltonian.to_matrix()
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+**Returns**
+
+    A handle to the instructions created.
+
+    **Return type**
+
+    [*InstructionSet*](qiskit.circuit.InstructionSet ""qiskit.circuit.instructionset.InstructionSet"")
+  </Function>
+
+  ### unitary
+
+  <Function id=""qiskit.circuit.QuantumCircuit.unitary"" github=""https://github.com/Qiskit/qiskit/tree/stable/1.0/qiskit/circuit/quantumcircuit.py#L4180-L4221"" signature=""unitary(obj, qubits, label=None)"">
+    Apply unitary gate specified by `obj` to `qubits`.
+
+    **Parameters**Document 1:::
+```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.initialize('01', circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌──────────────────┐
+    q_0: ┤0                 ├
+         │  Initialize(0,1) │
+    q_1: ┤1                 ├
+         └──────────────────┘
+    ```
+
+    Initialize two qubits from an array of complex amplitudes.
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)Document 2:::
+│  State Preparation(0,1) │
+    q_1: ┤1                        ├
+         └─────────────────────────┘
+    ```
+
+    Initialize two qubits from an array of complex amplitudes .. code-block:
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.prepare_state([0, 1/np.sqrt(2), -1.j/np.sqrt(2), 0], circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌───────────────────────────────────────────┐
+    q_0: ┤0                                          ├
+         │  State Preparation(0,0.70711,-0.70711j,0) │
+    q_1: ┤1                                          ├
+         └───────────────────────────────────────────┘""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+# Prompt: Complete the function that creates a basic quantum circuit
+ with a Hadamard gate applied to qubit 0.
+from qiskit import QuantumCircuit
+
+def create_basic_circuit(n_qubits: int) -> QuantumCircuit:
+"""""" Creates a quantum circuit with the specified number of qubits and
+ applies a Hadamard gate to the first qubit (qubit 0).
+Parameters: n_qubits (int): Number of qubits in the circuit.
+Returns: QuantumCircuit: The constructed quantum circuit. """"""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+</Function>
+
+  ### measure\_all
+
+  <Function id=""qiskit.circuit.QuantumCircuit.measure_all"" github=""https://github.com/Qiskit/qiskit/tree/stable/1.0/qiskit/circuit/quantumcircuit.py#L2296-L2339"" signature=""measure_all(inplace=True, add_bits=True)"">
+    Adds measurement to all qubits.
+
+    By default, adds new classical bits in a [`ClassicalRegister`](qiskit.circuit.ClassicalRegister ""qiskit.circuit.ClassicalRegister"") to store these measurements. If `add_bits=False`, the results of the measurements will instead be stored in the already existing classical bits, with qubit `n` being measured into classical bit `n`.
+
+    Returns a new circuit with measurements if `inplace=False`.Document 1:::
+qc.cx(0, range(1, 5))
+  qc.measure_all()
+  ```
+
+  Construct a 4-qubit Bernstein-Vazirani circuit using registers.
+
+  ```python
+  from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
+
+  qr = QuantumRegister(3, 'q')
+  anc = QuantumRegister(1, 'ancilla')
+  cr = ClassicalRegister(3, 'c')
+  qc = QuantumCircuit(qr, anc, cr)
+
+  qc.x(anc[0])
+  qc.h(anc[0])
+  qc.h(qr[0:3])
+  qc.cx(qr[0:3], anc[0])Document 2:::
+This is equivalent to:
+
+    ```python
+    circuit = QuantumCircuit(qreg, creg)
+    circuit.measure(qreg[0], creg[0])
+    circuit.measure(qreg[1], creg[1])
+    ```
+  </Function>
+
+  ### measure\_active
+
+  <Function id=""qiskit.circuit.QuantumCircuit.measure_active"" github=""https://github.com/Qiskit/qiskit/tree/stable/1.0/qiskit/circuit/quantumcircuit.py#L2266-L2294"" signature=""measure_active(inplace=True)"">
+    Adds measurement to all non-idle qubits. Creates a new ClassicalRegister with a size equal to the number of non-idle qubits being measured.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+from qiskit import QuantumCircuit, ClassicalRegister
+"""""" Write a function that adds a classical register to the quantum circuit
+ and measures all qubits. Parameters:
+qc (QuantumCircuit): The quantum circuit to which measurement is to
+ be added.
+n_bits (int): Number of classical bits, should be equal to the number of
+ qubits.
+Returns: QuantumCircuit: The quantum circuit with measurement 
+added. """"""
+
+
+# Task: Generate the code here based on the provided context and prompt:
+"
