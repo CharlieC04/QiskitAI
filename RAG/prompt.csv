@@ -978,3 +978,250 @@ added. """"""
 
 # Task: Generate the code here based on the provided context and prompt:
 "
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+*   **register.** (*creates a circuit with a flat quantum*) –
+    *   **synthesizer** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable ""(in Python v3.12)"")*\[\[ClassicalElement],* [*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.quantumcircuit.QuantumCircuit"")*] | None*) – Optional. If None tweedledum’s pkrm\_synth is used.
+
+    **Returns**
+
+    A circuit implementing the logic network.
+
+    **Return type**
+
+    [QuantumCircuit](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")
+  </Function>
+
+  ### to\_matrixDocument 1:::
+│  State Preparation(0,1) │
+    q_1: ┤1                        ├
+         └─────────────────────────┘
+    ```
+
+    Initialize two qubits from an array of complex amplitudes .. code-block:
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.prepare_state([0, 1/np.sqrt(2), -1.j/np.sqrt(2), 0], circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌───────────────────────────────────────────┐
+    q_0: ┤0                                          ├
+         │  State Preparation(0,0.70711,-0.70711j,0) │
+    q_1: ┤1                                          ├
+         └───────────────────────────────────────────┘Document 2:::
+**Returns**
+
+    A handle to the instructions created.
+
+    **Return type**
+
+    [*InstructionSet*](qiskit.circuit.InstructionSet ""qiskit.circuit.instructionset.InstructionSet"")
+  </Function>
+
+  ### unitary
+
+  <Function id=""qiskit.circuit.QuantumCircuit.unitary"" github=""https://github.com/Qiskit/qiskit/tree/stable/1.0/qiskit/circuit/quantumcircuit.py#L4180-L4221"" signature=""unitary(obj, qubits, label=None)"">
+    Apply unitary gate specified by `obj` to `qubits`.
+
+    **Parameters**""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Write a function that creates a quantum circuit that prepares a Bell
+ state using two qubits.""
+""Returns: QuantumCircuit: The quantum circuit that prepares the
+ Bell state. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+**Parameters**
+
+  *   **gate** ([*Gate*](qiskit.circuit.Gate ""qiskit.circuit.Gate"") *| Callable\[\[*[*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")*,* [*circuit.Qubit*](qiskit.circuit.Qubit ""qiskit.circuit.Qubit"")*,* [*circuit.Qubit*](qiskit.circuit.Qubit ""qiskit.circuit.Qubit"")*],* [*circuit.Instruction*](qiskit.circuit.Instruction ""qiskit.circuit.Instruction"")*]*) – The gate to be applied controlled on the control qubits and applied to the target qubits. Can be either a Gate or a circuit method. If it is a callable, it will be casted to a Gate.Document 1:::
+qr = QuantumRegister(3)
+  qc = QuantumCircuit(qr)
+  c3h_gate = HGate().control(2)
+  qc.append(c3h_gate, qr)
+  qc.draw('mpl')
+  ```
+
+  ![../\_images/qiskit-circuit-ControlledGate-1.png](/images/api/qiskit/1.0/qiskit-circuit-ControlledGate-1.png)
+
+  Create a controlled custom gate and apply it to a circuit.
+
+  ```python
+  from qiskit import QuantumCircuit, QuantumRegister
+  from qiskit.circuit.library.standard_gates import HGate
+
+  qc1 = QuantumCircuit(2)
+  qc1.x(0)
+  qc1.h(1)Document 2:::
+</Function>
+
+  ### ch
+
+  <Function id=""qiskit.circuit.QuantumCircuit.ch"" github=""https://github.com/Qiskit/qiskit/tree/stable/1.0/qiskit/circuit/quantumcircuit.py#L2888-L2914"" signature=""ch(control_qubit, target_qubit, label=None, ctrl_state=None)"">
+    Apply [`CHGate`](qiskit.circuit.library.CHGate ""qiskit.circuit.library.CHGate"").
+
+    For the full matrix form of this gate, see the underlying gate documentation.
+
+    **Parameters**
+
+    *   **control\_qubit** (*QubitSpecifier*) – The qubit(s) used as the control.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create a function that applies a controlled-NOT (CNOT) gate to the
+ given quantum circuit with control qubit 0 and target qubit 1.
+Parameters: qc (QuantumCircuit): The quantum circuit to which the
+ CNOT gate is to be applied. 
+Returns: QuantumCircuit: The quantum
+ circuit with the CNOT gate applied. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+**Parameters**
+
+    **instruction** ([*qiskit.circuit.Instruction*](qiskit.circuit.Instruction ""qiskit.circuit.Instruction"")  *or*[*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")) – instruction or circuit
+
+    **Returns**
+
+    The final statevector.
+
+    **Return type**
+
+    [Statevector](#qiskit.quantum_info.Statevector ""qiskit.quantum_info.Statevector"")
+
+    **Raises**
+
+    [**QiskitError**](exceptions#qiskit.exceptions.QiskitError ""qiskit.exceptions.QiskitError"") – if the instruction contains invalid instructions for the statevector simulation.
+  </Function>Document 1:::
+Returns a new circuit with measurements if `inplace=False`.
+
+    **Parameters**
+
+    *   **inplace** ([*bool*](https://docs.python.org/3/library/functions.html#bool ""(in Python v3.12)"")) – All measurements inplace or return new circuit.
+    *   **add\_bits** ([*bool*](https://docs.python.org/3/library/functions.html#bool ""(in Python v3.12)"")) – Whether to add new bits to store the results.
+
+    **Returns**
+
+    Returns circuit with measurements when `inplace=False`.
+
+    **Return type**
+
+    [QuantumCircuit](#qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")Document 2:::
+Run on the backend.
+
+    **Parameters**
+
+    *   **run\_input** ([*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")  *|*[*list*](https://docs.python.org/3/library/stdtypes.html#list ""(in Python v3.12)"")*\[*[*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")*]*) – payload of the experiment
+    *   **backend\_options** – backend options
+
+    **Returns**
+
+    derived from BaseJob
+
+    **Return type**""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Write a function that executes the given quantum circuit on the 
+FakeHanoi backend and returns the result counts.
+Parameters: qc (QuantumCircuit): The quantum circuit to be executed.
+Returns: dict: The result counts of the simulation. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Bases: `BlueprintCircuit`
+
+  Quantum Fourier Transform Circuit.
+
+  The Quantum Fourier Transform (QFT) on $n$ qubits is the operation
+
+$$
+|j\rangle \mapsto \frac{1}{2^{n/2}} \sum_{k=0}^{2^n - 1} e^{2\pi ijk / 2^n} |k\rangle
+$$
+
+  The circuit that implements this transformation can be implemented using Hadamard gates on each qubit, a series of controlled-U1 (or Z, depending on the phase) gates and a layer of Swap gates. The layer of Swap gates can in principle be dropped if the QFT appears at the end of the circuit, since then the re-ordering can be done classically. They can be turned off using the `do_swaps` attribute.
+
+  For 4 qubits, the circuit that implements this transformation is:Document 1:::
+*   **iqft** ([*QuantumCircuit*](qiskit.circuit.QuantumCircuit ""qiskit.circuit.quantumcircuit.QuantumCircuit"") *| None*) – A inverse Quantum Fourier Transform, per default the inverse of [`QFT`](qiskit.circuit.library.QFT ""qiskit.circuit.library.QFT"") is used. Note that the QFT should not include the usual swaps!
+  *   **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str ""(in Python v3.12)"")) – The name of the circuit.
+
+  <Admonition title=""Note"" type=""note"">
+    The inverse QFT should not include a swap of the qubit order.
+  </Admonition>
+
+  **Reference Circuit:**Document 2:::
+**Parameters**
+
+    *   **obj** (*np.ndarray |* [*Gate*](qiskit.circuit.Gate ""qiskit.circuit.Gate"") *| BaseOperator*) – Unitary operator.
+    *   **qubits** (*Sequence\[QubitSpecifier]*) – The circuit qubits to apply the transformation to.
+    *   **label** ([*str*](https://docs.python.org/3/library/stdtypes.html#str ""(in Python v3.12)"") *| None*) – Unitary name for backend \[Default: None].
+
+    **Returns**
+
+    The quantum circuit.
+
+    **Return type**
+
+    [QuantumCircuit](#qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Write a function that applies the Quantum Fourier Transform (QFT) 
+to all qubits in the given quantum circuit.
+Parameters: qc (QuantumCircuit): The quantum circuit to which the 
+QFT is to be applied. 
+Returns: QuantumCircuit: The quantum circuit 
+after applying QFT. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Bases: [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.quantumcircuit.QuantumCircuit"")
+
+  Phase Estimation circuit.
+
+  In the Quantum Phase Estimation (QPE) algorithm \[1, 2, 3], the Phase Estimation circuit is used to estimate the phase $\phi$ of an eigenvalue $e^{2\pi i\phi}$ of a unitary operator $U$, provided with the corresponding eigenstate $|\psi\rangle$. That is
+
+$$
+U|\psi\rangle = e^{2\pi i\phi} |\psi\rangle
+$$
+
+  This estimation (and thereby this circuit) is a central routine to several well-known algorithms, such as Shor’s algorithm or Quantum Amplitude Estimation.
+
+  **References:**Document 1:::
+*   **method** ([*str*](https://docs.python.org/3/library/stdtypes.html#str ""(in Python v3.12)"") *| None*) – Optional, a synthesis method (`'AG'` or `'greedy'`). If set this overrides optimal decomposition for $N \leq 3$ qubits.
+
+  **Returns**
+
+  A circuit implementation of the Clifford.
+
+  **Return type**
+
+  [QuantumCircuit](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")
+
+  **References**Document 2:::
+| [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")(\*regs\[, name, global\_phase, ...]) | Create a new circuit.                                                                                                                                           |
+| [`QuantumRegister`](qiskit.circuit.QuantumRegister ""qiskit.circuit.QuantumRegister"")(\[size, name, bits])              | Implement a quantum register.                                                                                                                                   |
+| [`Qubit`](qiskit.circuit.Qubit ""qiskit.circuit.Qubit"")(\[register, index])                                             | Implement a quantum bit.                                                                                                                                        |
+| [`ClassicalRegister`](qiskit.circuit.ClassicalRegister ""qiskit.circuit.ClassicalRegister"")(\[size, name, bits])        | Implement a classical register.                                                                                                                                 |""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create a function that implements the Quantum Phase Estimation 
+(QPE) algorithm using 3 counting qubits and 1 eigenstate qubit.
+Returns: QuantumCircuit: The quantum circuit implementing QPE. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
