@@ -67,3 +67,265 @@ The library is organized in several sections.
          └───────────────────────────────────────────┘""""""
 # Generate Code here:
 "
+"# Prompt:
+
+
+""""""
+Import the QuantumCircuit class from the qiskit library. 
+Then, create a quantum circuit with 3 qubits and apply a Hadamard
+gate to the second qubit.
+Ensure to include the necessary import statement for the qiskit library.
+""""""
+
+
+# Context:
+""""""Document 0:::
+Return a QuantumCircuit implementing the Clifford.
+
+    For N \<= 3 qubits this is based on optimal CX cost decomposition from reference \[1]. For N > 3 qubits this is done using the general non-optimal compilation routine from reference \[2].
+
+    **Returns**
+
+    a circuit implementation of the Clifford.
+
+    **Return type**
+
+    [QuantumCircuit](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"")
+
+    **References**
+
+    1.  S. Bravyi, D. Maslov, *Hadamard-free circuits expose the structure of the Clifford group*, [arXiv:2003.09412 \[quant-ph\]](https://arxiv.org/abs/2003.09412)Document 1:::
+from qiskit import QuantumCircuit
+circuit = QuantumCircuit(5)
+circuit.append(gate, [0, 1, 4, 2, 3])
+circuit.draw('mpl')
+```
+
+![../\_images/circuit\_library-1.png](/images/api/qiskit/1.0/circuit_library-1.png)
+
+The library is organized in several sections.
+
+## Standard gatesDocument 2:::
+```python
+  from qiskit import QuantumCircuit
+
+  qc = QuantumCircuit(2, 2)
+  qc.h(0)
+  qc.cx(0, 1)
+  qc.measure([0, 1], [0, 1])
+  qc.draw('mpl')
+  ```
+
+  ![../\_images/qiskit-circuit-QuantumCircuit-1.png](/images/api/qiskit/1.0/qiskit-circuit-QuantumCircuit-1.png)
+
+  Construct a 5-qubit GHZ circuit.
+
+  ```python
+  from qiskit import QuantumCircuit
+
+  qc = QuantumCircuit(5)
+  qc.h(0)
+  qc.cx(0, range(1, 5))""""""
+# Generate Code here:
+"
+"# Prompt:
+
+
+""""""
+Import the QuantumCircuit class from the qiskit library. 
+Create a quantum circuit with 3 qubits. Apply a CNOT gate with the
+ first qubit as the control and the third qubit as the target. Then, apply 
+a Hadamard gate to the second qubit. Ensure to include the
+ necessary import statement for the qiskit library.
+""""""
+
+
+# Context:
+""""""Document 0:::
+Bases: [`SingletonControlledGate`](circuit_singleton#qiskit.circuit.singleton.SingletonControlledGate ""qiskit.circuit.singleton.SingletonControlledGate"")
+
+  Controlled-Hadamard gate.
+
+  Applies a Hadamard on the target qubit if the control is in the $|1\rangle$ state.
+
+  Can be applied to a [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"") with the [`ch()`](qiskit.circuit.QuantumCircuit#ch ""qiskit.circuit.QuantumCircuit.ch"") method.
+
+  **Circuit symbol:**
+
+  ```python
+  q_0: ──■──
+       ┌─┴─┐
+  q_1: ┤ H ├
+       └───┘
+  ```Document 1:::
+qr = QuantumRegister(3)
+  qc = QuantumCircuit(qr)
+  c3h_gate = HGate().control(2)
+  qc.append(c3h_gate, qr)
+  qc.draw('mpl')
+  ```
+
+  ![../\_images/qiskit-circuit-ControlledGate-1.png](/images/api/qiskit/1.0/qiskit-circuit-ControlledGate-1.png)
+
+  Create a controlled custom gate and apply it to a circuit.
+
+  ```python
+  from qiskit import QuantumCircuit, QuantumRegister
+  from qiskit.circuit.library.standard_gates import HGate
+
+  qc1 = QuantumCircuit(2)
+  qc1.x(0)
+  qc1.h(1)Document 2:::
+Can be applied to a [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"") with the [`rcccx()`](qiskit.circuit.QuantumCircuit#rcccx ""qiskit.circuit.QuantumCircuit.rcccx"") method.
+
+  Create a new RC3X gate.
+
+  ## Attributes
+
+  ### base\_class
+
+  <Attribute id=""qiskit.circuit.library.RC3XGate.base_class"">
+    Get the base class of this instruction. This is guaranteed to be in the inheritance tree of `self`.""""""
+# Generate Code here:
+"
+"# Prompt:
+
+
+""""""
+Import the QuantumCircuit class from the qiskit library and create
+ a quantum circuit with 3 qubits. Apply a CNOT gate with the first qubit
+ as the control and the third qubit as the target. Then, apply a Hadamard
+ gate to the second qubit. Import the Statevector class from
+qiskit.quantum_info, initialize it to the |0⟩ state for 3 qubits, and
+ evolve this state using the created quantum circuit. Ensure to include
+ the necessary import statements for the qiskit library.
+Do not execute the circuit, stop after evolving the state.
+""""""
+
+
+# Context:
+""""""Document 0:::
+│  State Preparation(0,1) │
+    q_1: ┤1                        ├
+         └─────────────────────────┘
+    ```
+
+    Initialize two qubits from an array of complex amplitudes .. code-block:
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.prepare_state([0, 1/np.sqrt(2), -1.j/np.sqrt(2), 0], circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌───────────────────────────────────────────┐
+    q_0: ┤0                                          ├
+         │  State Preparation(0,0.70711,-0.70711j,0) │
+    q_1: ┤1                                          ├
+         └───────────────────────────────────────────┘Document 1:::
+└─────────────────────────────────────┘
+    ```
+
+    Prepare from a string two qubits in the state $|10\rangle$. The order of the labels is reversed with respect to qubit index. More information about labels for basis states are in [`Statevector.from_label()`](qiskit.quantum_info.Statevector#from_label ""qiskit.quantum_info.Statevector.from_label"").
+
+    ```python
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    circuit = QuantumCircuit(2)
+    circuit.prepare_state('01', circuit.qubits)
+    circuit.draw()
+    ```
+
+    output:
+
+    ```python
+         ┌─────────────────────────┐
+    q_0: ┤0                        ├
+         │  State Preparation(0,1) │
+    q_1: ┤1                        ├Document 2:::
+```python
+  0 -- 1 -- 2
+       |
+       3
+       |
+       4
+  ```
+
+  To do this we use a line swap strategy for qubits 0, 1, 3, and 4 defined it in terms of virtual qubits 0, 1, 2, and 3.
+
+  ```python
+  from qiskit import QuantumCircuit
+  from qiskit.circuit.library import PauliEvolutionGate
+  from qiskit.quantum_info import SparsePauliOp
+  from qiskit.transpiler import Layout, CouplingMap, PassManager
+  from qiskit.transpiler.passes import FullAncillaAllocation
+  from qiskit.transpiler.passes import EnlargeWithAncilla
+  from qiskit.transpiler.passes import ApplyLayout""""""
+# Generate Code here:
+"
+"# Prompt:
+
+
+""""""
+Create a quantum circuit with 2 qubits and apply a Hadamard gate to
+ the first qubit. Then, transpile the circuit for execution on the
+ AerSimulator backend from qiskit_aer. Finally, run the transpiled
+ circuit using backend.run with 128 shots. Ensure not to use or
+ import the execute function from qiskit.
+""""""
+
+
+# Context:
+""""""Document 0:::
+# Get a fake backend from the fake provider
+backend = FakeManilaV2()
+
+# Create a simple circuit
+circuit = QuantumCircuit(3)
+circuit.h(0)
+circuit.cx(0,1)
+circuit.cx(0,2)
+circuit.measure_all()
+circuit.draw('mpl', style=""iqp"")
+
+# Transpile the ideal circuit to a circuit that can be directly executed by the backend
+transpiled_circuit = transpile(circuit, backend)
+transpiled_circuit.draw('mpl', style=""iqp"")
+
+# Run the transpiled circuit using the simulated fake backend
+sampler = SamplerV2(backend)
+job = sampler.run([transpiled_circuit])Document 1:::
+Transpile one or more circuits, according to some desired transpilation targets.
+
+  Transpilation is potentially done in parallel using multiprocessing when `circuits` is a list with > 1 [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.circuit.QuantumCircuit"") object depending on the local environment and configuration.
+
+  **Parameters**
+
+  *   **circuits** (*\_CircuitT*) – Circuit(s) to transpile
+
+  *   **backend** ([*Backend*](qiskit.providers.Backend ""qiskit.providers.backend.Backend"") *| None*) – If set, the transpiler will compile the input circuit to this target device. If any other option is explicitly set (e.g., `coupling_map`), it will override the backend’s.Document 2:::
+circuit.cx(0,1)
+circuit.cx(0,2)
+circuit.measure_all()
+circuit.draw('mpl')
+
+# Transpile the ideal circuit to a circuit that can be directly executed by the backend
+transpiled_circuit = transpile(circuit, backend)
+transpiled_circuit.draw('mpl')
+
+# Run the transpiled circuit using the simulated backend
+job = backend.run(transpiled_circuit)
+counts = job.result().get_counts()
+plot_histogram(counts)
+```
+
+![../\_images/providers\_fake\_provider-1\_00.png](/images/api/qiskit/1.0/providers_fake_provider-1_00.png)""""""
+# Generate Code here:
+"
