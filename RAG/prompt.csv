@@ -1,15 +1,5 @@
-"# Prompt:
-
-
-""""""
-Import the QuantumCircuit class from the qiskit library.
-Then, create a quantum circuit with 3 qubits. 
-Ensure to include the necessary import statement for the qiskit library.
-""""""
-
-
-# Context:
-""""""Document 0:::
+"# Context: Use the following context to inform your code generation.
+Document 0:::
 from qiskit import QuantumCircuit
 circuit = QuantumCircuit(5)
 circuit.append(gate, [0, 1, 4, 2, 3])
@@ -65,21 +55,20 @@ The library is organized in several sections.
          │  State Preparation(0,0.70711,-0.70711j,0) │
     q_1: ┤1                                          ├
          └───────────────────────────────────────────┘""""""
-# Generate Code here:
-"
-"# Prompt:
-
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
 
 """"""
-Import the QuantumCircuit class from the qiskit library. 
-Then, create a quantum circuit with 3 qubits and apply a Hadamard
-gate to the second qubit.
+Import the QuantumCircuit class from the qiskit library.
+Then, create a quantum circuit with 3 qubits. 
 Ensure to include the necessary import statement for the qiskit library.
 """"""
 
 
-# Context:
-""""""Document 0:::
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
 Return a QuantumCircuit implementing the Clifford.
 
     For N \<= 3 qubits this is based on optimal CX cost decomposition from reference \[1]. For N > 3 qubits this is done using the general non-optimal compilation routine from reference \[2].
@@ -126,22 +115,21 @@ The library is organized in several sections.
   qc = QuantumCircuit(5)
   qc.h(0)
   qc.cx(0, range(1, 5))""""""
-# Generate Code here:
-"
-"# Prompt:
-
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
 
 """"""
 Import the QuantumCircuit class from the qiskit library. 
-Create a quantum circuit with 3 qubits. Apply a CNOT gate with the
- first qubit as the control and the third qubit as the target. Then, apply 
-a Hadamard gate to the second qubit. Ensure to include the
- necessary import statement for the qiskit library.
+Then, create a quantum circuit with 3 qubits and apply a Hadamard
+gate to the second qubit.
+Ensure to include the necessary import statement for the qiskit library.
 """"""
 
 
-# Context:
-""""""Document 0:::
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
 Bases: [`SingletonControlledGate`](circuit_singleton#qiskit.circuit.singleton.SingletonControlledGate ""qiskit.circuit.singleton.SingletonControlledGate"")
 
   Controlled-Hadamard gate.
@@ -186,25 +174,22 @@ Can be applied to a [`QuantumCircuit`](qiskit.circuit.QuantumCircuit ""qiskit.ci
 
   <Attribute id=""qiskit.circuit.library.RC3XGate.base_class"">
     Get the base class of this instruction. This is guaranteed to be in the inheritance tree of `self`.""""""
-# Generate Code here:
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Import the QuantumCircuit class from the qiskit library. 
+Create a quantum circuit with 3 qubits. Apply a CNOT gate with the
+ first qubit as the control and the third qubit as the target. Then, apply 
+a Hadamard gate to the second qubit. Ensure to include the
+ necessary import statement for the qiskit library.
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
 "
-"# Prompt:
-
-
-""""""
-Import the QuantumCircuit class from the qiskit library and create
- a quantum circuit with 3 qubits. Apply a CNOT gate with the first qubit
- as the control and the third qubit as the target. Then, apply a Hadamard
- gate to the second qubit. Import the Statevector class from
-qiskit.quantum_info, initialize it to the |0⟩ state for 3 qubits, and
- evolve this state using the created quantum circuit. Ensure to include
- the necessary import statements for the qiskit library.
-Do not execute the circuit, stop after evolving the state.
-""""""
-
-
-# Context:
-""""""Document 0:::
+"# Context: Use the following context to inform your code generation.
+Document 0:::
 │  State Preparation(0,1) │
     q_1: ┤1                        ├
          └─────────────────────────┘
@@ -268,22 +253,25 @@ Do not execute the circuit, stop after evolving the state.
   from qiskit.transpiler.passes import FullAncillaAllocation
   from qiskit.transpiler.passes import EnlargeWithAncilla
   from qiskit.transpiler.passes import ApplyLayout""""""
-# Generate Code here:
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Import the QuantumCircuit class from the qiskit library and create
+ a quantum circuit with 3 qubits. Apply a CNOT gate with the first qubit
+ as the control and the third qubit as the target. Then, apply a Hadamard
+ gate to the second qubit. Import the Statevector class from
+qiskit.quantum_info, initialize it to the |0⟩ state for 3 qubits, and
+ evolve this state using the created quantum circuit. Ensure to include
+ the necessary import statements for the qiskit library.
+Do not execute the circuit, stop after evolving the state.
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
 "
-"# Prompt:
-
-
-""""""
-Create a quantum circuit with 2 qubits and apply a Hadamard gate to
- the first qubit. Then, transpile the circuit for execution on the
- AerSimulator backend from qiskit_aer. Finally, run the transpiled
- circuit using backend.run with 128 shots. Ensure not to use or
- import the execute function from qiskit.
-""""""
-
-
-# Context:
-""""""Document 0:::
+"# Context: Use the following context to inform your code generation.
+Document 0:::
 # Get a fake backend from the fake provider
 backend = FakeManilaV2()
 
@@ -327,5 +315,17 @@ plot_histogram(counts)
 ```
 
 ![../\_images/providers\_fake\_provider-1\_00.png](/images/api/qiskit/1.0/providers_fake_provider-1_00.png)""""""
-# Generate Code here:
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+""""""
+Create a quantum circuit with 2 qubits and apply a Hadamard gate to
+ the first qubit. Then, transpile the circuit for execution on the
+ AerSimulator backend from qiskit_aer. Finally, run the transpiled
+ circuit using backend.run with 128 shots. Ensure not to use or
+ import the execute function from qiskit.
+""""""
+
+
+# Task: Generate the code here based on the provided context and prompt:
 "
