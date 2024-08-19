@@ -1,0 +1,769 @@
+"
+  # Prompt: 
+Import the QuantumCircuit class from the qiskit library.
+Then, create a quantum circuit with 3 qubits. 
+Ensure to include the necessary import statement for the qiskit library.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Import the QuantumCircuit class from the qiskit library. 
+Then, create a quantum circuit with 3 qubits and apply a Hadamard
+gate to the second qubit.
+Ensure to include the necessary import statement for the qiskit library.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Import the QuantumCircuit class from the qiskit library. 
+Create a quantum circuit with 3 qubits. Apply a CNOT gate with the
+ first qubit as the control and the third qubit as the target. Then, apply 
+a Hadamard gate to the second qubit. Ensure to include the
+ necessary import statement for the qiskit library.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Import the QuantumCircuit class from the qiskit library and create
+ a quantum circuit with 3 qubits. Apply a CNOT gate with the first qubit
+ as the control and the third qubit as the target. Then, apply a Hadamard
+ gate to the second qubit. Import the Statevector class from
+qiskit.quantum_info, initialize it to the |0⟩ state for 3 qubits, and
+ evolve this state using the created quantum circuit. Ensure to include
+ the necessary import statements for the qiskit library.
+Do not execute the circuit, stop after evolving the state.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit 
+from qiskit.quantum_info import Statevector 
+
+  "
+"
+  # Prompt: 
+Create a quantum circuit with 2 qubits and apply a Hadamard gate to
+ the first qubit. Then, transpile the circuit for execution on the
+ AerSimulator backend from qiskit_aer. Finally, run the transpiled
+ circuit using backend.run with 128 shots. Ensure not to use or
+ import the execute function from qiskit.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, transpile 
+from qiskit_aer import AerSimulator 
+
+  "
+"
+  # Prompt: 
+Create a quantum circuit with one QuantumRegister. Apply a U gate
+ with the parameters pi/4, pi/3, pi/2 to the qubit in the register.
+Ensure to include necessary imports from qiskit.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, QuantumRegister 
+from math import pi 
+
+  "
+"
+  # Prompt: 
+Create a TwoLocal ansatz and an SLSQP optimizer. The SLSQP 
+optimizer should have 1000 maxiters and the TwoLocal ansatz should 
+use the “ry” and “cz” gates and have 2 qubits.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit.circuit.library import TwoLocal 
+from qiskit_algorithms.optimizers import SLSQP 
+
+  "
+"
+  # Prompt: 
+Create an ansatz with a 5-qubit parameter theta to be used for
+ projecting the update steps of the p-VQD algorithm. Ensure the ansatz
+ is parameterized and structured appropriately for a quantum algorithm.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit.circuit import QuantumCircuit, ParameterVector 
+
+  "
+"
+  # Prompt: 
+Create a quantum circuit with 3 qubits and apply a Hadamard gate
+ to the second qubit. Then, create a subcircuit with 2 qubits that applies
+ the following operations: a Hadamard gate to the first qubit, a barrier,
+ and a U gate to the first qubit with parameters 1, 2, -2. Finally, apply
+ this subcircuit to the second and third qubits in the main circuit.
+ Draw the decomposed version of this circuit. Include all necessary
+ imports and provide comments explaining each step.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, transpile
+
+  "
+"
+  # Prompt: 
+Make a circuit with 2 qubits and apply a Hadamard (H) gate to the first
+ qubit. Then, create a pulse scheduler with the
+ parameters: duration=256, amp=0.2, and sigma=50. Add the pulse
+ schedule to the circuit.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.pulse import Play, Schedule
+from qiskit.pulse.library import Gaussian
+from qiskit.pulse.channels import DriveChannel
+
+  "
+"
+  # Prompt: 
+import math
+
+# Imports from Qiskit
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import MCMT, ZGate
+
+def grover_oracle(marked_states):
+""""""Build a Grover oracle for multiple marked states
+
+Here we assume all input marked states have the same number of bits
+
+Parameters:
+marked_states (str or list): Marked states of oracle
+
+Returns:
+QuantumCircuit: Quantum circuit representing Grover oracle
+""""""
+
+  # Task: Generate the code here based on the provided prompt:
+  
+
+  "
+"
+  # Prompt: 
+Append three qc’s to the larger_qc using the to_instruction method.
+ The first should use parameter theta on qubits 0 to 2, the second 
+parameter phi on 3 to 5 and the last parameter gamma on qubits 6 to 8.
+ Then decompose and draw the final circuit.
+
+p = Parameter('p')
+qc = QuantumCircuit(3, name='oracle')
+qc.rz(p, 0)
+qc.cx(0, 1)
+qc.rz(p, 1)
+qc.cx(1, 2)
+qc.rz(p, 2)
+
+theta = Parameter('theta')
+phi = Parameter('phi')
+gamma = Parameter('gamma')
+
+qr = QuantumRegister(9)
+larger_qc = QuantumCircuit(qr)
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, QuantumRegister 
+from qiskit.circuit import Parameter 
+
+  "
+"
+  # Prompt: 
+import scipy as sc
+
+def exact(final_time, timestep, hamiltonian, initial_state):
+""""""Get the exact values for energy and the observable in the p-VQD
+ algorithm.
+Returns:
+Times, energ, magn
+Times: list of timepoints at which energy/obs are evaluated
+Energ, magn: list of energies and magnetizations evaluated at
+ timesteps timestep
+""""""
+O = observable.to_matrix()
+H = hamiltonian.to_matrix()
+
+  # Task: Generate the code here based on the provided prompt:
+  
+
+  "
+"
+  # Prompt: 
+Complete the function that creates a basic quantum circuit
+ with a Hadamard gate applied to qubit 0.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+def create_basic_circuit(n_qubits: int) -> QuantumCircuit:
+"""""" Creates a quantum circuit with the specified number of qubits and
+ applies a Hadamard gate to the first qubit (qubit 0).
+Parameters: n_qubits (int): Number of qubits in the circuit.
+Returns: QuantumCircuit: The constructed quantum circuit. """"""
+
+  "
+"
+  # Prompt: 
+Write a function that adds a classical register to the quantum circuit
+ and measures all qubits. Parameters:
+qc (QuantumCircuit): The quantum circuit to which measurement is to
+ be added.
+n_bits (int): Number of classical bits, should be equal to the number of
+ qubits.
+Returns: QuantumCircuit: The quantum circuit with measurement 
+added.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, ClassicalRegister
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit that prepares a Bell
+ state using two qubits.""
+""Returns: QuantumCircuit: The quantum circuit that prepares the
+ Bell state
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, ClassicalRegister
+
+  "
+"
+  # Prompt: 
+Create a function that applies a controlled-NOT (CNOT) gate to the
+ given quantum circuit with control qubit 0 and target qubit 1.
+Parameters: qc (QuantumCircuit): The quantum circuit to which the
+ CNOT gate is to be applied. 
+Returns: QuantumCircuit: The quantum
+ circuit with the CNOT gate applied
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+ Write a function that executes the given quantum circuit on the 
+FakeHanoi backend and returns the result counts.
+Parameters: qc (QuantumCircuit): The quantum circuit to be executed.
+Returns: dict: The result counts of the simulation
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit_ibm_runtime.fake_provider import FakeHanoi
+
+  "
+"
+  # Prompt: 
+Write a function that applies the Quantum Fourier Transform (QFT) 
+to all qubits in the given quantum circuit.
+Parameters: qc (QuantumCircuit): The quantum circuit to which the 
+QFT is to be applied. 
+Returns: QuantumCircuit: The quantum circuit 
+after applying QFT
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+import math
+
+  "
+"
+  # Prompt: 
+Create a function that implements the Quantum Phase Estimation 
+(QPE) algorithm using 3 counting qubits and 1 eigenstate qubit.
+Returns: QuantumCircuit: The quantum circuit implementing QPE
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit that implements the
+ quantum teleportation protocol.
+Returns: QuantumCircuit: The quantum circuit for quantum
+ teleportation.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit implementing the 
+Deutsch-Jozsa algorithm. The oracle should distinguish between a
+ balanced and a constant function for `n_qubits`. 
+Parameters: n_qubits (int): Number of qubits, excluding the oracle qubit.
+ Returns: QuantumCircuit: The quantum circuit implementing the
+ Deutsch-Jozsa algorithm.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function to implement the Quantum Approximate
+ Optimization Algorithm (QAOA) for a given number of qubits.
+ The function should generate a quantum circuit with a mixing operator
+ and a problem Hamiltonian operator.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+ p (int): Number of layers in the QAOA.
+Returns: QuantumCircuit: The quantum circuit implementing QAOA.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that prepares a GHZ state for `n_qubits`. The
+ function should return a quantum circuit that creates this entangled
+ state.
+Parameters: n_qubits (int): Number of qubits in the GHZ state.
+Returns: QuantumCircuit: The quantum circuit that prepares the
+ GHZ state
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that sets up Shor's algorithm for integer factorization
+ of a given number `N` with base 'a'. The function should return the quantum circuit
+ that implements the modular exponentiation part of Shor's algorithm.
+Parameters: N (int): The integer to factorize.
+a (int): Base for modular multiplication
+Returns: QuantumCircuit: The quantum circuit implementing
+ modular exponentiation.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, QuantumRegister
+
+  "
+"
+  # Prompt: 
+Write a function that implements the Quantum Walk algorithm
+ on a cycle graph with `n_qubits` qubits. The function should create 
+and return a quantum circuit that simulates one step of the quantum
+ walk.
+Parameters: n_qubits (int): Number of qubits in the cycle graph.
+Returns: QuantumCircuit: The quantum circuit implementing the 
+quantum walk
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that applies a permutation operation on `n_qubits`
+ using Qiskit's Permutation gate. The function should return a quantum
+ circuit that applies a specific permutation, such as a swap, on the
+ qubits.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+pattern (list): A list specifying the permutation pattern (e.g., [2, 1, 0]
+ for reversing a 3-qubit order). Returns: QuantumCircuit: The quantum
+ circuit with the permutation operation applied.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import Permutation
+
+  "
+"
+  # Prompt: 
+Write a function that constructs a quantum circuit to prepare a W
+ state for `n_qubits`. The function should return the quantum circuit
+ that generates the W state.
+Parameters: n_qubits (int): Number of qubits in the W state.
+Returns: QuantumCircuit: The quantum circuit that prepares the
+ W state
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that implements the Quantum Counting algorithm.
+ The function should create a quantum circuit that estimates the number
+ of solutions to a given oracle function using `n_qubits`.
+Parameters: n_qubits (int): Number of qubits in the counting register.
+Returns: QuantumCircuit: The quantum circuit implementing
+ quantum counting
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function to construct a quantum circuit that simulates a 
+quantum annealing process. The function should return a circuit that
+ implements a simple Ising model Hamiltonian on `n_qubits`.
+Parameters: n_qubits (int): Number of qubits in the quantum annealing
+ simulation.
+Returns: QuantumCircuit: The quantum circuit simulating quantum
+ annealing.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that applies a random unitary operation to a quantum
+ circuit using `n_qubits`. The function should generate a random unitary
+ matrix and apply it to all qubits in the circuit. 
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+Returns: QuantumCircuit: The quantum circuit with the random
+ unitary operation applied.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import random_unitary
+
+  "
+"
+  # Prompt: 
+Write a function that constructs a quantum circuit to simulate
+ a boson sampling problem. The function should generate the circuit
+ based on `n_qubits` corresponding to the number of photons and
+ modes.
+Parameters: n_qubits (int): Number of qubits, representing the number
+ of photons and modes in the boson sampling.
+Returns: QuantumCircuit: The quantum circuit that simulates the
+ boson sampling.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit 
+from qiskit.quantum_info import random_unitary 
+import numpy as np 
+
+  "
+"
+  # Prompt: 
+Write a function that implements time evolution under
+ a given Hamiltonian for a quantum system. The function should
+ create a quantum circuit with `n_qubits` and apply the Hamiltonian
+ evolution for a specified time `t`.
+Parameters: hamiltonian (array): The Hamiltonian matrix for the
+ quantum system.
+n_qubits (int): Number of qubits in the quantum circuit.
+t (float): Time for which the system evolves.
+Returns: QuantumCircuit: The quantum circuit that implements
+ the time evolution.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import HamiltonianGate
+
+  "
+"
+  # Prompt: 
+Write a function that implements the Quantum Metropolis algorithm
+ for simulating thermal states. The function should return a quantum
+ circuit that approximates the thermal state of a quantum system with
+ `n_qubits`.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+beta (float): Inverse temperature (1/kT) for the thermal state simulation.
+Returns: QuantumCircuit: The quantum circuit implementing the
+ Quantum Metropolis algorithm.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit to simulate a
+ simple quantum error correction code. The function should initialize
+ three qubits, apply an encoding step to protect a single qubit, and then
+ simulate an error by applying an X gate to one of the qubits. Finally,
+ it should perform a decoding step and measure all qubits.
+Returns: QuantumCircuit: The quantum circuit implementing the error
+ correction code.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that transpiles a quantum circuit for a specific
+ backend. The function should create a quantum circuit, apply a series
+ of gates, and then transpile it for the AerSimulator backend with
+ optimization level 3.
+Parameters: qc (QuantumCircuit): The input quantum circuit to
+ be transpiled.
+Returns: QuantumCircuit: The transpiled quantum circuit.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
+
+  "
+"
+  # Prompt: 
+Write a function that creates a variational quantum circuit using the
+ RealAmplitudes ansatz with entanglement 'full'. The circuit should
+ include `reps` repetitions of the circuit block. 
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+reps (int): Number of repetitions of the circuit block.
+Returns: QuantumCircuit: The variational quantum circuit 
+using RealAmplitudes ansatz
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import RealAmplitudes
+
+  "
+"
+  # Prompt: 
+Write a function to create a quantum circuit that implements the 
+Toffoli (CCX) gate using only basic gates like CX, H, T, and T-dagger. 
+The function should take three qubits as input and construct the Toffoli 
+gate step by step.
+Parameters: control1 (int): The first control qubit index.
+control2 (int): The second control qubit index.
+target (int): The target qubit index.
+Returns: QuantumCircuit: The quantum circuit implementing the 
+Toffoli gate.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function to perform quantum state tomography on a 1-qubit
+ state. The function should create a quantum circuit that prepares a
+ specific quantum state (e.g., |+⟩) and then measure the state in the
+ X, Y, and Z bases. The function should simulate the circuit and return
+ the measurement results for each basis.
+Returns: dict: The measurement results for each tomography basis.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+
+  "
+"
+  # Prompt: 
+Write a function to create a quantum circuit that simulates the
+ Bernstein-Vazirani algorithm. The function should generate a hidden
+ binary string `s` of length `n_qubits` and create a quantum circuit to
+ find this string using a single query to the oracle.
+Parameters: s (str): The hidden binary string that the Bernstein-Vazirani
+ algorithm will uncover. 
+Returns: QuantumCircuit: The quantum circuit implementing
+ the Bernstein-Vazirani algorithm
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that constructs a quantum circuit to implement a
+ 2-design. The function should generate a quantum circuit with
+ `n_qubits` that creates a 2-design using a series of random single-qubit
+ rotations and entangling gates.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+depth (int): The depth of the 2-design (number of layers).
+Returns: QuantumCircuit: The quantum circuit implementing the
+ 2-design.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+import numpy as np 
+
+  "
+"
+  # Prompt: 
+Write a function to generate a random pure quantum state and create
+ a quantum circuit that initializes a qubit to this state.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+Returns: QuantumCircuit: The quantum circuit that initializes the qubits
+ to the random state
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+import numpy as np
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit to implement the
+ Variational Quantum Classifier (VQC). The function should create a
+ variational quantum circuit with `n_qubits`, parameterized by a set of
+ angles, and simulate the circuit to classify a given input state. 
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+params (list): A list of angles used as parameters for the 
+variational circuit.
+Returns: dict: The result counts from simulating the VQC
+ on a quantum simulator.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit to implement a
+ simple quantum key distribution (QKD) protocol like BB84. The circui
+t should prepare qubits in random bases (X or Z) and measure them
+ in corresponding bases.
+Returns: QuantumCircuit: The quantum circuit implementing the
+ BB84 protocol.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+import numpy as np
+
+  "
+"
+  # Prompt: 
+Write a function to implement a quantum circuit that performs 
+amplitude damping on a single qubit. The function should apply a 
+Kraus operator corresponding to amplitude damping noise with a
+ given probability `p`.
+Parameters: p (float): The probability of amplitude damping.
+Returns: QuantumCircuit: The quantum circuit implementing amplitude
+ damping noise.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister 
+import numpy as np
+
+  "
+"
+  # Prompt: 
+Write a function to create and simulate a quantum circuit that
+ implements the SWAP test to determine the overlap between two
+ quantum states. The function should prepare two quantum states
+ on separate qubits, apply the SWAP test, and return the measurement
+ results.
+Returns: QuantumCircuit: The circuit implementing the SWAP test
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function that constructs a quantum circuit using the
+ EfficientSU2 ansatz for a specified number of qubits. The function
+ should allow for a variable number of layers in the ansatz and return
+ the resulting circuit.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+layers (int): Number of layers in the EfficientSU2 ansatz.
+Returns: QuantumCircuit: The quantum circuit using the EfficientSU2
+ ansatz.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import EfficientSU2
+
+  "
+"
+  # Prompt: 
+Write a function that creates a quantum circuit to implement the
+ Hidden Subgroup Problem (HSP) for a specific function. The circuit
+ should include a function that maps group elements to a hidden
+ subgroup and perform the necessary quantum operations to identify
+ the subgroup.
+ Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+Returns: QuantumCircuit: The quantum circuit implementing the
+ Hidden Subgroup Problem.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
+"
+  # Prompt: 
+Write a function to create a quantum circuit that performs quantum
+ metrology to estimate a small phase shift. The circuit should prepare
+ an entangled state, apply a small phase shift to one qubit, and perform
+ measurements to estimate the phase.
+Parameters: phase (float): The small phase shift to be estimated.
+Returns: QuantumCircuit: The quantum circuit implementing quantum
+ metrology
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import U3Gate
+
+  "
+"
+  # Prompt: 
+Write a function to create a quantum circuit that simulates the
+ behavior of a quantum particle in a potential well. The function should
+ use a finite number of qubits to represent the position and momentum
+ of the particle and apply the appropriate unitary operations.
+Parameters: n_qubits (int): Number of qubits representing the particle's
+ state.
+Returns: QuantumCircuit: The quantum circuit simulating the quantum
+ particle in a potential well.
+
+  # Task: Generate the code here based on the provided prompt:
+  
+from qiskit import QuantumCircuit
+
+  "
