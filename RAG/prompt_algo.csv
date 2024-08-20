@@ -1,0 +1,2674 @@
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+2.7 Circuit of a Boolean function
+Let’s show how to obtain the quantum circuit of a truth table. We only need multiqubit Toffoli
+gates. To show that the multiqubit Toffoli gates can implement any Boolean function on a
+quantum computer, let’s take the 3-bit Boolean function f(a,b,c) defined by the following truth
+table as an example:
+a b c f(a,b,c)
+0 0 0 0
+0 0 1 1
+0 1 0 0
+0 1 1 0
+1 0 0 0
+1 0 1 0
+1 1 0 1
+1 1 1 0
+After this example, it is evident how the general case is obtained. Since f has three input bits,
+we use multiqubit Toffoli gates with three controls. The 4th qubit is the target. The output ofDocument 1:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 2:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantly""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Import the QuantumCircuit class from the qiskit library.
+Then, create a quantum circuit with 3 qubits. 
+Ensure to include the necessary import statement for the qiskit library. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 1:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 2:::
+2.7 Circuit of a Boolean function
+Let’s show how to obtain the quantum circuit of a truth table. We only need multiqubit Toffoli
+gates. To show that the multiqubit Toffoli gates can implement any Boolean function on a
+quantum computer, let’s take the 3-bit Boolean function f(a,b,c) defined by the following truth
+table as an example:
+a b c f(a,b,c)
+0 0 0 0
+0 0 1 1
+0 1 0 0
+0 1 1 0
+1 0 0 0
+1 0 1 0
+1 1 0 1
+1 1 1 0
+After this example, it is evident how the general case is obtained. Since f has three input bits,
+we use multiqubit Toffoli gates with three controls. The 4th qubit is the target. The output of""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Import the QuantumCircuit class from the qiskit library. 
+Then, create a quantum circuit with 3 qubits and apply a Hadamard
+gate to the second qubit.
+Ensure to include the necessary import statement for the qiskit library. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 1:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 2:::
+2.7 Circuit of a Boolean function
+Let’s show how to obtain the quantum circuit of a truth table. We only need multiqubit Toffoli
+gates. To show that the multiqubit Toffoli gates can implement any Boolean function on a
+quantum computer, let’s take the 3-bit Boolean function f(a,b,c) defined by the following truth
+table as an example:
+a b c f(a,b,c)
+0 0 0 0
+0 0 1 1
+0 1 0 0
+0 1 1 0
+1 0 0 0
+1 0 1 0
+1 1 0 1
+1 1 1 0
+After this example, it is evident how the general case is obtained. Since f has three input bits,
+we use multiqubit Toffoli gates with three controls. The 4th qubit is the target. The output of""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Import the QuantumCircuit class from the qiskit library. 
+Create a quantum circuit with 3 qubits. Apply a CNOT gate with the
+ first qubit as the control and the third qubit as the target. Then, apply 
+a Hadamard gate to the second qubit. Ensure to include the
+ necessary import statement for the qiskit library. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 1:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 2:::
+computation we perform a measurement, the circuit is
+(cid:40)
+0, with probability 1,
+|0(cid:105) H 2
+1, with probability 1.
+2
+It shows that the output of the measurement of the qubit, whose state was |+(cid:105), is 0 with
+probability 1/2 or 1 with the same probability. Fig. 2.2 shows the histogram of the probability
+distribution generated in Qiskit3 with two iterations.
+An example that is simpler than the previous one is the X gate, defined as
+(cid:20) (cid:21)
+0 1
+X = .
+1 0
+3Qiskit is open-source software for running programs on IBM quantum computers.
+8Figure 2.2: Histogram of the probability distribution generated by measuring a qubit in state
+|+(cid:105) two times.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Import the QuantumCircuit class from the qiskit library and create
+ a quantum circuit with 3 qubits. Apply a CNOT gate with the first qubit
+ as the control and the third qubit as the target. Then, apply a Hadamard
+ gate to the second qubit. Import the Statevector class from
+qiskit.quantum_info, initialize it to the |0⟩ state for 3 qubits, and
+ evolve this state using the created quantum circuit. Ensure to include
+ the necessary import statements for the qiskit library.
+Do not execute the circuit, stop after evolving the state. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+a measurement. We simply drag H and drop it on the first wire of the circuit, then we drag
+the meter and drop it after H. The meter’s arrow shows that the output is re-directed to an
+auxiliary classical register at the bottom of the circuit.
+Figure 2.3: Example of a circuit with a Hadamard gate and a meter (Reprint Courtesy of IBM
+Corporation ©)
+Afterthecircuitisready,weclickon Setup and run ,andthenwehavetwooptions: (1)Run
+thecircuitonaquantumcomputerbyselectingoneoftheavailablequantumsystems,or(2)sim-
+ulate the circuit by selecting a simulator. It is usually better to start with the second option.
+We select ibm qasm simulator as the provider, then we select the number of shots and then we
+click on Run at the bottom. Fig. 2.4 shows the output of an execution. The result 000 wasDocument 1:::
+click on Run at the bottom. Fig. 2.4 shows the output of an execution. The result 000 was
+obtained 503 times and 001 was obtained 521 times out of 1024 shots. The first two bits must
+be discarded because they refer to qubits that have not been used. The output uses the ordering
+with the least significant bits on the right, as is usual in classical computing. As we can see,
+the composer runs the experiment several times (up to 8192) and shows the histogram of the
+probability distribution. In the case of the Hadamard gate, the most probable result is 50%
+each, but results close to 50% have non-negligible probabilities and frequently occur. To obtain
+results closer to 50%, we have to increase the number of shots.
+4https://quantum-computing.ibm.com/
+11Figure 2.4: Output of the circuit with a Hadamard gate and a meter (Reprint Courtesy of IBM
+Corporation ©)Document 2:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlined""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create a quantum circuit with 2 qubits and apply a Hadamard gate to
+ the first qubit. Then, transpile the circuit for execution on the
+ AerSimulator backend from qiskit_aer. Finally, run the transpiled
+ circuit using backend.run with 128 shots. Ensure not to use or
+ import the execute function from qiskit. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 1:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlinedDocument 2:::
+U = U U (6.156)
+Grover s w
+where U is the query and
+w
+U = 2|s(cid:105)(cid:104)s|−I (6.157)
+s
+reflects a vector about the axis determined by |s(cid:105). Note that U is easy to construct as
+s
+a quantum circuit. It can be expressed as
+U = H⊗n(2|0(cid:105)(cid:104)0|−I)H⊗n (6.158)
+s
+since H⊗n maps |s(cid:105) to |0(cid:105), where H is the single qubit Hadamard gate. Furthermore a
+multiply controlled Z gate can be formed from a multiply controlled-not gate Λn−1(X)
+where the target qubit has a Hadamard before and after the gate, and we know that""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create a quantum circuit with one QuantumRegister. Apply a U gate
+ with the parameters pi/4, pi/3, pi/2 to the qubit in the register.
+Ensure to include necessary imports from qiskit. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+parallelism — that is, if we don’t design our quantum algorithm to exploit the specific
+structure of the problem we wish to solve.
+The optimality of the Grover algorithm might be construed as evidence that BQP (cid:54)⊇
+NP. At least, if it turns out that NP ⊆ BQP and P (cid:54)= NP, then the NP problems
+must share a deeply hidden structure (for which there is currently no evidence) that is
+well-matched to the peculiar capabilities of quantum circuits.
+Even the quadratic speedup may prove useful for a variety of NP-complete optimiza-
+tionproblems.Butaquadraticspeedup,unlikeanexponentialone,doesnotreallymove
+the frontier between solvability and intractability. Quantum computers may someday
+outperform classical computers in performing exhaustive search, but only if the clockDocument 1:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 2:::
+tonian problems seem to be harder than classical ones (if QMA (cid:54)= NP).
+I won’t discuss the tricks for reducing the QMA-complete problem to k = 2 (which
+involves clever use of perturbation theory) or for making H geometrically local (which
+involves encoding the clock more cleverly, among other things).
+Another interesting direction to pursue using these ideas is to show that any problem
+in BQP can be solved using adiabatic quantum computing. The idea is to replace
+H → H (s) = (1−s)H +sH (6.290)
+prop prop clock−init prop
+where the null space of H fixes the clock at |t = 0(cid:105) and s varies in [0,1]. Then
+clock−init
+the ground state of H(s = 0) is easy to construct, and the ground state of H(s = 1) is""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create a TwoLocal ansatz and an SLSQP optimizer. The SLSQP 
+optimizer should have 1000 maxiters and the TwoLocal ansatz should 
+use the “ry” and “cz” gates and have 2 qubits. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:104) | | (cid:105) | (cid:105)
+15.5 A quantum algorithm
+ThedescriptionoftheJonespolynomialintermsofarepresentationoftheTemperley-Liebalgebranaturally
+suggests a quantum algorithm for approximating the Jones polynomial. Suppose that we can efficiently
+implement unitary operations corresponding to twists of adjacent strands on a quantum computer. By
+composing such operations, we can implement a unitary operation corresponding to the entire braid. Then
+we can approximate the desired expectation value using the Hadamard test.
+With a suitable choice for an encoding of the basis states of the representation of the braid group using
+qubits, one can show that the braid group representation operators corresponding to elementary twists can
+indeed be performed efficiently on a quantum computer. Given an explicit description of the braid group
+representation, the details of this implementation are fairly straightforward.
+Applyingthisapproachtotherelevantunitaryrepresentationofthebraidgroup, oneobtainsaquantumDocument 1:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlinedDocument 2:::
+−
+| (cid:105)
+the information about which part of the block encoding the state is in to the qubit, so that by performing
+quantum signal processing on that qubit, we effectively perform quantum signal processing in superposition
+on the high-dimensional target space.
+To apply this method, there are a few more details not yet accounted for. In practice we are only
+interested in choosing P (the function that acts on the block-encoded matrix) and we can allow any Q that
+allows for a quantum signal processing decomposition. Also, we may want to implement a general function
+(not necessarily one of a particular parity), which we can do by adding together block encodings of the even
+and odd parts. We do not describe these issues in detail here, and instead simply state the following final
+result.
+Theorem 27.2 ([49, Theorem 56]). Let f R[x] be a polynomial of degree d with f(x) 1/2 for all
+∈ | | ≤""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create an ansatz with a 5-qubit parameter theta to be used for
+ projecting the update steps of the p-VQD algorithm. Ensure the ansatz
+ is parameterized and structured appropriately for a quantum algorithm. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 1:::
+n−1 n−1 n−1 n−1
+|k n(cid:105) • |k n(cid:105) |k n(cid:105) H H (−1)k¯ 1···k¯ n|k n(cid:105).
+|−(cid:105) (−1)k¯ 1···k¯ n|−(cid:105)
+The equivalence check is similar to the previous case. Therefore, U can also be reduced from
+f
+(n+1) to n qubits by introducing two Hadamard gates together if the n-th qubit is activated by
+771, and by introducing two Hadamard gates plus two Pauli X gates if the n-th qubit is activated
+by 0. The (n−1) first qubits can be activated by 0 or 1 and nothing changes for them.
+Economical circuit for N = 4
+The circuit of Grover’s algorithm in the economical form when N = 4 and x = 11 is
+0Document 2:::
+We easily check that the circuit corresponds exactly to the steps of Algorithm 3.1. The output
+f(0)⊕f(1)is0iff isconstant, and1iff isbalanced. NotethatthelastHadamardgateapplied
+to the second qubit can be eliminated without affecting the algorithm. This gate is here because
+the central part of the circuit is symmetric and the analysis of the algorithm is neater than
+without it. The states at the bottom of the circuit are used in the analysis of the algorithm.
+3.3 Analysis of the algorithm
+After the first step, the state of the quantum computer is
+|ψ (cid:105) = |0(cid:105)⊗|1(cid:105).
+0
+After the second step, the state of the quantum computer is
+|ψ (cid:105) = (H|0(cid:105))⊗(H|1(cid:105))
+1""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Create a quantum circuit with 3 qubits and apply a Hadamard gate
+ to the second qubit. Then, create a subcircuit with 2 qubits that applies
+ the following operations: a Hadamard gate to the first qubit, a barrier,
+ and a U gate to the first qubit with parameters 1, 2, -2. Finally, apply
+ this subcircuit to the second and third qubits in the main circuit.
+ Draw the decomposed version of this circuit. Include all necessary
+ imports and provide comments explaining each step. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 1:::
+synthesis of multi-qubit circuits, but that is also beyond our scope.)
+3.1 Converting to Matsumoto-Amano normal form
+AnalgorithmforexactsynthesisofClifford+T circuitswasfirstpresentedin[65]. However,ourpresentation
+here is based on a simpler analysis [48] that uses a normal form for such circuits introduced by Matsumoto
+and Amano [77].
+The single-qubit Clifford group = H,S,ω is generated by the Hadamard gate H, the phase gate S,
+C (cid:104) (cid:105)
+and the phase ω :=eiπ/4, where
+(cid:18) (cid:19) (cid:18) (cid:19) (cid:18) (cid:19)
+1 1 1 1 0 1 0
+H := T := S :=T2 = . (3.1)
+√2 1 1 0 ω 0 iDocument 2:::
+n−1 n−1 n−1 n−1
+|k n(cid:105) • |k n(cid:105) |k n(cid:105) H H (−1)k¯ 1···k¯ n|k n(cid:105).
+|−(cid:105) (−1)k¯ 1···k¯ n|−(cid:105)
+The equivalence check is similar to the previous case. Therefore, U can also be reduced from
+f
+(n+1) to n qubits by introducing two Hadamard gates together if the n-th qubit is activated by
+771, and by introducing two Hadamard gates plus two Pauli X gates if the n-th qubit is activated
+by 0. The (n−1) first qubits can be activated by 0 or 1 and nothing changes for them.
+Economical circuit for N = 4
+The circuit of Grover’s algorithm in the economical form when N = 4 and x = 11 is
+0""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+"""""" Make a circuit with 2 qubits and apply a Hadamard (H) gate to the first
+ qubit. Then, create a pulse scheduler with the
+ parameters: duration=256, amp=0.2, and sigma=50. Add the pulse
+ schedule to the circuit. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+uniform superposition of the marked states
+r
+1 (cid:88)
+|marked(cid:105) = √ |w (cid:105) (6.159)
+i
+r
+i=1
+has overlap with |s(cid:105) = √1 (cid:80)N−1|x(cid:105)
+N x=0
+(cid:114)
+r
+(cid:104)marked|s(cid:105) = = sinθ (6.160)
+N
+and the Grover iteration again rotates by 2θ in the plane spanned by |s(cid:105) and |marked(cid:105)
+(because the query reflects about the axis perpendicular to |marked(cid:105)).
+As above, then, for N/r (cid:29) 1, we achieve success probability Prob = 1 − O(r/N)6.6 Quantum Searching 31Document 1:::
+2 N
+if we measure in the computational basis, we find the outcome |w(cid:105) with probability
+Prob(w) = cos2δ ≥ 1−δ2 ≥ 1− 1 . Thus we find |w(cid:105) with success probability close
+√ 4N
+to 1 using T ≈ π ≈ π N Grover iterations, making use of T quantum queries to the
+4θ 4
+black box. This is Grover’s quadratic speedup.
+Suppose now that there are r marked states, where r is known. Classically, with each
+query the probability of finding a solution (w such that f(w ) = 1) is r/N, so we need
+i i
+O(N/r) queries to find a solution with constant success probability. Quantumly, the
+uniform superposition of the marked states
+r
+1 (cid:88)Document 2:::
+(cid:114)
+N
+T ≥ , (6.185)
+2
+(ignoring the small correction as N → ∞). This lower bound on the number of queries
+applies if we are to identify the marked state with a success probability that approaches
+one for asymptotically large N. A simple extension of argument shows that
+(cid:114)
+N (cid:0) √ (cid:1)1/2
+T ≥ 1− ε , (6.186)
+2
+if instead we settle for success probabilty at least 1−ε for each possible choice of the
+marked string ω.
+√
+Grover’s algorithm finds ω in π N queries, which exceeds our lower bound by only
+4
+about 11%. In fact, by a more careful argument, we can derive a tighter lower bound on
+the number of queries that asymptotically matches what Grover’s algorithm achieves.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+def grover_oracle(marked_states):
+""""""Build a Grover oracle for multiple marked states
+
+Here we assume all input marked states have the same number of bits
+
+Parameters:
+marked_states (str or list): Marked states of oracle
+
+Returns:
+QuantumCircuit: Quantum circuit representing Grover oracle
+""""""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+2
+But with quantum queries the problem is easy! The circuit we use is essentially the
+same as above, but now both registers are expanded to n qubits. We prepare the equally
+weighted superposition of all n-bit strings (by acting on |0(cid:105) with H(n)), and then we
+query the oracle:
+(cid:32)2n−1 (cid:33) 2n−1
+(cid:88) (cid:88)
+U : |x(cid:105) |0(cid:105) → |x(cid:105)|f(x)(cid:105). (6.23)
+f
+x=0 x=0
+Now we measure the second register. (This step is not actually necessary, but I include
+it here for the sake of pedagogical clarity.) The measurement outcome is selected atDocument 1:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 2:::
+0 1 2 3
+where N2 ≤ q < 2N2, n = (cid:100)log N(cid:101), and a is a random integer such that 1 < a < N. The first
+2
+register has around 2n qubits and the second has exactly n qubits. The states at the bottom of
+the circuit are used in the analysis of the algorithm. They describe the state of the qubits after
+each step. Note that state |ψ (cid:105) refers to the first register only. The notation “/n” over a wire
+4
+denotes that it is a n-qubit register.
+7.6 Analysis of the quantum part
+Calculation of |ψ (cid:105)
+0
+After the first step, the state of the quantum computer is
+|ψ (cid:105) = |0(cid:105)⊗log 2q|0(cid:105)⊗n,
+0""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+Append three qc’s to the larger_qc using the to_instruction method.
+ The first should use parameter theta on qubits 0 to 2, the second 
+parameter phi on 3 to 5 and the last parameter gamma on qubits 6 to 8.
+ Then decompose and draw the final circuit.
+
+p = Parameter('p')
+qc = QuantumCircuit(3, name='oracle')
+qc.rz(p, 0)
+qc.cx(0, 1)
+qc.rz(p, 1)
+qc.cx(1, 2)
+qc.rz(p, 2)
+
+theta = Parameter('theta')
+phi = Parameter('phi')
+gamma = Parameter('gamma')
+
+qr = QuantumRegister(9)
+larger_qc = QuantumCircuit(qr)
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+e itd(a) a,0 (25.5)
+−
+(cid:55)→ | (cid:105)
+=e iHt a 0 . (25.6)
+−
+| (cid:105)| (cid:105)
+By linearity, this process simulates H for time t on an arbitrary input.
+Notethatifwecombinethissimulationwiththepreviousone,wehaveawaytosimulateanyHamiltonian
+that can be efficiently diagonalized, and whose eigenvalues can be efficiently computed.
+25.3 Product formulas
+ManynaturalHamiltonianshavetheformofasumofterms,eachofwhichcanbesimulatedbythetechniques
+described above. For example, consider the Hamiltonian of a particle in a potential:
+p2
+H = +V(x).
+2mDocument 1:::
+(cid:107) (cid:107) (cid:107) (cid:107)
+H t constant, then we get an approximation with K = O(log(1/(cid:15))/loglog(1/(cid:15))). If we could implement
+(cid:107) (cid:107)
+the evolution for constant time with this complexity, then by reducing the error to (cid:15)/t, we could repeat the
+process O(t) times and get a simulation with complexity O(tlog(t/(cid:15))/loglog(t/(cid:15))) and overall error at most
+(cid:15).
+Now suppose we can decompose the given Hamiltonian in the form
+L
+(cid:88)
+H = α H (26.7)
+(cid:96) (cid:96)
+(cid:96)=1Document 2:::
+adiabatic quantum algorithms (Part VI).
+25.1 Hamiltonian dynamics
+In quantum mechanics, time evolution of the wave function ψ(t) is governed by the Schr¨odinger equation,
+| (cid:105)
+d
+i(cid:126) ψ(t) =H(t)ψ(t) . (25.1)
+dt| (cid:105) | (cid:105)
+Here H(t) is the Hamiltonian, an operator with units of energy, and (cid:126) is Planck’s constant. For convenience
+itistypicaltochooseunitsinwhich(cid:126)=1. Givenaninitialwavefunction ψ(0) ,wecansolvethisdifferential
+| (cid:105)
+equation to determine ψ(t) at any later (or earlier) time t.
+| (cid:105)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+
+def exact(final_time, timestep, hamiltonian, initial_state):
+""""""Get the exact values for energy and the observable in the p-VQD
+ algorithm.
+Returns:
+Times, energ, magn
+Times: list of timepoints at which energy/obs are evaluated
+Energ, magn: list of energies and magnetizations evaluated at
+ timesteps timestep
+""""""
+O = observable.to_matrix()
+H = hamiltonian.to_matrix()
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 1:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 2:::
+synthesis of multi-qubit circuits, but that is also beyond our scope.)
+3.1 Converting to Matsumoto-Amano normal form
+AnalgorithmforexactsynthesisofClifford+T circuitswasfirstpresentedin[65]. However,ourpresentation
+here is based on a simpler analysis [48] that uses a normal form for such circuits introduced by Matsumoto
+and Amano [77].
+The single-qubit Clifford group = H,S,ω is generated by the Hadamard gate H, the phase gate S,
+C (cid:104) (cid:105)
+and the phase ω :=eiπ/4, where
+(cid:18) (cid:19) (cid:18) (cid:19) (cid:18) (cid:19)
+1 1 1 1 0 1 0
+H := T := S :=T2 = . (3.1)
+√2 1 1 0 ω 0 i""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+# Prompt: Complete the function that creates a basic quantum circuit
+ with a Hadamard gate applied to qubit 0.
+from qiskit import QuantumCircuit
+
+def create_basic_circuit(n_qubits: int) -> QuantumCircuit:
+"""""" Creates a quantum circuit with the specified number of qubits and
+ applies a Hadamard gate to the first qubit (qubit 0).
+Parameters: n_qubits (int): Number of qubits in the circuit.
+Returns: QuantumCircuit: The constructed quantum circuit. """"""
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+2
+But with quantum queries the problem is easy! The circuit we use is essentially the
+same as above, but now both registers are expanded to n qubits. We prepare the equally
+weighted superposition of all n-bit strings (by acting on |0(cid:105) with H(n)), and then we
+query the oracle:
+(cid:32)2n−1 (cid:33) 2n−1
+(cid:88) (cid:88)
+U : |x(cid:105) |0(cid:105) → |x(cid:105)|f(x)(cid:105). (6.23)
+f
+x=0 x=0
+Now we measure the second register. (This step is not actually necessary, but I include
+it here for the sake of pedagogical clarity.) The measurement outcome is selected atDocument 1:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 2:::
+2n−12n−1
+1 (cid:88) (cid:88)
+(−1)a·x(−1)x·y|y(cid:105). (6.17)
+2n
+x=0 y=0
+But in fact
+2n−1
+1 (cid:88)
+(−1)a·x(−1)x·y = δ , (6.18)
+2n a,y
+x=0
+so this state is |a(cid:105). We can execute the circuit once and measure the n-qubit register,
+finding the n-bit string a with probability one.6.1 Some Quantum Algorithms 5
+If only classical queries are allowed, we acquire only one bit of information from each
+query, and it takes n queries to determine the value of a. Therefore, we have a clear
+separation between the quantum and classical difficulty of the problem. Even so, this""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that adds a classical register to the quantum circuit
+ and measures all qubits. Parameters:
+qc (QuantumCircuit): The quantum circuit to which measurement is to
+ be added.
+n_bits (int): Number of classical bits, should be equal to the number of
+ qubits.
+Returns: QuantumCircuit: The quantum circuit with measurement 
+added.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 1:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 2:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit that prepares a Bell
+ state using two qubits.""
+""Returns: QuantumCircuit: The quantum circuit that prepares the
+ Bell state.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+≡ ≡
+• • • × .
+The matrix representation is
+ 
+1 0 0 0
+0 0 1 0
+C(Z) =  .
+0 1 0 0
+0 0 0 1
+Implementing on IBM quantum computers.
+The implementation of the circuit with gates H e CNOT on the IBM composer is shown in
+Fig. 2.5. If we want to see the probability distribution in the composer, we have to remove the
+meters. Note that in the composer, qubit q represents the rightmost qubit, that is, the order
+0
+is |q q q (cid:105). Therefore, we have to invert the order of the qubits. The control of CNOT is qubit
+2 1 0
+q and the target is qubit q . After dragging and dropping a CNOT gate, we have to edit the
+1 0Document 1:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 2:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Create a function that applies a controlled-NOT (CNOT) gate to the
+ given quantum circuit with control qubit 0 and target qubit 1.
+Parameters: qc (QuantumCircuit): The quantum circuit to which the
+ CNOT gate is to be applied. 
+Returns: QuantumCircuit: The quantum
+ circuit with the CNOT gate applied.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+a measurement. We simply drag H and drop it on the first wire of the circuit, then we drag
+the meter and drop it after H. The meter’s arrow shows that the output is re-directed to an
+auxiliary classical register at the bottom of the circuit.
+Figure 2.3: Example of a circuit with a Hadamard gate and a meter (Reprint Courtesy of IBM
+Corporation ©)
+Afterthecircuitisready,weclickon Setup and run ,andthenwehavetwooptions: (1)Run
+thecircuitonaquantumcomputerbyselectingoneoftheavailablequantumsystems,or(2)sim-
+ulate the circuit by selecting a simulator. It is usually better to start with the second option.
+We select ibm qasm simulator as the provider, then we select the number of shots and then we
+click on Run at the bottom. Fig. 2.4 shows the output of an execution. The result 000 wasDocument 1:::
+9 Check whether gcd(ar(cid:48)/2+1,N) > 1;
+10 If True, return ar(cid:48)/2+1; otherwise, return ar(cid:48)/2−1.
+Shor’s algorithm is described in Algorithm 7.1 and the quantum part is described in Algo-
+rithm 7.2. The circuit is of the quantum part is
+|0(cid:105) H (cid:96)
+0
+. . . .
+. . . . F† . . . .
+q
+(a)
+|0(cid:105) H U N (cid:96) q−1
+|ψ4(cid:105)
+|0(cid:105)⊗n /n z 0...z n−1,
+|ψ (cid:105) |ψ (cid:105) |ψ (cid:105) |ψ (cid:105)
+0 1 2 3Document 2:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that executes the given quantum circuit on the 
+FakeHanoi backend and returns the result counts.
+Parameters: qc (QuantumCircuit): The quantum circuit to be executed.
+Returns: dict: The result counts of the simulation.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 1:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 2:::
+exponential speedup of the well-known (classical) fast Fourier transform (FFT). Since
+the FFT has such a wide variety of applications, perhaps the QFT will also come into
+widespread use someday.8 Quantum Algorithms
+6.2.1 Finding the period
+The QFT is the unitary transformation that acts on the computational basis according
+to
+N−1
+1 (cid:88)
+QFT : |x(cid:105) → √ e2πixy/N|y(cid:105), (6.30)
+N
+y=0
+where N = 2n. For now let’s suppose that we can perform the QFT efficiently, and see
+how it enables us to extract the period of f(x).
+Emulating Simon’s algorithm, we first query the oracle with the input √1 (cid:80) |x(cid:105)
+N x""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that applies the Quantum Fourier Transform (QFT) 
+to all qubits in the given quantum circuit.
+Parameters: qc (QuantumCircuit): The quantum circuit to which the 
+QFT is to be applied. 
+Returns: QuantumCircuit: The quantum circuit 
+after applying QFT
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 1:::
+final result very much. If we simply omit the gates R with k = Ω(logn), then we obtain a circuit with
+k
+O(nlogn) gates that implements the QFT with precision 1/poly(n).4.3. Phase estimation 19
+4.3 Phase estimation
+Aside from being directly useful in quantum algorithms, such as Shor’s algorithm, The QFT over Z
+2n
+provides a useful quantum computing primitive called phase estimation [35, 64]. In the phase estimation
+problem, wearegivenaunitaryoperatorU (eitherasanexplicitcircuit, orasablackboxthatletsusapply
+a controlled-Uj operation for integer values of j). We are also given a state φ that is promised to be an
+eigenvector of U, namely U φ = eiφ φ for some φ R. The goal is to outp| u(cid:105) t an estimate of φ to someDocument 2:::
+on a procedure for measuring an eigenvalue of a unitary operator, that is, given a unitary
+operator U and one of its eigenvectors |ψ(cid:105), the algorithm finds the eigenvalue exp(2πφ), so
+that U|ψ(cid:105) = exp(2πφ)|ψ(cid:105), where φ is the phase of the eigenvalue. This algorithm provides an
+alternative way of factoring integers and calculating discrete logarithms. Not only that, it is
+used in many applications such as quantum counting. This algorithm has been described in
+many books [3, 5, 22, 25, 54].
+10.1 Phase estimation algorithm
+Suppose we have a n-qubit unitary operator U and we know one of its eigenvectors |ψ(cid:105). We do
+not know the eigenvalue associated with |ψ(cid:105), but we know that its analytical expression is e2πiφ,""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Create a function that implements the Quantum Phase Estimation 
+(QPE) algorithm using 3 counting qubits and 1 eigenstate qubit.
+Returns: QuantumCircuit: The quantum circuit implementing QPE.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 1:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlinedDocument 2:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit that implements the
+ quantum teleportation protocol.
+Returns: QuantumCircuit: The quantum circuit for quantum
+ teleportation.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+string x, but there are many balanced functions. The best classical deterministic algorithm
+that solves this problem, given a black-box function f which is either balanced or constant and
+implemented on a n-bit classical computer, is the following: Evaluate f at 2n−1 + 1 distinct
+points in its domain and check whether the output is always the same (f is constant) or not (f
+is balanced).
+The Deutsch-Jozsa algorithm, on the other hand, is a deterministic quantum algorithm that
+uses a black-box unitary operator U only once. The action of U on the computational basis is
+f f
+U |x(cid:105)|j(cid:105) = |x(cid:105)|j ⊕f(x)(cid:105),
+f
+where x ∈ {0,1}n and j ∈ {0,1}. The qubits are split into two quantum registers with sizes nDocument 1:::
+4.2 The quantum algorithm
+Algorithm 4.1: Deutsch-Jozsa algorithm
+Input: A black-box U implementing a n-bit Boolean function f : {0,1}n −→ {0,1},
+f
+which is either balanced or constant.
+Output: 0 if f is constant; otherwise, f is balanced.
+1 Prepare the initial state |0(cid:105)⊗n|1(cid:105);
+2 Apply H⊗(n+1);
+3 Apply U f;
+4 Apply H⊗(n+1);
+5 Measure the first register in the computational basis.
+The Deutsch-Jozsa algorithm is described in Algorithm 4.1 and the (n+1)-qubit circuit is
+|0(cid:105) H H 0 or 1
+. . . .
+. . . .
+. . . .
+U
+fDocument 2:::
+control on qubit 3 and target on qubit 4.
+6.7 Final remarks
+The formulation of Simon’s problem in the original paper is slightly different from the one
+presented here. Simon posed the problem of determining whether f is one-to-one (injective) or
+a special kind of two-to-one characterized by a n-bit string s such that f(x(cid:48)) = f(x) if and only
+if x(cid:48) = x ⊗ s. In the latter case, we have to find s. This formulation goes along the line of
+the Deutsch-Jozsa algorithm, in which we have the promise that the oracle is either balanced
+or constant. We have to determine which is the case. Note that if we run the quantum part
+of Simon’s algorithm with a one-to-one function, the output is a random n-bit string. Simon
+used this fact to prove that there exists an algorithm for a quantum Turing machine that solves""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit implementing the 
+Deutsch-Jozsa algorithm. The oracle should distinguish between a
+ balanced and a constant function for `n_qubits`. 
+Parameters: n_qubits (int): Number of qubits, excluding the oracle qubit.
+ Returns: QuantumCircuit: The quantum circuit implementing the
+ Deutsch-Jozsa algorithm.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+there is no way to reduce this number without introducing an error in the algorithm. In the
+quantum case, we consult the quantum oracle only once, which allows us to find all bits of s, as
+described below.
+In the quantum case, the function f(x) = s·x is implemented using the unitary operator U
+f
+of n+1 qubits, defined as
+U |x(cid:105)|j(cid:105) = |x(cid:105)|j ⊕f(x)(cid:105),
+f
+where x ∈ {0,1}n, j is a bit, and ⊕ is the XOR operation or sum modulo 2,. This operator
+uses two registers, with sizes n and 1, respectively. We can use U as many times as we wish.
+f
+However, it is used only once in the Bernstein-Vazirani algorithm.Document 1:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to constructDocument 2:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to implement the Quantum Approximate
+ Optimization Algorithm (QAOA) for a given number of qubits.
+ The function should generate a quantum circuit with a mixing operator
+ and a problem Hamiltonian operator.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+ p (int): Number of layers in the QAOA.
+Returns: QuantumCircuit: The quantum circuit implementing QAOA.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+In the Deutsch–Jozsa problem, we are presented with a quantum black box that com-
+putes a function taking n bits to 1,
+f : {0,1}n → {0,1}, (6.6)
+and we have it on good authority that f is either constant (f(x) = c for all x) or
+balanced (f(x) = 0 for exactly 1 of the possible input values). We are to solve the
+2
+decision problem: Is f constant or balanced?
+In fact, we can solve this problem, too, accessing the box only once, using the same
+circuit as for Deutsch’s problem (but with x expanded from one bit to n bits). We note
+that if we apply n Hadamard gates in parallel to n-qubits.
+H(n) = H ⊗H ⊗...⊗H, (6.7)
+then the n-qubit state transforms as
+ Document 2:::
+√   + √    = √  .
+2 0 0 0 10 2 0 0 0 11 2 0
+0 0 1 0 0 0 0 1 0 0 1
+The complete circuit that implements the entangled state above when the initial state of the
+quantum computer is |00(cid:105) is
+|0(cid:105) H • 
+
+00withprobability0.5,
+11withprobability0.5.
+
+|0(cid:105)
+Since the first qubit is initially in state |0(cid:105), we have to use H to generate (|0(cid:105)+|1(cid:105))/2. In fact,
+we have
+(cid:0) |00(cid:105)+|11(cid:105)
+CNOT·(H ⊗I)|00(cid:105) = CNOT· H|0(cid:105)⊗|0(cid:105)) = √ .""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that prepares a GHZ state for `n_qubits`. The
+ function should return a quantum circuit that creates this entangled
+ state.
+Parameters: n_qubits (int): Number of qubits in the GHZ state.
+Returns: QuantumCircuit: The quantum circuit that prepares the
+ GHZ state.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Let N, a, and b be known positive integers and let s be a positive integer such that as ≡ b
+mod N and gcd(a,N) = 1. Our goal is to find s given N, a, and b as input. Let r be the
+order of a modulo N, which can be efficiently determined using Shor’s factoring algorithm. We
+address in this Section the case r = 2m for some integer m, which means that r is a power of 2.
+In this case, there is an efficient classical algorithm called Pohlig–Hellman algorithm that is able
+to calculate s in polynomial time. We describe the quantum algorithm for this case because the
+Fourier transform F can be implemented in a straightforward way in a qubit-based quantum
+r
+computer and the analysis of the algorithm is easier than the general case.
+Let f be a two-variable function with domain Z ×Z and codomain Z defined as
+r r N
+f(x,y) = axby mod N.Document 1:::
+the cost of each evaluation matters. Take Shor’s factoring algorithm as an example. The oracle
+in this case is a r-periodic function and our goal is to find r. We have seen that the function in
+Shor’s algorithm is the modular exponentiation, which can be implemented efficiently in terms
+of the input size using the repeated squaring method.
+Any classical deterministic algorithm is a n-input and m-output function f : {0,1}n −→
+{0,1}m, which is a collection of m n-bit Boolean functions. Then, any classical algorithm can
+be implemented on a quantum computer with two registers of sizes n and m using the operator
+U |x(cid:105)|y(cid:105) = |x(cid:105)|y⊕f(x)(cid:105),
+f
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,Document 2:::
+The main strategy in the part of Shor’s algorithm that calculates the order of a ∈ Z is to
+N
+define the function
+f: Z → Z
+2m N
+x (cid:55)→ ax,
+where m ≈ 2n, n = (cid:100)log N(cid:101), and to exploit the fact that f is r-periodic. We know that this
+2
+function can be implemented in a quantum computer with around 3n qubits using the unitary
+operator U defined by U |x(cid:105)|y(cid:105) = |x(cid:105)|y⊕(ax mod N)(cid:105). It is possible to determine r efficiently
+f f
+with one application of the inverse discrete Fourier transform F† to the first register after U
+2m f
+have been applied to a superposition of all states of the computational basis of the first register""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that sets up Shor's algorithm for integer factorization
+ of a given number `N` with base 'a'. The function should return the quantum circuit
+ that implements the modular exponentiation part of Shor's algorithm.
+Parameters: N (int): The integer to factorize.
+a (int): Base for modular multiplication
+Returns: QuantumCircuit: The quantum circuit implementing
+ modular exponentiation.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantlyDocument 1:::
+Thus it is straightforward to simulate the dynamics of the continuous-time quantum walk on any such G,
+and in particular, on the glued trees graph (which has maximum degree 3). Our strategy for solving the
+traversal problem is simply to run the quantum walk and show that the resulting state has a substantial
+overlap on the exit for some t=poly(n).
+Let G be the glued trees graph. The dynamics of the quantum walk on this graph are dramatically
+simplified because of symmetry. Consider the basis of states colj that are uniform superpositions over the
+vertices at distance j from the entrance, i.e., | (cid:105)
+1 (cid:88)
+colj := a (16.21)
+(cid:112)
+| (cid:105) N | (cid:105)
+j δ(a,entrance)=j16.5. Quantum walk algorithm to traverse the glued trees graph 73
+where
+(cid:40)Document 2:::
+|0(cid:105) • |0(cid:105)
+|0(cid:105) • |0(cid:105)
+|1(cid:105) • |1(cid:105)
+|0(cid:105) |1(cid:105).
+Note that if the input is |a,b,c(cid:105)|0(cid:105) then the output will be |a,b,c(cid:105)|f(a,b,c)(cid:105). This shows that
+the quantum computer can calculate any n-bit Boolean function using a multiqubit Toffoli gate
+with (n + 1) qubits for each output 1 of the truth table. The goal here is not to implement
+classical algorithms on quantum computers because it makes no sense to build a much more
+expensive machine to run only classical algorithms. However, the implementation we have just
+described can be used for inputs in superposition, which is not allowed on a classical computer.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that implements the Quantum Walk algorithm
+ on a cycle graph with `n_qubits` qubits. The function should create 
+and return a quantum circuit that simulates one step of the quantum
+ walk.
+Parameters: n_qubits (int): Number of qubits in the cycle graph.
+Returns: QuantumCircuit: The quantum circuit implementing the 
+quantum walk.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 2:::
+In the Deutsch–Jozsa problem, we are presented with a quantum black box that com-
+putes a function taking n bits to 1,
+f : {0,1}n → {0,1}, (6.6)
+and we have it on good authority that f is either constant (f(x) = c for all x) or
+balanced (f(x) = 0 for exactly 1 of the possible input values). We are to solve the
+2
+decision problem: Is f constant or balanced?
+In fact, we can solve this problem, too, accessing the box only once, using the same
+circuit as for Deutsch’s problem (but with x expanded from one bit to n bits). We note
+that if we apply n Hadamard gates in parallel to n-qubits.
+H(n) = H ⊗H ⊗...⊗H, (6.7)
+then the n-qubit state transforms as
+ """"""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that applies a permutation operation on `n_qubits`
+ using Qiskit's Permutation gate. The function should return a quantum
+ circuit that applies a specific permutation, such as a swap, on the
+ qubits.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+pattern (list): A list specifying the permutation pattern (e.g., [2, 1, 0]
+ for reversing a 3-qubit order). Returns: QuantumCircuit: The quantum
+ circuit with the permutation operation applied.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+√   + √    = √  .
+2 0 0 0 10 2 0 0 0 11 2 0
+0 0 1 0 0 0 0 1 0 0 1
+The complete circuit that implements the entangled state above when the initial state of the
+quantum computer is |00(cid:105) is
+|0(cid:105) H • 
+
+00withprobability0.5,
+11withprobability0.5.
+
+|0(cid:105)
+Since the first qubit is initially in state |0(cid:105), we have to use H to generate (|0(cid:105)+|1(cid:105))/2. In fact,
+we have
+(cid:0) |00(cid:105)+|11(cid:105)
+CNOT·(H ⊗I)|00(cid:105) = CNOT· H|0(cid:105)⊗|0(cid:105)) = √ .Document 2:::
+1 (cid:16) (cid:17)(cid:16) (cid:17)
+= √ |0(cid:105)+e2πi(.x0)|1(cid:105) |0(cid:105)+e2πi(.x1x0)|1(cid:105)
+2n
+(cid:16) (cid:17)
+... |0(cid:105)+e2πi(.xn−1xn−2...x0)|1(cid:105) . (6.55)
+The QFT takes each computational basis state to an unentangled state of n qubits;
+thus we anticipate that it can be efficiently implemented. Indeed, let’s consider the case
+n = 3. We can readily see that the circuit
+|x (cid:105) H R R |y (cid:105)
+2 1 2 0
+(cid:115)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that constructs a quantum circuit to prepare a W
+ state for `n_qubits`. The function should return the quantum circuit
+ that generates the W state.
+Parameters: n_qubits (int): Number of qubits in the W state.
+Returns: QuantumCircuit: The quantum circuit that prepares the
+ W state
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+there is no way to reduce this number without introducing an error in the algorithm. In the
+quantum case, we consult the quantum oracle only once, which allows us to find all bits of s, as
+described below.
+In the quantum case, the function f(x) = s·x is implemented using the unitary operator U
+f
+of n+1 qubits, defined as
+U |x(cid:105)|j(cid:105) = |x(cid:105)|j ⊕f(x)(cid:105),
+f
+where x ∈ {0,1}n, j is a bit, and ⊕ is the XOR operation or sum modulo 2,. This operator
+uses two registers, with sizes n and 1, respectively. We can use U as many times as we wish.
+f
+However, it is used only once in the Bernstein-Vazirani algorithm.Document 1:::
+problem [9].
+The quantum counting problem asks what is the cardinality of M given function f as an
+oracle. A classical solution cannot perform better than Ω(N) queries to the oracle because all
+(cid:0)(cid:112) (cid:1)
+domainelementsmust be checked. The quantumalgorithm canfindthe solutioninO |M|N
+queries to the oracle.
+Before addressing the quantum counting problem, let us review some key points of Grover’s
+algorithm. Thereisaneconomicalversionofthealgorithm, whichusesonlyonen-qubitregister.
+90The initial state is the uniform superposition of the computational basis given by
+N−1
+1 (cid:88)
+|d(cid:105) = √ |j(cid:105),
+N
+j=0
+and the algorithm consists of
+π(cid:112)Document 2:::
+f
+However, it is used only once in the Bernstein-Vazirani algorithm.
+40Summingup,theclassicalalgorithmqueriestheclassicaloraclentimesusingan-bitclassical
+computer. The quantum algorithm queries the quantum oracle only one time using a (n+1)-
+qubit quantum computer. In the last Section of this Chapter, we show that the algorithm can
+be implemented on a n-qubit quantum computer.
+5.2 The algorithm
+Algorithm 5.1: Bernstein-Vazirani algorithm
+Input: A Boolean function f : {0,1}n −→ {0,1} such that f(x) = s·x.
+Output: s with probability equal to 1.
+1 Prepare the initial state |0(cid:105)⊗n|1(cid:105);
+2 Apply H⊗(n+1);
+3 Apply U f;
+4 Apply H⊗(n+1);""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that implements the Quantum Counting algorithm.
+ The function should create a quantum circuit that estimates the number
+ of solutions to a given oracle function using `n_qubits`.
+Parameters: n_qubits (int): Number of qubits in the counting register.
+Returns: QuantumCircuit: The quantum circuit implementing
+ quantum counting
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+class NP [64].) The motivation for this model was to show that quantum mechanics does not pose barriers
+tobuildingaclassicalcomputer,despitequantumeffectssuchastheuncertaintyprinciple. Feynmanshowed
+that any sequence of reversible classical logic gates can be efficiently simulated using local Hamiltonian
+dynamics. However, his model applies equally well to simulate a quantum circuit.
+Given a k-gate quantum circuit on n qubits, U U U , let
+k 2 1
+···
+k
+(cid:88)
+H := H (31.1)
+F j
+j=1
+where
+H j :=U j ⊗|j (cid:105)(cid:104)j −1 |+U j† ⊗|j −1 (cid:105)(cid:104)j |. (31.2)Document 1:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to constructDocument 2:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to construct a quantum circuit that simulates a 
+quantum annealing process. The function should return a circuit that
+ implements a simple Ising model Hamiltonian on `n_qubits`.
+Parameters: n_qubits (int): Number of qubits in the quantum annealing
+ simulation.
+Returns: QuantumCircuit: The quantum circuit simulating quantum
+ annealing
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 2:::
+to a linear combination of vectors |0(cid:105) and |1(cid:105) with amplitudes α and β, the result is a linear
+combination of H|0(cid:105) and H|1(cid:105) with the same amplitudes α and β. We can avoid this abstract
+point of view, but when we multiply a matrix to a sum of vectors, we have to distribute the
+multiplication over the vectors.
+To check that the multiplication of H by the vectors of an orthonormal basis results in
+norm-1 vectors is not enough to show that H is a unitary matrix. It is also necessary to show
+(cid:10) (cid:12) (cid:11)
+that the resulting vectors are orthogonal, that is, to show that −(cid:12)+ = 0.
+A quantum circuit is a pictorial way of describing a quantum algorithm. The input qubit is
+on the left and the information (qubit’s state) is conveyed unchanged from left to right until it""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that applies a random unitary operation to a quantum
+ circuit using `n_qubits`. The function should generate a random unitary
+ matrix and apply it to all qubits in the circuit. 
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+Returns: QuantumCircuit: The quantum circuit with the random
+ unitary operation applied.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+class NP [64].) The motivation for this model was to show that quantum mechanics does not pose barriers
+tobuildingaclassicalcomputer,despitequantumeffectssuchastheuncertaintyprinciple. Feynmanshowed
+that any sequence of reversible classical logic gates can be efficiently simulated using local Hamiltonian
+dynamics. However, his model applies equally well to simulate a quantum circuit.
+Given a k-gate quantum circuit on n qubits, U U U , let
+k 2 1
+···
+k
+(cid:88)
+H := H (31.1)
+F j
+j=1
+where
+H j :=U j ⊗|j (cid:105)(cid:104)j −1 |+U j† ⊗|j −1 (cid:105)(cid:104)j |. (31.2)Document 2:::
+1 log(cid:0)1(cid:1) .Sincewecanreachanexponentiallygoodsuccessprobabilitywithapolynomial
+2 ε
+number of trials, it is not really fair to say that the problem is hard.
+Bernstein–Vaziraniproblem.Exactlythesamecircuitcanbeusedtosolveanother
+variation on the Deutsch–Jozsa problem. Let’s suppose that our quantum black box
+computes one of the functions f , where
+a
+f (x) = a·x, (6.16)
+a
+and a is an n-bit string. Our job is to determine a.
+Thequantumalgorithmcansolvethisproblemwithcertainty,givenjustone(n-qubit)
+quantum query. For this particular function, the quantum state in eq. (6.10) becomes
+2n−12n−1""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that constructs a quantum circuit to simulate
+ a boson sampling problem. The function should generate the circuit
+ based on `n_qubits` corresponding to the number of photons and
+ modes.
+Parameters: n_qubits (int): Number of qubits, representing the number
+ of photons and modes in the boson sampling.
+Returns: QuantumCircuit: The quantum circuit that simulates the
+ boson sampling
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to constructDocument 1:::
+adiabatic quantum algorithms (Part VI).
+25.1 Hamiltonian dynamics
+In quantum mechanics, time evolution of the wave function ψ(t) is governed by the Schr¨odinger equation,
+| (cid:105)
+d
+i(cid:126) ψ(t) =H(t)ψ(t) . (25.1)
+dt| (cid:105) | (cid:105)
+Here H(t) is the Hamiltonian, an operator with units of energy, and (cid:126) is Planck’s constant. For convenience
+itistypicaltochooseunitsinwhich(cid:126)=1. Givenaninitialwavefunction ψ(0) ,wecansolvethisdifferential
+| (cid:105)
+equation to determine ψ(t) at any later (or earlier) time t.
+| (cid:105)Document 2:::
+p2
+H = +V(x).
+2m
+To simulate this a digital quantum computer, we can imagine discretizing the x coordinate. The operator
+V(x)isdiagonal,andnaturaldiscretizationsofp2 = d2/dx2arediagonalinthediscreteFourierbasis. Thus
+−
+we can efficiently simulate both V(x) and p2/2m. Similarly, consider the Hamiltonian of a spin system, say
+of the form
+(cid:88) (cid:88)
+H = h X + J Z Z
+i i ij i j
+i ij
+(ormoregenerally,anyk-localHamiltonian,asumoftermsthateachactonatmostk qubits). Thisconsists
+of a sum of terms, each of which acts only only a constant number of qubits and hence is easy to simulate.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that implements time evolution under
+ a given Hamiltonian for a quantum system. The function should
+ create a quantum circuit with `n_qubits` and apply the Hamiltonian
+ evolution for a specified time `t`.
+Parameters: hamiltonian (array): The Hamiltonian matrix for the
+ quantum system.
+n_qubits (int): Number of qubits in the quantum circuit.
+t (float): Time for which the system evolves.
+Returns: QuantumCircuit: The quantum circuit that implements
+ the time evolution.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to constructDocument 2:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlined""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that implements the Quantum Metropolis algorithm
+ for simulating thermal states. The function should return a quantum
+ circuit that approximates the thermal state of a quantum system with
+ `n_qubits`.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+beta (float): Inverse temperature (1/kT) for the thermal state simulation.
+Returns: QuantumCircuit: The quantum circuit implementing the
+ Quantum Metropolis algorithm.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 1:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 2:::
+−
+| (cid:105)
+the information about which part of the block encoding the state is in to the qubit, so that by performing
+quantum signal processing on that qubit, we effectively perform quantum signal processing in superposition
+on the high-dimensional target space.
+To apply this method, there are a few more details not yet accounted for. In practice we are only
+interested in choosing P (the function that acts on the block-encoded matrix) and we can allow any Q that
+allows for a quantum signal processing decomposition. Also, we may want to implement a general function
+(not necessarily one of a particular parity), which we can do by adding together block encodings of the even
+and odd parts. We do not describe these issues in detail here, and instead simply state the following final
+result.
+Theorem 27.2 ([49, Theorem 56]). Let f R[x] be a polynomial of degree d with f(x) 1/2 for all
+∈ | | ≤""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit to simulate a
+ simple quantum error correction code. The function should initialize
+ three qubits, apply an encoding step to protect a single qubit, and then
+ simulate an error by applying an X gate to one of the qubits. Finally,
+ it should perform a decoding step and measure all qubits.
+Returns: QuantumCircuit: The quantum circuit implementing the error
+ correction code.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 1:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 2:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that transpiles a quantum circuit for a specific
+ backend. The function should create a quantum circuit, apply a series
+ of gates, and then transpile it for the AerSimulator backend with
+ optimization level 3.
+Parameters: qc (QuantumCircuit): The input quantum circuit to
+ be transpiled.
+Returns: QuantumCircuit: The transpiled quantum circuit.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to constructDocument 1:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 2:::
+B penalty
+− ⊗ | (cid:105)(cid:104) |
+and in the Feynman term H of the computational Hamiltonian H , we make the replacement
+F C
+(cid:0) (cid:1)(j 1,j,j+1)
+j j 1 001 011 − (31.31)
+| (cid:105)(cid:104) − |→ | (cid:105)(cid:104) |
+(andsimilarlyfortheadjoint). Withtheseredefinitions,theoverallHamiltonianH(s)=(1 s)H +sH is
+B C
+−
+5-local, assuming as before that the gates in the quantum circuit to be simulated involve at most two qubits
+each.
+Aswiththeoriginalnonlocal-clockconstruction,H andH haveuniquegroundstates 0...0 01...1
+B C""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a variational quantum circuit using the
+ RealAmplitudes ansatz with entanglement 'full'. The circuit should
+ include `reps` repetitions of the circuit block. 
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+reps (int): Number of repetitions of the circuit block.
+Returns: QuantumCircuit: The variational quantum circuit 
+using RealAmplitudes ansatz.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+|k(cid:105) |k(cid:105)
+|(cid:96)(cid:105) X(1−j)(1−k)|(cid:96)(cid:105).
+implements a gate that applies X on the third qubit if and only if the first two control qubits
+are set to zero. It can be implemented using a standard Toffoli gate and X gates, as shown in
+the following circuit equivalence:
+X • X
+≡ X • X
+.
+The multiqubit Toffoli gate Cn(X) is a (n + 1)-qubit gate with n control qubits and one
+target. It is defined by the expressionDocument 1:::
+and 101. We add to the circuit two multiqubit Toffoli gates, the first with controls activated
+by 011 and the second activated by 101, with target on the 4th qubit, as shown in Fig. 6.1.
+Then, we focus on bits 1 in the second column of the output denoted by f (x). There are two
+1
+of them, corresponding to the inputs 010 and 100. The multiqubit Toffoli gates are activated by
+010 and 100, respectively, with target on the 5th qubit, as shown in Fig. 6.1. The last column,
+denoted by f (x), requires multiqubit Toffoli gates activated by 001 and 111 with target on the
+2
+6th qubit, as shown in Fig. 6.1.
+|x (cid:105) • • • |x (cid:105)
+0 0
+|x (cid:105) • • |x (cid:105)
+1 1Document 2:::
+2.7 Circuit of a Boolean function
+Let’s show how to obtain the quantum circuit of a truth table. We only need multiqubit Toffoli
+gates. To show that the multiqubit Toffoli gates can implement any Boolean function on a
+quantum computer, let’s take the 3-bit Boolean function f(a,b,c) defined by the following truth
+table as an example:
+a b c f(a,b,c)
+0 0 0 0
+0 0 1 1
+0 1 0 0
+0 1 1 0
+1 0 0 0
+1 0 1 0
+1 1 0 1
+1 1 1 0
+After this example, it is evident how the general case is obtained. Since f has three input bits,
+we use multiqubit Toffoli gates with three controls. The 4th qubit is the target. The output of""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to create a quantum circuit that implements the 
+Toffoli (CCX) gate using only basic gates like CX, H, T, and T-dagger. 
+The function should take three qubits as input and construct the Toffoli 
+gate step by step.
+Parameters: control1 (int): The first control qubit index.
+control2 (int): The second control qubit index.
+target (int): The target qubit index.
+Returns: QuantumCircuit: The quantum circuit implementing the 
+Toffoli gate.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+−
+| (cid:105)
+the information about which part of the block encoding the state is in to the qubit, so that by performing
+quantum signal processing on that qubit, we effectively perform quantum signal processing in superposition
+on the high-dimensional target space.
+To apply this method, there are a few more details not yet accounted for. In practice we are only
+interested in choosing P (the function that acts on the block-encoded matrix) and we can allow any Q that
+allows for a quantum signal processing decomposition. Also, we may want to implement a general function
+(not necessarily one of a particular parity), which we can do by adding together block encodings of the even
+and odd parts. We do not describe these issues in detail here, and instead simply state the following final
+result.
+Theorem 27.2 ([49, Theorem 56]). Let f R[x] be a polynomial of degree d with f(x) 1/2 for all
+∈ | | ≤Document 1:::
+2 Apply H⊗n to the first register;
+3 Apply U f;
+4 Measure the second register in the computational basis (assume output z 0...z n−1);
+5 Apply H⊗n to the first register;
+6 Measure the first register in the computational basis.
+6.3 Analysis of the quantum part
+After the first step, the state of the quantum computer is
+|ψ (cid:105) = |0(cid:105)⊗n|0(cid:105)⊗n.
+0
+After the second step, the state of the quantum computer is
+|ψ (cid:105) = (cid:0) H|0(cid:105)(cid:1)⊗n ⊗|0(cid:105)⊗n
+1
+2n−1
+1 (cid:88)
+= √ |x(cid:105)⊗|0(cid:105)⊗n,
+2n
+x=0Document 2:::
+computation we perform a measurement, the circuit is
+(cid:40)
+0, with probability 1,
+|0(cid:105) H 2
+1, with probability 1.
+2
+It shows that the output of the measurement of the qubit, whose state was |+(cid:105), is 0 with
+probability 1/2 or 1 with the same probability. Fig. 2.2 shows the histogram of the probability
+distribution generated in Qiskit3 with two iterations.
+An example that is simpler than the previous one is the X gate, defined as
+(cid:20) (cid:21)
+0 1
+X = .
+1 0
+3Qiskit is open-source software for running programs on IBM quantum computers.
+8Figure 2.2: Histogram of the probability distribution generated by measuring a qubit in state
+|+(cid:105) two times.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to perform quantum state tomography on a 1-qubit
+ state. The function should create a quantum circuit that prepares a
+ specific quantum state (e.g., |+⟩) and then measure the state in the
+ X, Y, and Z bases. The function should simulate the circuit and return
+ the measurement results for each basis.
+Returns: dict: The measurement results for each tomography basis.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+f
+However, it is used only once in the Bernstein-Vazirani algorithm.
+40Summingup,theclassicalalgorithmqueriestheclassicaloraclentimesusingan-bitclassical
+computer. The quantum algorithm queries the quantum oracle only one time using a (n+1)-
+qubit quantum computer. In the last Section of this Chapter, we show that the algorithm can
+be implemented on a n-qubit quantum computer.
+5.2 The algorithm
+Algorithm 5.1: Bernstein-Vazirani algorithm
+Input: A Boolean function f : {0,1}n −→ {0,1} such that f(x) = s·x.
+Output: s with probability equal to 1.
+1 Prepare the initial state |0(cid:105)⊗n|1(cid:105);
+2 Apply H⊗(n+1);
+3 Apply U f;
+4 Apply H⊗(n+1);Document 1:::
+known as quantum parallelism. At this time a framework for creating new algorithms was miss-
+ing, which was only established in 1989 when Deutsch published a paper on quantum circuits,
+introducing the quantum gates that take place of the well-known classical gates, such as AND,
+OR, NOT. In 1992, the area of quantum algorithm gained momentum when Deutsch and Jozsa
+created an algorithm to determine whether a Boolean function is balanced or constant. This
+algorithm stimulated the development of oracle-based algorithms. We have a function at our
+disposal and we need to reveal a hidden property of this function. We can evaluate the function
+as many times as we want, but the goal is to find the property by querying as few as possible.
+Bernstein and Vazirani noted in 1993 that the Deutsch-Jozsa algorithm could be used to
+find a specific Boolean function in the set of linear Boolean functions. The Bernstein-Vazirani
+algorithm is faster than its classical counterpart without exploiting entanglement. The powerDocument 2:::
+there is no way to reduce this number without introducing an error in the algorithm. In the
+quantum case, we consult the quantum oracle only once, which allows us to find all bits of s, as
+described below.
+In the quantum case, the function f(x) = s·x is implemented using the unitary operator U
+f
+of n+1 qubits, defined as
+U |x(cid:105)|j(cid:105) = |x(cid:105)|j ⊕f(x)(cid:105),
+f
+where x ∈ {0,1}n, j is a bit, and ⊕ is the XOR operation or sum modulo 2,. This operator
+uses two registers, with sizes n and 1, respectively. We can use U as many times as we wish.
+f
+However, it is used only once in the Bernstein-Vazirani algorithm.""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to create a quantum circuit that simulates the
+ Bernstein-Vazirani algorithm. The function should generate a hidden
+ binary string `s` of length `n_qubits` and create a quantum circuit to
+ find this string using a single query to the oracle.
+Parameters: s (str): The hidden binary string that the Bernstein-Vazirani
+ algorithm will uncover. 
+Returns: QuantumCircuit: The quantum circuit implementing
+ the Bernstein-Vazirani algorithm.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+transformation of a 2 2 matrix. This result is the core of the quantum signal processing concept and can
+×
+be lifted to effectively perform quantum signal processing of higher-dimensional operators.
+Suppose we are given a single-qubit rotation
+(cid:18) (cid:19)
+x i√1 x2
+W(x):= − =eiarccos(x)σx. (27.6)
+i√1 x2 x
+−
+Our goal is to generate a matrix whose entries are polynomials in x. We can do this by interspersing W(x)
+gates with z rotations, giving a circuit
+W (x):=eiφ0σzW(x)eiφ1σzW(x) W(x)eiφkσz (27.7)
+Φ
+···Document 1:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,Document 2:::
+(cid:18) (cid:19)
+1 0
+R = , (6.57)
+d 0 eiπ/2d12 Quantum Algorithms
+and d = (k−j) is the “distance” between the qubits.
+In the case n = 3, the QFT is constructed from three H gates and three controlled-R
+gates. For general n, the obvious generalization of this circuit requires n H gates and
+(cid:0)n(cid:1) = 1n(n−1) controlled R’s. A two qubit gate is applied to each pair of qubits, again
+2 2
+with controlled relative phase π/2d, where d is the “distance” between the qubits. Thus
+the circuit family that implements QFT has a size of order (logN)2.
+We can reduce the circuit complexity to linear in logN if we are willing to settle for
+an implementation of fixed accuracy, because the two-qubit gates acting on distantly""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that constructs a quantum circuit to implement a
+ 2-design. The function should generate a quantum circuit with
+ `n_qubits` that creates a 2-design using a series of random single-qubit
+ rotations and entangling gates.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+depth (int): The depth of the 2-design (number of layers).
+Returns: QuantumCircuit: The quantum circuit implementing the
+ 2-design.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 1:::
+√   + √    = √  .
+2 0 0 0 10 2 0 0 0 11 2 0
+0 0 1 0 0 0 0 1 0 0 1
+The complete circuit that implements the entangled state above when the initial state of the
+quantum computer is |00(cid:105) is
+|0(cid:105) H • 
+
+00withprobability0.5,
+11withprobability0.5.
+
+|0(cid:105)
+Since the first qubit is initially in state |0(cid:105), we have to use H to generate (|0(cid:105)+|1(cid:105))/2. In fact,
+we have
+(cid:0) |00(cid:105)+|11(cid:105)
+CNOT·(H ⊗I)|00(cid:105) = CNOT· H|0(cid:105)⊗|0(cid:105)) = √ .Document 2:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to construct""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to generate a random pure quantum state and create
+ a quantum circuit that initializes a qubit to this state.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+Returns: QuantumCircuit: The quantum circuit that initializes the qubits
+ to the random state.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 1:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 2:::
+where ⊕ is the XOR operation or addition modulo 2. This is a recipe that can be used to
+implement an arbitrary n-bit Boolean function. We have to take care that x is the input to the
+first register, and to obtain f(x) we set j = 0 as the input to the second register and then we
+look at the output of the second register. Now we use the technique described in Chapter 2 to
+obtain the quantum circuit of functions f to f . We use their disjunctive normal forms and
+0 3
+we have to use one multiqubit Toffoli gate for each output 1 in the truth table. In the 2-qubit
+case, a multiqubit Toffoli gate is a CNOT activated by either 0 or 1. There is no output 1 in
+the truth table of f . Then,
+0
+U = I ⊗I.
+f0
+There is one output 1 in the truth table of f , which has input 1. We use the standard CNOT,""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit to implement the
+ Variational Quantum Classifier (VQC). The function should create a
+ variational quantum circuit with `n_qubits`, parameterized by a set of
+ angles, and simulate the circuit to classify a given input state. 
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+params (list): A list of angles used as parameters for the 
+variational circuit.
+Returns: dict: The result counts from simulating the VQC
+ on a quantum simulator.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 1:::
+0 1 2 3
+The states at the bottom of the circuit are used in the analysis of the algorithm. They describe
+the state of the qubits after each step. Note that state |ψ (cid:105) refers to the first register only. The
+4
+notation “/n” over a wire denotes that it is a n-qubit register.
+48Algorithm 6.2: Quantum part of Simon’s algorithm
+Input: A black box U implementing function f : {0,1}n −→ {0,1}n with the promise
+f
+that f(x) = f(y) ⇐⇒ x⊕y ∈ {0,s}.
+Output: Point x ∈ {0,1}n such that x·s = 0.
+1 Prepare the initial state |0(cid:105)⊗n|0(cid:105)⊗n;
+2 Apply H⊗n to the first register;
+3 Apply U f;Document 2:::
+4.2 The quantum algorithm
+Algorithm 4.1: Deutsch-Jozsa algorithm
+Input: A black-box U implementing a n-bit Boolean function f : {0,1}n −→ {0,1},
+f
+which is either balanced or constant.
+Output: 0 if f is constant; otherwise, f is balanced.
+1 Prepare the initial state |0(cid:105)⊗n|1(cid:105);
+2 Apply H⊗(n+1);
+3 Apply U f;
+4 Apply H⊗(n+1);
+5 Measure the first register in the computational basis.
+The Deutsch-Jozsa algorithm is described in Algorithm 4.1 and the (n+1)-qubit circuit is
+|0(cid:105) H H 0 or 1
+. . . .
+. . . .
+. . . .
+U
+f""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit to implement a
+ simple quantum key distribution (QKD) protocol like BB84. The circui
+t should prepare qubits in random bases (X or Z) and measure them
+ in corresponding bases.
+Returns: QuantumCircuit: The quantum circuit implementing the
+ BB84 protocol.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 1:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlinedDocument 2:::
+for one point x = x in the domain.
+0
+Output: x with probability equal to or greater than 1− 1.
+0 N
+1 Prepare the initial state |d(cid:105)|−(cid:105) ;
+(cid:106) √ (cid:107)
+2 Apply (GU f)t, where t = π
+4
+N ;
+3 Measure the first register in the computational basis.
+9.4 Non-economical circuit of Grover’s algorithm
+The goal of this Section is to find the circuit that implements the Grover operator using our
+knowledge of implementing Boolean functions. The circuit uses more qubits than necessary, but
+later we show how to obtain an economical version of the circuit.
+To obtain the circuit, we have to do an algebraic manipulation with the expression of the
+(cid:0) (cid:1)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to implement a quantum circuit that performs 
+amplitude damping on a single qubit. The function should apply a 
+Kraus operator corresponding to amplitude damping noise with a
+ given probability `p`.
+Parameters: p (float): The probability of amplitude damping.
+Returns: QuantumCircuit: The quantum circuit implementing amplitude
+ damping noise.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+Corporation ©)
+If we choose to run on a quantum computer, the circuit will be queued and may take a long
+time. We can check the size of the queue when we are selecting the system. The output of
+the quantum computer is usually different from the simulator because errors degrade the result.
+Increasingthenumberofshotsdoesn’tguaranteethattheprobabilitydistributiontendstowards
+the correct distribution, and it is important to check the correctness of the circuit through the
+simulator before running on the quantum system.
+2.4 Quantum states and entanglement
+The state of two qubits is described by a vector of norm 1 that belongs to a four-dimensional
+vector space because there are four possible results after measuring the qubits: 00, 01, 10,
+11. The first bit refers to the first qubit and the second bit to the second qubit and the least
+significant bit is on the left as is usual in textbooks on quantum computing.Document 1:::
+{ | (cid:105) | (cid:105)} | (cid:105)
+the eigenvector of H with eigenvalue λ.
+To simulate H on a given input state ψ , we proceed as follows:
+| (cid:105)
+1. Apply the isometry T to produce the state T ψ .
+| (cid:105)
+2. Perform phase estimation on the quantum walk with precision δ (to be determined).
+3. Given a value approximating arccos(λ/X), compute an estimate of λ.
+4. Introduce the phase e iλt.
+−
+5. Uncompute the estimate of λ.
+6. Invert the phase estimation procedure.
+7. Apply T to return to a state in the original Hilbert space.
+†
+Since a step of the quantum walk can be implemented using two applications of the isometry T, thisDocument 2:::
+which can be implemented using only multiqubit Toffoli gates. To exploit quantum parallelism,
+we have to apply H⊗n to the first register before applying U . After applying U , we have
+f f
+a superposition state, which is not useful unless we perform some post-processing that would
+produce the desired output. Most of the quantum algorithms we have analyzed can be cast into
+the following circuit:
+|0(cid:105) H i
+0
+. . post . .
+. . . .
+. . . .
+processing
+U
+|0(cid:105) H f i n−1
+|0(cid:105)⊗m /m j 0...j m−1.
+For the Deutsch-Jozsa, Bernstein-Vazirani, Simon, and Shor (factoring) algorithms, the post-
+processing is either H⊗n or the inverse Fourier transform. They have the structure outlined""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to create and simulate a quantum circuit that
+ implements the SWAP test to determine the overlap between two
+ quantum states. The function should prepare two quantum states
+ on separate qubits, apply the SWAP test, and return the measurement
+ results.
+Returns: QuantumCircuit: The circuit implementing the SWAP test
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+described can be used for inputs in superposition, which is not allowed on a classical computer.
+Unfortunately, this quantum circuit construction technique for calculating truth tables is not
+efficient, since the number of multiqubit Toffoli gates increases exponentially as a function of
+the number of qubits in the worst case.
+2.8 Quantum parallelism
+The most standard model of quantum computing is described by the circuit
+|0(cid:105) H 0 or 1
+. . . .
+. . . .
+. . U . .
+|0(cid:105) H 0 or 1.
+Theinitialstateofeachqubitis|0(cid:105). Then,theHadamardgateisappliedtoeachqubit,preparing
+for the quantum parallelism. Then, the unitary matrix U is applied to all qubits. Finally, there
+is a meter for each qubit, returning a bit string.Document 1:::
+Let N, a, and b be known positive integers and let s be a positive integer such that as ≡ b
+mod N and gcd(a,N) = 1. Our goal is to find s given N, a, and b as input. Let r be the
+order of a modulo N, which can be efficiently determined using Shor’s factoring algorithm. We
+address in this Section the case r = 2m for some integer m, which means that r is a power of 2.
+In this case, there is an efficient classical algorithm called Pohlig–Hellman algorithm that is able
+to calculate s in polynomial time. We describe the quantum algorithm for this case because the
+Fourier transform F can be implemented in a straightforward way in a qubit-based quantum
+r
+computer and the analysis of the algorithm is easier than the general case.
+Let f be a two-variable function with domain Z ×Z and codomain Z defined as
+r r N
+f(x,y) = axby mod N.Document 2:::
+namely unitary operators U, satisfying UU = U U = I. (You probably know that there are more general
+† †
+quantum operations, but for the most part we will not need to use them in this course.)
+To have a sensible notion of efficient computation, we require that the unitary operators appearing in
+a quantum computation are realized by quantum circuits. We are given a set of gates, each of which acts
+on one or two qubits at a time (meaning that it is a tensor product of a one- or two-qubit operator with
+the identity operator on the remaining qubits). A quantum computation begins in the 0 state, applies a
+| (cid:105)
+sequence of one- and two-qubit gates chosen from the set of allowed gates, and finally reports an outcome
+obtained by measuring in the computational basis.2 Chapter 1. Preliminaries
+1.3 Universal gate sets""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that constructs a quantum circuit using the
+ EfficientSU2 ansatz for a specified number of qubits. The function
+ should allow for a variable number of layers in the ansatz and return
+ the resulting circuit.
+Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+layers (int): Number of layers in the EfficientSU2 ansatz.
+Returns: QuantumCircuit: The quantum circuit using the EfficientSU2
+ ansatz.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+quantum computational complexity of the HSP is polynomial, since it is not clear in general how to perform
+the quantum post-processing of the hidden subgroup states efficiently. Nevertheless, this is an important
+observation since it already shows a difference between quantum and classical computation, and offers some
+clues as to how we might design efficient quantum algorithms.
+ToshowthatthequerycomplexityoftheHSPispolynomial,itissufficienttoshowthatthe(single-copy)
+hidden subgroup states are pairwise statistically distinguishable, as measured by the quantum fidelity
+(cid:112)
+F(ρ,ρ (cid:48)):=tr |√ρ ρ (cid:48)|. (10.7)
+This follows from a result of Barnum and Knill [15], who showed the following.
+Theorem 10.1. Suppose ρ is drawn from an ensemble ρ ,...,ρ , where each ρ occurs with some fixed
+1 N i
+{ }Document 1:::
+More specifically, Simon’s problem and period finding are both special cases of a22 Quantum Algorithms
+problem that is naturally formulated in group-theoretic language: the Hidden Subgroup
+Problem (HSP). This is a black-box problem where we may regard the input to the
+function f to be an element of a group G which is mapped into a finite set X, where X
+may be chosen to be the set of m-bit strings:
+f : G → X = {0,1}m. (6.102)
+The group G may be either finite or infinite, but we ordinarily assume it is finitely
+generated, that is, each element of G can be expressed as a product of a finite set of
+generating elements, where these generating elements may be used any number of times
+in the product, and in any order.
+We are promised that the function f is constant and distinct on the cosets of a
+subgroup H ⊆ G. This means thatDocument 2:::
+partial results in this direction are known.)
+Thisprotocolonlyprovidesameansofexchangingasecretkey,notofsendingprivatemessages. However,
+very similar ideas can be used to create a public-key cryptosystem (similar in spirit to RSA).
+5.3 The hidden subgroup problem
+It turns out that discrete logarithms can be calculated efficiently on a quantum computer, rendering cryp-
+tographic protocols such as Diffie-Hellman key exchange insecure. The quantum algorithm for discrete log
+solves a particular instance of the hidden subgroup problem (HSP).
+In the general HSP, we are given a black box function f :G S, where G is a known group and S is a
+→
+finite set. The function is promised to satisfy
+f(x)=f(y) if and only if x 1y H
+−
+∈ (5.1)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function that creates a quantum circuit to implement the
+ Hidden Subgroup Problem (HSP) for a specific function. The circuit
+ should include a function that maps group elements to a hidden
+ subgroup and perform the necessary quantum operations to identify
+ the subgroup.
+ Parameters: n_qubits (int): Number of qubits in the quantum circuit.
+Returns: QuantumCircuit: The quantum circuit implementing the
+ Hidden Subgroup Problem.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+{ | (cid:105) | (cid:105)} | (cid:105)
+the eigenvector of H with eigenvalue λ.
+To simulate H on a given input state ψ , we proceed as follows:
+| (cid:105)
+1. Apply the isometry T to produce the state T ψ .
+| (cid:105)
+2. Perform phase estimation on the quantum walk with precision δ (to be determined).
+3. Given a value approximating arccos(λ/X), compute an estimate of λ.
+4. Introduce the phase e iλt.
+−
+5. Uncompute the estimate of λ.
+6. Invert the phase estimation procedure.
+7. Apply T to return to a state in the original Hilbert space.
+†
+Since a step of the quantum walk can be implemented using two applications of the isometry T, thisDocument 1:::
+final result very much. If we simply omit the gates R with k = Ω(logn), then we obtain a circuit with
+k
+O(nlogn) gates that implements the QFT with precision 1/poly(n).4.3. Phase estimation 19
+4.3 Phase estimation
+Aside from being directly useful in quantum algorithms, such as Shor’s algorithm, The QFT over Z
+2n
+provides a useful quantum computing primitive called phase estimation [35, 64]. In the phase estimation
+problem, wearegivenaunitaryoperatorU (eitherasanexplicitcircuit, orasablackboxthatletsusapply
+a controlled-Uj operation for integer values of j). We are also given a state φ that is promised to be an
+eigenvector of U, namely U φ = eiφ φ for some φ R. The goal is to outp| u(cid:105) t an estimate of φ to someDocument 2:::
+|
+(4.3)
+x,y ∈Z 2n
+where ω := exp(2πi/m) is a primitive mth root of unity. To see how to realize this transformation by a
+m
+quantum circuit, it is helpful to represent the input x as a string of bits, x=x ...x x , and to consider
+n 1 1 0
+−18 Chapter 4. The abelian quantum Fourier transform and phase estimation
+how an input basis vector is transformed:
+1 (cid:88)
+x ωxy y (4.4)
+| (cid:105)(cid:55)→ √2n 2n| (cid:105)
+y ∈Z 2n
+=
+1 (cid:88) ωx((cid:80)n k=− 01yk2k)
+y ...y y (4.5)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to create a quantum circuit that performs quantum
+ metrology to estimate a small phase shift. The circuit should prepare
+ an entangled state, apply a small phase shift to one qubit, and perform
+ measurements to estimate the phase.
+Parameters: phase (float): The small phase shift to be estimated.
+Returns: QuantumCircuit: The quantum circuit implementing quantum
+ metrology.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
+"# Context: Use the following context to inform your code generation.
+Document 0:::
+constant number of interacting sets). Let us also assume that each H is bounded
+a
+||H || ≤ h for all a, where h is a constant. (6.188)
+a ∞36 Quantum Algorithms
+Physicists are interested in geometrically local Hamiltonians because they seem to pro-
+videanaccuratedescriptionofNature.Therefore,itisnoteworthythatquantumcircuits
+can simulate quantum evolution governed by a local Hamiltonian efficiently: evolution
+of n qubits for time t can be simulated to constant accuracy using a circuit whose size
+is polynomial in n and t.
+Wecanformulatetheproblemthisway:supposewearegivenaninitialquantumstate
+|ψ(0)(cid:105), or a classical description of a quantum circuit that prepares the state. Our goal
+is to constructDocument 1:::
+···
+whereΘ=(θ ,...,θ )(herekiseven). Withanappropriatechoiceofthephasesθ ,thissequencecanrealize
+1 k j
+the reflection-based quantum signal processing sequence (27.34) within each two-dimensional subspace, so
+that U can be a block encoding of P(A) for any function P satisfying the conditions of Lemma 27.1.
+Θ
+To implement this sequence with a quantum circuit, we can use a Π-controlled not gate that flips the
+value of an ancilla bit conditioned on the state of the main register being in the space projected onto by Π.
+Conjugating the gate eiφσz acting on the ancilla by Π-controlled not gates, with the ancilla initially in the
+state 0 , effectivelyimplementstheeiφ(2Π 1) operation. Thisexplainsthename“qubitization”: wetransfer
+−Document 2:::
+class NP [64].) The motivation for this model was to show that quantum mechanics does not pose barriers
+tobuildingaclassicalcomputer,despitequantumeffectssuchastheuncertaintyprinciple. Feynmanshowed
+that any sequence of reversible classical logic gates can be efficiently simulated using local Hamiltonian
+dynamics. However, his model applies equally well to simulate a quantum circuit.
+Given a k-gate quantum circuit on n qubits, U U U , let
+k 2 1
+···
+k
+(cid:88)
+H := H (31.1)
+F j
+j=1
+where
+H j :=U j ⊗|j (cid:105)(cid:104)j −1 |+U j† ⊗|j −1 (cid:105)(cid:104)j |. (31.2)""""""
+# Prompt: Generate code based on the prompt below. Consider the context provided.
+ 
+Write a function to create a quantum circuit that simulates the
+ behavior of a quantum particle in a potential well. The function should
+ use a finite number of qubits to represent the position and momentum
+ of the particle and apply the appropriate unitary operations.
+Parameters: n_qubits (int): Number of qubits representing the particle's
+ state.
+Returns: QuantumCircuit: The quantum circuit simulating the quantum
+ particle in a potential well.
+
+# Task: Generate the code here based on the provided context and prompt:
+"
