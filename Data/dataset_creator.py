@@ -5,7 +5,11 @@ with open("qiskit_dataset.csv", "w", encoding="utf-8") as w:
         csv_writer = csv.writer(w, delimiter=",")
         with open("../Scraping/filedata.csv", "r", newline="", encoding="utf-8") as f:
                 csv_reader = csv.reader(f, delimiter="|")
+                num_rows = 0
                 for row in csv_reader:
+                        if num_rows == 10:
+                            break
+                        num_rows += 1
                         try:
                             filepath = row[0]
                             if filepath.split("/")[0] == "official_python_code" or filepath.split("/")[0] == "python_code":
