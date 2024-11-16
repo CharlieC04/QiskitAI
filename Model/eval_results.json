@@ -1,0 +1,752 @@
+[
+    {
+        "task_id": "qiskitHumanEval/0",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/1",
+        "difficulty_scale": "basic",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/2",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/3",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/4",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/5",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/6",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/7",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/8",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/9",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/10",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/11",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/12",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/13",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/14",
+        "difficulty_scale": "basic",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/15",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/16",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/17",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/18",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/19",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/20",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/21",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/22",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/23",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/24",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/25",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/26",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/27",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/28",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/29",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/30",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/31",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/32",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/33",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/34",
+        "difficulty_scale": "difficult",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/35",
+        "difficulty_scale": "difficult",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/36",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/37",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/38",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/39",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/40",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/41",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/42",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/43",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/44",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/45",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/46",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/47",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/48",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/49",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/50",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/51",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/52",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/53",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/54",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/55",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/56",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/57",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/58",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/59",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/60",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/61",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/62",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/63",
+        "difficulty_scale": "difficult",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/64",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/65",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/66",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/67",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/68",
+        "difficulty_scale": "difficult",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/69",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/70",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/71",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/72",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/73",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/74",
+        "difficulty_scale": "intermediate",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/75",
+        "difficulty_scale": "intermediate",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/76",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/77",
+        "difficulty_scale": "intermediate",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/78",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/79",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/80",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/81",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/82",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/83",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/84",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/85",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/86",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/87",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/88",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/89",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/90",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/91",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/92",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/93",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/94",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/95",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/96",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/97",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/98",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/99",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/100",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/101",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/102",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/103",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/104",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/105",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/106",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/107",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/108",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/109",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/110",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/111",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/112",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/113",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/114",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/115",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/116",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/117",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/118",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/119",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/120",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/121",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/122",
+        "difficulty_scale": "basic",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/123",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/124",
+        "difficulty_scale": "basic",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/125",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/126",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/127",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/128",
+        "difficulty_scale": "basic",
+        "result": "fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/129",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/130",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/131",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/132",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/133",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/134",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/135",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/136",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/137",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/138",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/139",
+        "difficulty_scale": "basic",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/140",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/141",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/142",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/143",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/144",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/145",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    },
+    {
+        "task_id": "qiskitHumanEval/146",
+        "difficulty_scale": "basic",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/147",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/148",
+        "difficulty_scale": "intermediate",
+        "result": "Fail"
+    },
+    {
+        "task_id": "qiskitHumanEval/149",
+        "difficulty_scale": "intermediate",
+        "result": "pass"
+    }
+]
