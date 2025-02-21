@@ -51,23 +51,51 @@ Import the QuantumCircuit class from the qiskit library. Then, create a quantum 
 Ensure to include the necessary import statement from the qiskit library
 """
 
-augmented_prompt = rag.augment(
-        prompt=prompt,                        # Prompt to augment
-        num_docs=30,                          # Number of documents for similarity search
-        num_docs_final=5                      # Final number of documents after reranking
-)
+model.add_rag_model(ragModel)
 
 model.prompt(
         prompt=prompt,                        # Prompt to respond to
         output_file="result.py",              # File to store result in
         num_outputs=1,                        # Number of different responses
-        temp=0.7                       # Temperature of responses
+        temp=0.7,                             # Temperature of responses
+        useRag=True,                          # Flag to augment prompt using RAG          
+        rag_params={"num_docs": 30,           # Parameters for Rag
+                "num_docs_final": 5}
 )
 ```
 
 It is possible to use the RAG system on your own custom dataset, but we provide [Qiskit Docs](https://huggingface.co/datasets/chralie04/qiskit_docs), which is a dataset created using the documentation files available on the qiskit Github repository, which includes official code examples.
 
 Note: When outputting multiple resuts from the ```model.prompt``` fuction, each result will be saved in a separate file of the form ```result{i}.py```.
+
+### Downloading the Model
+
+As well as using the library provided in this repository, you can also download the model directly from Hugging Face [here](https://huggingface.co/chralie04/qiskit-3b). We provide an example on how this could be used:
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = "chralie04/qiskit-3b"
+tokenizer = AutoTokenizer.from_pretrained(model)
+model = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+
+prompt = """
+Import the QuantumCircuit class from the qiskit library. Then, create a quantum circuit with 3 qubits. 
+Ensure to include the necessary import statement from the qiskit library
+"""
+
+inputs = tokenizer.encode_plus(prompt, return_tensors="pt")
+input_ids = inputs["input_ids"].to("cuda")
+attention_mask = inputs["attention_mask"].to("cuda")
+
+output = model.generate(
+        input_ids,
+        attention_mask=attention_mask, 
+        max_new_tokens=256)
+```
+
+### Utilising Error Correction
+
+Todo
 
 ## Development
 
