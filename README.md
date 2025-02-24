@@ -100,33 +100,33 @@ The current error correction model used is the DeepQ-Decoding agent presented in
 from qiskit_llm.qec import DecoderModel
 
 fixed_configs = {"d": 5,                                     # Lattice width
-                "use_Y": False,                              # If can perform Y flips (or only X and Z)
-                "train_freq": 1,                             # Number of interaction steps between weight updates
-                "batch_size": 32,                            # Batch size for gradient descent
-                "print_freq": 250,                           # How often to print train stats
-                "rolling_average_length": 500,               # Number of episodes to calculate moving average over
-                "stopping_patience": 500,                    # Number of episodes to trigger early stopping
-                "error_model": "X",                          # X flips or DP (depolarising noise)
-                "c_layers": [[64,3,2],[32,2,1],[32,2,1]],    # Convolutional layers in DeepQ network
-                "ff_layers": [[512,0.2]],                    # Feed-forward layers in DeepQ network
-                "max_timesteps": 1000000,                    # Maximum training steps
-                "volume_depth": 5,                           # Number of measurements each time new syndrome extracted
-                "testing_length": 101,                       # Number of test episodes
-                "buffer_size": 50000,                        # Number of experience tuples stored
-                "dueling": True,                             # Use dueling architecture
-                "masked_greedy": False,                      # Choose legal actions when acting greedily
-                "static_decoder": True}                      # Should always be true when training in fault-tolerant setting
+        "use_Y": False,                              # If can perform Y flips (or only X and Z)
+        "train_freq": 1,                             # Number of interaction steps between weight updates
+        "batch_size": 32,                            # Batch size for gradient descent
+        "print_freq": 250,                           # How often to print train stats
+        "rolling_average_length": 500,               # Number of episodes to calculate moving average over
+        "stopping_patience": 500,                    # Number of episodes to trigger early stopping
+        "error_model": "X",                          # X flips or DP (depolarising noise)
+        "c_layers": [[64,3,2],[32,2,1],[32,2,1]],    # Convolutional layers in DeepQ network
+        "ff_layers": [[512,0.2]],                    # Feed-forward layers in DeepQ network
+        "max_timesteps": 1000000,                    # Maximum training steps
+        "volume_depth": 5,                           # Number of measurements each time new syndrome extracted
+        "testing_length": 101,                       # Number of test episodes
+        "buffer_size": 50000,                        # Number of experience tuples stored
+        "dueling": True,                             # Use dueling architecture
+        "masked_greedy": False,                      # Choose legal actions when acting greedily
+        "static_decoder": True}                      # Should always be true when training in fault-tolerant setting
 
 variable_configs = {"p_phys": 0.001,                         # Physical error probability
-                    "p_meas": 0.001,                         # Measurement error probability
-                    "success_threshold": 10000,              # Qubit lifetime rolling average at which training success
-                    "learning_starts": 1000,                 # Number of steps to contribute experience tuples before training
-                    "learning_rate": 0.00001,                # Learning rate for gradient descent
-                    "exploration_fraction": 100000,          # Time steps over which parameter for exploration is annealed
-                    "max_eps": 1.0,                          # Initial max epsilon (exploration parameter)
-                    "target_network_update_freq": 5000,      # Target network generates target Q-function
-                    "gamma": 0.99,                           # Discount rate when calculating Q-values
-                    "final_eps": 0.02}                       # Final value at which annealing epsilon is stopped
+        "p_meas": 0.001,                         # Measurement error probability
+        "success_threshold": 10000,              # Qubit lifetime rolling average at which training success
+        "learning_starts": 1000,                 # Number of steps to contribute experience tuples before training
+        "learning_rate": 0.00001,                # Learning rate for gradient descent
+        "exploration_fraction": 100000,          # Time steps over which parameter for exploration is annealed
+        "max_eps": 1.0,                          # Initial max epsilon (exploration parameter)
+        "target_network_update_freq": 5000,      # Target network generates target Q-function
+        "gamma": 0.99,                           # Discount rate when calculating Q-values
+        "final_eps": 0.02}                       # Final value at which annealing epsilon is stopped
 
 decoder = DecoderModel(fixed_configs=fixed_configs, var_configs=variable_configs)
 
@@ -140,8 +140,8 @@ decoder.set_model(model_weights_path="logging_dir/dqn_weights.hf5")
 # To make predictions on random noise
 corrections = decoder.predict_correction(p_phys=variable_configs["p_phys"], p_meas=variable_configs["p_meas"])
 
-# To make predictions on observed noise
-faulty_syndromes = [np.zeros((fixed_configs["d"]+1, fixed_configs["d"]+1), int) * self.fixed_configs["d"]] # Replace with actual faulty syndromes
+# To make predictions on observed noise (replace with observed faulty syndromes)
+faulty_syndromes = [np.zeros((fixed_configs["d"]+1, fixed_configs["d"]+1), int) * self.fixed_configs["d"]]
 
 corrections = decoder.predict_correction(faulty_syndromes=faulty_syndromes, 
     p_phys=variable_configs["p_phys"], p_meas=variable_configs["p_meas"]) 
