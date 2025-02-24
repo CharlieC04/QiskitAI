@@ -19,15 +19,14 @@ Import the QuantumCircuit class from the qiskit library. Then, create a quantum 
 Ensure to include the necessary import statement from the qiskit library
 """
 
-augmented_prompt = rag.augment(
-        prompt=prompt,                        # Prompt to augment
-        num_docs=30,                          # Number of documents for similarity search
-        num_docs_final=5                      # Final number of documents after reranking
-)
+model.add_rag_model(ragModel)
 
 model.prompt(
         prompt=prompt,                        # Prompt to respond to
         output_file="result.py",              # File to store result in
         num_outputs=1,                        # Number of different responses
-        temp=0.7                       # Temperature of responses
+        temp=0.7,                             # Temperature of responses
+        useRag=True,                          # Flag to augment prompt using RAG model          
+        rag_params={"num_docs": 30,           # Parameters for Rag
+                "num_docs_final": 5}
 )

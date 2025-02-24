@@ -23,6 +23,12 @@ class QiskitModel():
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
 
+        self.rag_model = None
+
+    # Function to add RAG model to inference pipeline
+    def add_rag_model(model):
+        self.rag_model = model
+
     # Function to generate responses to a prompt
     def prompt(self, **kwargs):
         """
@@ -38,6 +44,18 @@ class QiskitModel():
 
         prompt = kwargs["prompt"]
         output_file = kwargs.get("output_file", "result.py")
+
+        # Augment prompt with RAG if flag set
+        if kwargs.get("useRag", False):
+            if self.rag_model is None:
+                raise AttributeError("Please initialise RAG model")
+
+            rag_params = kwargs.get("rag_params", {})
+            if "num_docs" in rag_params and "num_docs_final" in rag_params:
+                prompt = self.rag_model.augment(prompt, 
+                    rag_params["num_docs"], rag_params["num_docs_final"])
+            else:
+                prompt = self.rag_model.augment(prompt)
 
         # Get ids and attention mask from tokenizer
         inputs = self.tokenizer.encode_plus(prompt, return_tensors="pt")
