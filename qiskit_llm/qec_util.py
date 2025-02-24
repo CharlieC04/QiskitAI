@@ -1,9 +1,40 @@
-from Function_Library import *
+from qec_functions import *
 import gym
 import copy
 from itertools import product, starmap
 
-#---------- (1) --------------------------------------------------------------------------------------------------------------------------------------
+fixed_configs = {
+    "d": 5, # Lattice Width
+    "use_Y": False, # true => agent performs Pauli Y, false => only X and Z
+    "train_freq": 1, # number of interaction steps between W updates
+    "batch_size": 32,
+    "print_freq": 250,
+    "rolling_average_length": 500,
+    "stopping_patience": 500,
+    "error_model": "X", # Noise model: X flips or DP (depolarising noise)
+    "c_layers": [[64, 3, 2], [32, 2, 1], [32, 2, 1]], # conv. layers of deeqQ net
+    "ff_layers": [[512, 0.2]], # layers of ff net
+    "max_timesteps": 100000,
+    "volume_depth": 5, # number of syndrome measures for each extraction
+    "testing_length": 101,
+    "buffer_size": 50000,
+    "dueling": True,
+    "masked_greedy": False,
+    "static_decoder": True # Should be True when within fault tolerant setting
+}
+
+variable_configs = {
+    "p_phys": 0.001, # phys error prob
+    "p_meas": 0.001, # meas error prob
+    "success_threshold": 10000, # qubit lifetime at which success
+    "learning_starts": 1000,
+    "learning_rate": 0.00001,
+    "exploration_fraction": 100000,
+    "max_eps": 1.0,
+    "target_network_update_freq": 5000, # clone target network off deepQ agent (generates target Qfunc)
+    "gamma": 0.99, # discount rate for calc Qvals
+    "final_eps": 0.02
+}
 
 class Surface_Code_Environment_Multi_Decoding_Cycles():
     """

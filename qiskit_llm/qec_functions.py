@@ -2,13 +2,8 @@ import random
 import numpy as np
 
 import keras
-from keras.callbacks import EarlyStopping, ReduceLROnPlateau
-from keras.regularizers import l1_l2, l2
-from keras import backend as K
 from keras.models import Sequential, load_model, Model
-from keras.optimizers import Adam
-from keras.layers import BatchNormalization
-from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D, ZeroPadding2D, GlobalAveragePooling2D, Flatten, Lambda, Cropping2D, Activation, Input, Concatenate
+from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D
 
 # ---- (1) Functions -------------------------------------------------------------------------------------
 
@@ -301,7 +296,7 @@ def generate_one_hot_labels_surface_code(error,err_model):
 
     This function generates the homology class label, in a one-hot encoding, for a given perfect syndrome, to use as the target label
     for a feed forward neural network homology class predicting decoder.
-!
+
     :param: error: An error configuration on a square lattice
     :param: err_model: A string in ["IIDXZ","DP","X"]
     :return: training_label: The one-encoded training label
