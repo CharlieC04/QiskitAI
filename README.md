@@ -1,6 +1,6 @@
 # Qiskit LLM
 
-This repository contains a library for LLM code generation for the qiskit python library, including a RAG prompt augmentation system.
+This repository describes a model for LLM code generation for the qiskit python library, including a RAG prompt augmentation system and surface code QEC.
 
 ## Description
 
@@ -22,8 +22,9 @@ You can also install the required libraries manually if you require different ve
 - Langchain Community
 - Sentence Transformers
 - Ragatouille
+- Accelerate
 
-Note: for training across mulitple GPUs you also need to install the Accelerate library
+For running QEC code, you will need further libraries, which are discussed [here](https://github.com/R-Sweke/DeepQ-Decoding).
 
 ### Basic Usage
 
@@ -95,11 +96,11 @@ output = model.generate(
 
 ### Utilising Error Correction
 
-The current error correction model used is the DeepQ-Decoding agent presented in the paper [Reinforcement Learning Decoders for Fault-Tolerant Quantum Computatino](https://arxiv.org/pdf/1810.07207), the source code for which can be found [here](https://github.com/R-Sweke/DeepQ-Decoding). This can predict the corrections needed for a surface code lattice given faulty syndromes. To use this, you need to know how logical qubits map to physical qubits on the device you are using, more specifically, the width and height of the lattice of physical qubits for one logical qubit (which we call `d`). All libraries required for this are specified in the Deep-Q repository. Here is an example on how to predict corrections necessary, which should be applied to the physical qubits:
+The current error correction model used is the DeepQ-Decoding agent presented in the paper [Reinforcement Learning Decoders for Fault-Tolerant Quantum Computation](https://arxiv.org/pdf/1810.07207), the source code for which can be found [here](https://github.com/R-Sweke/DeepQ-Decoding). This can predict the corrections needed for a surface code lattice given faulty syndromes. To use this, you need to know how logical qubits map to physical qubits on the device you are using, more specifically the width and height of the lattice of physical qubits required for one logical qubit (which we call `d`). Here is an example on how to predict the necessary corrections to apply to the lattice:
 ```python
 from qiskit_llm.qec import DecoderModel
 
-fixed_configs = {"d": 5,                                     # Lattice width
+fixed_configs = {"d": 5,                             # Lattice width
         "use_Y": False,                              # If can perform Y flips (or only X and Z)
         "train_freq": 1,                             # Number of interaction steps between weight updates
         "batch_size": 32,                            # Batch size for gradient descent
@@ -117,16 +118,16 @@ fixed_configs = {"d": 5,                                     # Lattice width
         "masked_greedy": False,                      # Choose legal actions when acting greedily
         "static_decoder": True}                      # Should always be true when training in fault-tolerant setting
 
-variable_configs = {"p_phys": 0.001,                         # Physical error probability
-        "p_meas": 0.001,                         # Measurement error probability
-        "success_threshold": 10000,              # Qubit lifetime rolling average at which training success
-        "learning_starts": 1000,                 # Number of steps to contribute experience tuples before training
-        "learning_rate": 0.00001,                # Learning rate for gradient descent
-        "exploration_fraction": 100000,          # Time steps over which parameter for exploration is annealed
-        "max_eps": 1.0,                          # Initial max epsilon (exploration parameter)
-        "target_network_update_freq": 5000,      # Target network generates target Q-function
-        "gamma": 0.99,                           # Discount rate when calculating Q-values
-        "final_eps": 0.02}                       # Final value at which annealing epsilon is stopped
+variable_configs = {"p_phys": 0.001,                 # Physical error probability
+        "p_meas": 0.001,                             # Measurement error probability
+        "success_threshold": 10000,                  # Qubit lifetime rolling average at which training success
+        "learning_starts": 1000,                     # Number of steps to contribute experience tuples before training
+        "learning_rate": 0.00001,                    # Learning rate for gradient descent
+        "exploration_fraction": 100000,              # Time steps over which parameter for exploration is annealed
+        "max_eps": 1.0,                              # Initial max epsilon (exploration parameter)
+        "target_network_update_freq": 5000,          # Target network generates target Q-function
+        "gamma": 0.99,                               # Discount rate when calculating Q-values
+        "final_eps": 0.02}                           # Final value at which annealing epsilon is stopped
 
 decoder = DecoderModel(fixed_configs=fixed_configs, var_configs=variable_configs)
 
@@ -134,10 +135,10 @@ decoder = DecoderModel(fixed_configs=fixed_configs, var_configs=variable_configs
 ## NOTE: This can take up to 12 hours depending on resources
 decoder.train_model(True)
 
-## To make predictions on an existing model
+## To load a pretrained model
 decoder.set_model(model_weights_path="logging_dir/dqn_weights.hf5")
 
-# To make predictions on random noise
+# To make predictions on random noise based on the error model
 corrections = decoder.predict_correction(p_phys=variable_configs["p_phys"], p_meas=variable_configs["p_meas"])
 
 # To make predictions on observed noise (replace with observed faulty syndromes)
@@ -147,7 +148,7 @@ corrections = decoder.predict_correction(faulty_syndromes=faulty_syndromes,
     p_phys=variable_configs["p_phys"], p_meas=variable_configs["p_meas"]) 
 ```
 
-If you have real faulty syndrome measurements, you can replace the relevant part in the code with this data. It is important to note that training a Deep-Q agent requires a large amount of computational resources and can take more than 12 hours. This is the main limitation of using this approach in the LLM pipeline. The [Deep-Q repo](https://github.com/R-Sweke/DeepQ-Decoding) contains a trained model for physical lattice width of 5.
+If you have real faulty syndrome measurements, you can replace the relevant part in the code with this data. It is important to note that training a Deep-Q agent requires a large amount of computational resources and can take more than 12 hours. This is the main limitation of using this approach in the LLM pipeline, as well as the fact each agent is specific to a lattice size and error model. For easy use, the [Deep-Q repo](https://github.com/R-Sweke/DeepQ-Decoding) contains a trained model for physical lattice width of 5.
 
 ## Development
 
