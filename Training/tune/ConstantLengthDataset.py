@@ -101,7 +101,7 @@ class ConstantLengthDataset(IterableDataset):
             for toks in tokenised_inputs:
                 if self.fim_rate > 0:
                     toks, np_rng = permute(toks, np_rng, self.suffix_id, self.prefix_id, self.middle_id, self.pad_id, fim_rate=self.fim_rate, fim_spm_rate=self.fim_spm_rate, truncate_or_pad=False)
-                all_tok_ids.extend(toks + [self.concat_id])
+                all_tok_ids.extend(toks)
 
             examples = []
             for i in range(0, len(all_tok_ids), self.seq_length):
@@ -112,6 +112,6 @@ class ConstantLengthDataset(IterableDataset):
             for example in examples:
                 self.current_size += 1
                 yield {
-                    "input_ids": torch.LongTensor(example),
-                    "labels": torch.LongTensor(example)
+                    "input_ids": torch.LongTensor(example + [self.tokeniser.eos_token_id]),
+                    "labels": torch.LongTensor(example + [self.tokeniser.eos_token_id])
                 }

@@ -2,6 +2,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import os
 import csv
 import torch
+from peft import PeftModel
 
 class QiskitModel():
     def __init__(self, **kwargs):
@@ -14,12 +15,16 @@ class QiskitModel():
         self.cache_dir = kwargs.get("cache_dir", "cache/")
         os.environ["CUDA_VISIBLE_DEVICES"] = kwargs.get("device", "0")
 
-        model = "chralie04/qiskit-3b"
+        base_model = "bigcode/starcoder2-3b"
+        model = "chralie04/qiskit-starcoder2-3b"
 
         # Create tokenizer and model, loaded onto appropriate devices
-        self.tokenizer = AutoTokenizer.from_pretrained(model, cache_dir=self.cache_dir)
-        self.model = AutoModelForCausalLM.from_pretrained(model, cache_dir=self.cache_dir, device_map="auto")
-    
+        self.tokenizer = AutoTokenizer.from_pretrained("bigcode/starcoder2-3b", cache_dir=self.cache_dir)
+        base_model = AutoModelForCausalLM.from_pretrained(base_model, cache_dir=self.cache_dir, device_map="auto")
+        self.model = PeftModel.from_pretrained(base_model, model)
+        self.model.merge_and_unload()
+        #self.model = AutoModelForCausalLM.from_pretrained(model, cache_dir=self.cache_dir, device_map="auto")
+
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
 
@@ -42,8 +47,11 @@ class QiskitModel():
         if not kwargs["prompt"]:
             raise ValueError("Please ensure you pass a prompt (str) into the function")
 
-        prompt = kwargs["prompt"]
+        prompt = f"""<fim_prefix>{kwargs["prompt"]}<fim_suffix><fim_middle>"""
+        #prompt = kwargs["prompt"]
         output_file = kwargs.get("output_file", "result.py")
+
+        self.model.eval()
 
         # Augment prompt with RAG if flag set
         if kwargs.get("useRag", False):
@@ -70,9 +78,10 @@ class QiskitModel():
 
         # If only one output, generate and save in file
         if num_outputs == 1:
-            output = self.model.generate(input_ids, attention_mask=attention_mask, max_new_tokens=256, eos_token_id=self.tokenizer.eos_token_id)
+            output = self.model.generate(input_ids, attention_mask=attention_mask, max_new_tokens=128, temperature=0.2,
+                         top_k=50, top_p=0.95, do_sample=True, repetition_penalty=1.0)
             with open(output_file, "w", encoding="utf-8") as f:
-                f.write(self.tokenizer.decode(output[0], skip_special_tokens=True))
+                f.write(self.tokenizer.batch_decode(output, skip_special_tokens=True)[0])
         
         # If n>1 outputs, generate all and save in numbered files
         else:

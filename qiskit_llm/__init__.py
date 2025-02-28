@@ -1,5 +1,4 @@
-__all__ = ["inference", "rag", "qec"]
+__all__ = ["inference", "rag"]
 
 from . import inference
 from . import rag
-from . import qec

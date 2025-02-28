@@ -1,2 +1,4 @@
 example.py
 qec_example.py
+qiskit_llm/__pycache__
+Training/tune/__pycache__

@@ -23,9 +23,9 @@ MODEL = "bigcode/starcoder2-3b"
 
 
 
-DATASET = load_dataset("csv", data_files="../Data/qiskit_dataset.csv", delimiter=",", column_names=["path", "repo", "content"], split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
-print(DATASET.info)
-DATA_COLUMN = "content"
+DATASET = load_dataset("chralie04/qiskit_code_examples", split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
+#print(DATASET.info)
+DATA_COLUMN = " content"
 
 SEQ_LENGTH = 2048
 MAX_STEPS = 1500
@@ -42,7 +42,7 @@ OUTPUT_DIR = "qiskit-starcoder2-3b"
 BF16 = False
 FP16 = True
 
-FIM_RATE = 0
+FIM_RATE = 0.5
 FIM_SPM_RATE = 0.5
 
 LORA_R = 8
