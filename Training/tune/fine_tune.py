@@ -1,54 +1,52 @@
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, logging, set_seed, BitsAndBytesConfig, AutoConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, logging, set_seed, BitsAndBytesConfig, AutoConfig, DataCollatorForSeq2Seq
 import csv
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training, PeftModel
 from peft.tuners.lora import LoraLayer
 import torch
 from huggingface_hub import upload_folder
+import random
 
 import os
 
 from ConstantLengthDataset import chars_token_ratio, ConstantLengthDataset
 
+import numpy as np
+
 torch.cuda.empty_cache()
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:512"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:1024"
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 
 # HYPERPARAMETERS
 
-MODEL = "bigcode/starcoder2-3b"
+MODEL = "bigcode/starcoder2-7b"
 
 
 
-DATASET = load_dataset("chralie04/qiskit_code_examples", split="train", streaming=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache")
-#print(DATASET.info)
-DATA_COLUMN = " content"
+DATASET = load_dataset("chralie04/qiskit_clean", split="train", streaming=False, cache_dir="cache/")
+DATA_COLUMN = "content"
 
-SEQ_LENGTH = 2048
 MAX_STEPS = 1500
-BATCH_SIZE = 4
-GR_ACC_STEPS = 4
+BATCH_SIZE = 8
+GR_ACC_STEPS = 2
 LR = 3e-4
 LR_SCHEDULER_TYPE = "cosine"
 WEIGHT_DECAY = 0.01
 NUM_WARMUP_STEPS = 100
 EVAL_FREQ = 100
 SAVE_FREQ = 100
-LOG_FREQ = 25
-OUTPUT_DIR = "qiskit-starcoder2-3b"
+LOG_FREQ = 50
+OUTPUT_DIR = "qiskit-starcoder2-7b"
 BF16 = False
 FP16 = True
-
-FIM_RATE = 0.5
-FIM_SPM_RATE = 0.5
 
 LORA_R = 8
 LORA_ALPHA = 32
 LORA_DROPOUT = 0.1
-LORA_TARGET_MODULES = "q_proj, k_proj, v_proj, o_proj"
+LORA_TARGET_MODULES = "q_proj, k_proj, v_proj, o_proj, down_proj, up_proj"
 
 USE_NESTED_QUANT = True
 BNB_4BIT_COMPUTE_DTYPE = "bfloat16"
@@ -58,22 +56,30 @@ SEED = 0
 set_seed(SEED)
 
 # Prepare validation and training data
-
-valid_data = DATASET.take(450)
-train_data = DATASET.skip(450)
-train_data = train_data.shuffle(buffer_size=200, seed=SEED)
+data_split = DATASET.train_test_split(test_size=0.1, seed=SEED)
+train_data = data_split["train"]
+valid_data = data_split["test"]
 
 # Convert data into chunkable data
 
-tokeniser = AutoTokenizer.from_pretrained(MODEL, trust_remote_code=True, cache_dir="mnt/ccnas2/tdp/cc2722/cache/")
-chars_per_token = chars_token_ratio(train_data, tokeniser, DATA_COLUMN)
+tokeniser = AutoTokenizer.from_pretrained(MODEL, trust_remote_code=True, cache_dir="cache/")
+tokeniser.pad_token = tokeniser.eos_token
 
-train_dataset = ConstantLengthDataset(tokeniser, train_data, infinite=True, seq_length=SEQ_LENGTH, chars_per_tok=chars_per_token, content_field=DATA_COLUMN, fim_rate=FIM_RATE, fim_spm_rate=FIM_SPM_RATE, seed=SEED)
-eval_dataset = ConstantLengthDataset(tokeniser, valid_data, infinite=False, seq_length=SEQ_LENGTH, chars_per_tok=chars_per_token, content_field=DATA_COLUMN, fim_rate=FIM_RATE, fim_spm_rate=FIM_SPM_RATE, seed=SEED)
+def tokenise(ex):
+    encoded = tokeniser(ex[DATA_COLUMN].strip(), truncation=True, max_length=2048, padding=False)
+    return encoded
 
-load_in_8bit = False
+train_dataset = train_data.map(tokenise, remove_columns=[DATA_COLUMN])
+eval_dataset = valid_data.map(tokenise, remove_columns=[DATA_COLUMN])
 
-compute_dtype = getattr(torch, BNB_4BIT_COMPUTE_DTYPE)
+class DataCollator(DataCollatorForSeq2Seq):
+    def __call__(self, feats):
+        for feat in feats:
+            feat["input_ids"].append(tokeniser.eos_token_id)
+            feat["labels"] = feat["input_ids"].copy()
+            if "attention_mask" in feat:
+                feat["attention_mask"].append(1)
+        return super().__call__(feats)
 
 bnb_config = BitsAndBytesConfig(
     load_in_8bit=True,
@@ -81,12 +87,12 @@ bnb_config = BitsAndBytesConfig(
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL,
-    load_in_8bit=load_in_8bit,
+    load_in_8bit=False,
     quantization_config=bnb_config,
     device_map="auto", # use auto for multiple GPUs
     use_cache=False,
     trust_remote_code=True,
-    cache_dir="mnt/ccnas2/tdp/cc2722/cache"
+    cache_dir="cache/"
 )
 
 model = prepare_model_for_kbit_training(model)
@@ -132,8 +138,12 @@ training_args = TrainingArguments(
     push_to_hub=True,
 )
 
-trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, eval_dataset=eval_dataset)
 
-trainer.train()
-trainer.model.push_to_hub("chralie04/qiskit-starcoder2-3b")
+data_collator = DataCollator(tokenizer=tokeniser, padding=True)
+
+trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, 
+    eval_dataset=eval_dataset, data_collator=data_collator)
+
+trainer.train(resume_from_checkpoint="chralie04/qiskit-starcoder2-7b/checkpoint-800")
+trainer.model.push_to_hub("chralie04/qiskit-starcoder2-7b")
 

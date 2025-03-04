@@ -15,15 +15,18 @@ class QiskitModel():
         self.cache_dir = kwargs.get("cache_dir", "cache/")
         os.environ["CUDA_VISIBLE_DEVICES"] = kwargs.get("device", "0")
 
-        base_model = "bigcode/starcoder2-3b"
-        model = "chralie04/qiskit-starcoder2-3b"
+        base_model = "bigcode/starcoder2-7b"
+        model = "chralie04/qiskit-starcoder2-7b"
 
         # Create tokenizer and model, loaded onto appropriate devices
-        self.tokenizer = AutoTokenizer.from_pretrained("bigcode/starcoder2-3b", cache_dir=self.cache_dir)
+        self.tokenizer = AutoTokenizer.from_pretrained("bigcode/starcoder2-7b", cache_dir=self.cache_dir)
         base_model = AutoModelForCausalLM.from_pretrained(base_model, cache_dir=self.cache_dir, device_map="auto")
         self.model = PeftModel.from_pretrained(base_model, model)
         self.model.merge_and_unload()
-        #self.model = AutoModelForCausalLM.from_pretrained(model, cache_dir=self.cache_dir, device_map="auto")
+        #self.tokenizer.save_pretrained(model)
+        #self.model.save_pretrained(model)
+        #self.tokenizer.push_to_hub(model)
+        #self.model.push_to_hub(model)
 
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
@@ -79,7 +82,7 @@ class QiskitModel():
         # If only one output, generate and save in file
         if num_outputs == 1:
             output = self.model.generate(input_ids, attention_mask=attention_mask, max_new_tokens=128, temperature=0.2,
-                         top_k=50, top_p=0.95, do_sample=True, repetition_penalty=1.0)
+                         top_k=50, top_p=0.95, do_sample=True, repetition_penalty=1.0, eos_token_id=self.tokenizer.eos_token_id)
             with open(output_file, "w", encoding="utf-8") as f:
                 f.write(self.tokenizer.batch_decode(output, skip_special_tokens=True)[0])
         
