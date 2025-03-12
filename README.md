@@ -161,3 +161,7 @@ The script for creating the dataset file, which can be found [here](https://hugg
 ### Fine-Tuning
 
 The script for fine tuning can be found at ```Training/tune/fine_tune.py```. The base code generation model used was the Starcoder2 3B model, which can be found [here](https://huggingface.co/bigcode/starcider2-3b). The model was trained across 4 NVIDIA GeForce RTX 3090s using LoRA optimisation. The training parameters used can be found in the tuning script.
+
+### Multi-Agent Setup
+
+Due to the unique nature of some of the agents included, the multi-agent framework was implemented manually. To use it you first create an instance of `QiskitModel`. This initially consists of only the code generation model and there are several parameters that can be setup to modify prompt generation (shown in above scripts). The rest of the agents can be added to framework using functions like `add_rag_model`. You need to create an instance of the `RAGModel` class with the specific requirements that you want to set up. In future iterations, this will be simplified so you can simply specify framework configuration when creating the `QiskitModel`, without having to instantiate any other classes.
