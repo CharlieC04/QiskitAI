@@ -144,6 +144,20 @@ data_collator = DataCollator(tokenizer=tokeniser, padding=True)
 trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, 
     eval_dataset=eval_dataset, data_collator=data_collator)
 
-trainer.train(resume_from_checkpoint="chralie04/qiskit-starcoder2-7b/checkpoint-800")
-trainer.model.push_to_hub("chralie04/qiskit-starcoder2-7b")
+def compute_loss(model, inputs, return_outputs=False, **kwargs):
+    input_ids = inputs["input_ids"]
+    print("End of Sequence:", tokeniser.eos_token_id, "Pad Token:", tokeniser.pad_token_id)
+    print("Input tokens:", input_ids[0])
+    print("Text:", tokeniser.decode(input_ids[0]))
+    import sys 
+    sys.exit(0)
+    outputs = model(**inputs)
+    loss = outputs.loss
+    return (loss, outputs) if return_outputs else loss
+
+trainer.compute_loss = compute_loss
+
+# trainer.train(resume_from_checkpoint="chralie04/qiskit-starcoder2-7b/checkpoint-800")
+trainer.train()
+# trainer.model.push_to_hub("chralie04/qiskit-starcoder2-7b")
 
