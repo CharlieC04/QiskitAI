@@ -16,13 +16,10 @@ import numpy as np
 from transformers.utils import logging
 import warnings
 
-logging.set_verbosity_error()
-warnings.filterwarnings("ignore")
-
 torch.cuda.empty_cache()
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:512"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:1024"
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 
@@ -36,9 +33,9 @@ DATASET = load_dataset("chralie04/qiskit_clean", split="train", streaming=False,
 DATA_COLUMN = "content"
 
 MAX_STEPS = 1500
-BATCH_SIZE = 8
+BATCH_SIZE = 16
 GR_ACC_STEPS = 2
-LR = 3e-4
+LR = 4e-4
 LR_SCHEDULER_TYPE = "cosine"
 WEIGHT_DECAY = 0.01
 NUM_WARMUP_STEPS = 100
@@ -73,11 +70,11 @@ tokeniser.add_special_tokens({'pad_token': '[PAD]'})
 tokeniser.padding_side = "right"
 
 def tokenise(ex):
-    encoded = tokeniser(ex[DATA_COLUMN].strip(), truncation=True, padding=True)
+    encoded = tokeniser(ex[DATA_COLUMN].strip(), truncation=True, padding=True, max_length=1024)
     return encoded
 
-train_dataset = train_data.map(tokenise, remove_columns=[DATA_COLUMN])
-eval_dataset = valid_data.map(tokenise, remove_columns=[DATA_COLUMN])
+train_dataset = train_data.map(tokenise, remove_columns=[DATA_COLUMN], num_proc=4)
+eval_dataset = valid_data.map(tokenise, remove_columns=[DATA_COLUMN], num_proc=4)
 
 class DataCollator(DataCollatorForSeq2Seq):
     def __call__(self, feats):
@@ -152,7 +149,7 @@ data_collator = DataCollator(tokenizer=tokeniser, padding=True)
 trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset, 
     eval_dataset=eval_dataset, data_collator=data_collator)
 
-#trainer.train(resume_from_checkpoint="chralie04/qiskit-starcoder2-7b/checkpoint-800")
-trainer.train()
+trainer.train(resume_from_checkpoint="chralie04/qiskit-starcoder2-7b/checkpoint-700")
+#trainer.train()
 trainer.model.push_to_hub("chralie04/qiskit-starcoder2-7b")
 
